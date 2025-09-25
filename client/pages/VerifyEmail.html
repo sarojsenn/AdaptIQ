@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - AdaptIQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois&family=Playfair+Display:wght@400;700&family=Ruwudu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0a0a0f',
+                        'purple-primary': '#8b5cf6',
+                        'purple-secondary': '#a855f7',
+                        'purple-light': '#c084fc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #312e81 100%);
+            min-height: 100vh;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .otp-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #8b5cf6;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <!-- Logo -->
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="../assets/images/img_.png" alt="AdaptIQ Logo" class="w-12 h-12 rounded-full object-cover" />
+                    <span class="text-3xl font-bold gradient-text">AdaptIQ</span>
+                </div>
+                <p class="text-gray-300">Adaptive Learning Platform</p>
+            </div>
+
+            <!-- Verification Form -->
+            <div class="glass-effect p-8 rounded-2xl">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-primary to-purple-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">📧</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Verify Your Email</h2>
+                    <p class="text-gray-300 text-sm">
+                        We've sent a 6-digit verification code to your email address
+                    </p>
+                    <p id="userEmail" class="text-purple-light font-semibold mt-2"></p>
+                </div>
+
+                <form id="otpForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-3 text-center">Enter Verification Code</label>
+                        <div class="flex justify-center space-x-2">
+                            <input type="text" maxlength="1" class="otp-input" id="otp1" onkeyup="moveToNext(this, 'otp2')" onkeydown="moveToPrev(this, null)">
+                            <input type="text" maxlength="1" class="otp-input" id="otp2" onkeyup="moveToNext(this, 'otp3')" onkeydown="moveToPrev(this, 'otp1')">
+                            <input type="text" maxlength="1" class="otp-input" id="otp3" onkeyup="moveToNext(this, 'otp4')" onkeydown="moveToPrev(this, 'otp2')">
+                            <input type="text" maxlength="1" class="otp-input" id="otp4" onkeyup="moveToNext(this, 'otp5')" onkeydown="moveToPrev(this, 'otp3')">
+                            <input type="text" maxlength="1" class="otp-input" id="otp5" onkeyup="moveToNext(this, 'otp6')" onkeydown="moveToPrev(this, 'otp4')">
+                            <input type="text" maxlength="1" class="otp-input" id="otp6" onkeyup="moveToNext(this, null)" onkeydown="moveToPrev(this, 'otp5')">
+                        </div>
+                    </div>
+
+                    <div id="errorMessage" class="text-red-400 text-sm text-center hidden"></div>
+                    <div id="successMessage" class="text-green-400 text-sm text-center hidden"></div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-purple-primary to-purple-secondary text-white font-semibold py-3 rounded-full hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+                        <span id="verifyText">Verify Email</span>
+                        <div id="verifySpinner" class="spinner ml-2 hidden"></div>
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-gray-400 text-sm mb-3">Didn't receive the code?</p>
+                    <button id="resendBtn" class="text-purple-light hover:text-purple-primary transition-colors duration-300 font-semibold flex items-center justify-center mx-auto">
+                        <span id="resendText">Resend Code</span>
+                        <div id="resendSpinner" class="spinner ml-2 hidden"></div>
+                    </button>
+                    <p id="resendTimer" class="text-gray-500 text-sm mt-2 hidden">Resend available in <span id="countdown">60</span>s</p>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <a href="SignIn.html" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
+                        ← Back to Sign In
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let userId = null;
+        let resendCooldown = 0;
+        let countdownInterval = null;
+
+        // Get user ID from URL parameters or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        userId = urlParams.get('userId') || localStorage.getItem('pendingUserId');
+
+        // Get user email from localStorage
+        const userEmail = localStorage.getItem('pendingUserEmail');
+        if (userEmail) {
+            document.getElementById('userEmail').textContent = userEmail;
+        }
+
+        // If no userId, redirect to registration
+        if (!userId) {
+            window.location.href = 'Registration.html';
+        }
+
+        // OTP input navigation
+        function moveToNext(current, nextFieldId) {
+            if (current.value.length === 1 && nextFieldId) {
+                document.getElementById(nextFieldId).focus();
+            }
+            
+            // Auto-submit when all fields are filled
+            if (nextFieldId === null && current.value.length === 1) {
+                const allInputs = document.querySelectorAll('.otp-input');
+                const otp = Array.from(allInputs).map(input => input.value).join('');
+                if (otp.length === 6) {
+                    setTimeout(() => {
+                        document.getElementById('otpForm').dispatchEvent(new Event('submit'));
+                    }, 500);
+                }
+            }
+        }
+
+        function moveToPrev(current, prevFieldId) {
+            if (event.key === 'Backspace' && current.value.length === 0 && prevFieldId) {
+                document.getElementById(prevFieldId).focus();
+            }
+        }
+
+        // Form submission
+        document.getElementById('otpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const otpInputs = document.querySelectorAll('.otp-input');
+            const otp = Array.from(otpInputs).map(input => input.value).join('');
+            
+            if (otp.length !== 6) {
+                showError('Please enter all 6 digits');
+                return;
+            }
+
+            console.log('Verifying OTP:', otp, 'for user:', userId);
+            showLoading(true);
+            hideMessages();
+
+            try {
+                const response = await fetch('http://localhost:3000/api/verify-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userId, otp }),
+                });
+
+                console.log('OTP verification response status:', response.status);
+                const data = await response.json();
+                console.log('OTP verification response data:', data);
+
+                if (data.success) {
+                    // Store token and user data
+                    localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('userData', JSON.stringify(data.user));
+                    
+                    // Clear pending data
+                    localStorage.removeItem('pendingUserId');
+                    localStorage.removeItem('pendingUserEmail');
+                    
+                    showSuccess('Email verified successfully! Redirecting...');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'StudentDashboard.html';
+                    }, 2000);
+                } else {
+                    showError(data.message || 'Verification failed');
+                    clearOTPInputs();
+                }
+            } catch (error) {
+                console.error('Verification error:', error);
+                showError('Network error. Please try again.');
+                clearOTPInputs();
+            } finally {
+                showLoading(false);
+            }
+        });
+
+        // Resend OTP
+        document.getElementById('resendBtn').addEventListener('click', async () => {
+            if (resendCooldown > 0) return;
+
+            showResendLoading(true);
+            hideMessages();
+
+            try {
+                const response = await fetch('http://localhost:3000/api/resend-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userId }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showSuccess(data.message);
+                    clearOTPInputs();
+                    startResendCooldown();
+                } else {
+                    showError(data.message || 'Failed to resend code');
+                }
+            } catch (error) {
+                console.error('Resend error:', error);
+                showError('Network error. Please try again.');
+            } finally {
+                showResendLoading(false);
+            }
+        });
+
+        // Helper functions
+        function showLoading(show) {
+            document.getElementById('verifyText').style.display = show ? 'none' : 'inline';
+            document.getElementById('verifySpinner').style.display = show ? 'inline-block' : 'none';
+        }
+
+        function showResendLoading(show) {
+            document.getElementById('resendText').style.display = show ? 'none' : 'inline';
+            document.getElementById('resendSpinner').style.display = show ? 'inline-block' : 'none';
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('hidden');
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.classList.remove('hidden');
+        }
+
+        function hideMessages() {
+            document.getElementById('errorMessage').classList.add('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+        }
+
+        function clearOTPInputs() {
+            document.querySelectorAll('.otp-input').forEach(input => {
+                input.value = '';
+            });
+            document.getElementById('otp1').focus();
+        }
+
+        function startResendCooldown() {
+            resendCooldown = 60;
+            const resendBtn = document.getElementById('resendBtn');
+            const resendTimer = document.getElementById('resendTimer');
+            const countdown = document.getElementById('countdown');
+
+            resendBtn.style.opacity = '0.5';
+            resendBtn.style.cursor = 'not-allowed';
+            resendTimer.classList.remove('hidden');
+
+            countdownInterval = setInterval(() => {
+                resendCooldown--;
+                countdown.textContent = resendCooldown;
+
+                if (resendCooldown <= 0) {
+                    clearInterval(countdownInterval);
+                    resendBtn.style.opacity = '1';
+                    resendBtn.style.cursor = 'pointer';
+                    resendTimer.classList.add('hidden');
+                }
+            }, 1000);
+        }
+
+        // Auto-focus first input
+        document.getElementById('otp1').focus();
+
+        // Start initial cooldown
+        startResendCooldown();
+    </script>
+</body>
+</html>

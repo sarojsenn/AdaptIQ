@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaptIQ - Test Assessment</title>
+    <style>
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; }
+        .btn { padding: 10px 20px; margin: 10px; background: #8b5cf6; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background: #7c3aed; }
+        .response { margin: 10px 0; padding: 10px; background: #f0f0f0; border-radius: 5px; }
+        .error { background: #ffebee; color: #c62828; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 AdaptIQ Assessment System Test</h1>
+        
+        <div class="section">
+            <h2>API Health Check</h2>
+            <button class="btn" onclick="checkHealth()">Check API Health</button>
+            <div id="healthResult" class="response"></div>
+        </div>
+
+        <div class="section">
+            <h2>Start Assessment Session</h2>
+            <input type="text" id="studentName" placeholder="Student Name" value="Test Student">
+            <select id="studentGrade">
+                <option value="10">Grade 10</option>
+            </select>
+            <button class="btn" onclick="startAssessment()">Start Assessment</button>
+            <div id="sessionResult" class="response"></div>
+        </div>
+
+        <div class="section">
+            <h2>Get Question</h2>
+            <button class="btn" onclick="getQuestion()">Get Next Question</button>
+            <div id="questionResult" class="response"></div>
+        </div>
+
+        <div class="section">
+            <h2>Submit Response</h2>
+            <button class="btn" onclick="submitResponse('a')">Submit Answer A</button>
+            <button class="btn" onclick="submitResponse('b')">Submit Answer B</button>
+            <div id="responseResult" class="response"></div>
+        </div>
+
+        <div class="section">
+            <h2>Get Results</h2>
+            <button class="btn" onclick="getResults()">Get Assessment Results</button>
+            <div id="resultsResult" class="response"></div>
+        </div>
+
+        <div class="section">
+            <h2>Quick Links</h2>
+            <a href="pages/AdaptiveAssessment.html" class="btn">Open Full Assessment</a>
+            <a href="landing.html" class="btn">Back to Landing</a>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:5000/api';
+        let currentSession = null;
+        let currentQuestionId = null;
+
+        async function checkHealth() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/health`);
+                const data = await response.json();
+                
+                document.getElementById('healthResult').innerHTML = `
+                    <div class="success">
+                        <strong>✅ API Health Check Successful</strong><br>
+                        Status: ${data.status}<br>
+                        Model Loaded: ${data.model_loaded}<br>
+                        Total Questions: ${data.total_questions}
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('healthResult').innerHTML = `
+                    <div class="error">❌ Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        async function startAssessment() {
+            try {
+                const name = document.getElementById('studentName').value;
+                const grade = document.getElementById('studentGrade').value;
+                
+                const response = await fetch(`${API_BASE_URL}/start-assessment`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ studentName: name, studentGrade: grade })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentSession = data.session_id;
+                    document.getElementById('sessionResult').innerHTML = `
+                        <div class="success">
+                            <strong>✅ Assessment Started</strong><br>
+                            Session ID: ${data.session_id}<br>
+                            Student: ${name}
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('sessionResult').innerHTML = `
+                        <div class="error">❌ Error: ${data.error}</div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('sessionResult').innerHTML = `
+                    <div class="error">❌ Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        async function getQuestion() {
+            if (!currentSession) {
+                alert('Please start an assessment session first');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/get-question`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ session_id: currentSession })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentQuestionId = data.question.id;
+                    document.getElementById('questionResult').innerHTML = `
+                        <div class="success">
+                            <strong>📝 Question ${data.question.id}</strong><br>
+                            <strong>Difficulty:</strong> ${data.question.difficulty}<br>
+                            <strong>Question:</strong> ${data.question.question_text}<br>
+                            <strong>A:</strong> ${data.question.option_a}<br>
+                            <strong>B:</strong> ${data.question.option_b}<br>
+                            <strong>C:</strong> ${data.question.option_c}<br>
+                            <strong>D:</strong> ${data.question.option_d}<br>
+                            <strong>Correct Answer:</strong> ${data.question.answer}<br>
+                            <strong>Student Progress:</strong><br>
+                            - Ability: ${data.student_progress.ability}<br>
+                            - Knowledge: ${data.student_progress.knowledge_level}<br>
+                            - Target Difficulty: ${data.student_progress.target_difficulty}
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('questionResult').innerHTML = `
+                        <div class="error">❌ ${data.message || 'Error getting question'}</div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('questionResult').innerHTML = `
+                    <div class="error">❌ Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        async function submitResponse(answer) {
+            if (!currentSession || !currentQuestionId) {
+                alert('Please get a question first');
+                return;
+            }
+
+            try {
+                // For demo, we'll assume the correct answer (you can change this)
+                const correctAnswer = 'a'; // This should come from the question data
+                const isCorrect = answer === correctAnswer;
+
+                const response = await fetch(`${API_BASE_URL}/submit-response`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        session_id: currentSession,
+                        question_id: currentQuestionId,
+                        selected_option: answer,
+                        correct_option: correctAnswer,
+                        is_correct: isCorrect
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('responseResult').innerHTML = `
+                        <div class="success">
+                            <strong>✅ Response Submitted</strong><br>
+                            Selected: ${answer.toUpperCase()}<br>
+                            Result: ${isCorrect ? 'Correct ✅' : 'Incorrect ❌'}<br>
+                            <strong>Updated Progress:</strong><br>
+                            - Ability: ${data.updated_progress.ability}<br>
+                            - Knowledge: ${data.updated_progress.knowledge_level}<br>
+                            - Score: ${data.updated_progress.current_score}%<br>
+                            - Questions Answered: ${data.updated_progress.questions_answered}
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('responseResult').innerHTML = `
+                        <div class="error">❌ Error: ${data.error}</div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('responseResult').innerHTML = `
+                    <div class="error">❌ Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        async function getResults() {
+            if (!currentSession) {
+                alert('Please start an assessment session first');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/get-assessment-results`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ session_id: currentSession })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const results = data.final_results;
+                    let recommendationsHtml = '';
+                    
+                    data.recommendations.forEach(rec => {
+                        recommendationsHtml += `<br>• ${rec.icon} ${rec.title}: ${rec.description}`;
+                    });
+
+                    document.getElementById('resultsResult').innerHTML = `
+                        <div class="success">
+                            <strong>🎉 Assessment Results</strong><br>
+                            <strong>Student:</strong> ${results.student_name}<br>
+                            <strong>Final Score:</strong> ${results.final_score}%<br>
+                            <strong>Ability Level:</strong> ${results.ability_level}<br>
+                            <strong>Questions Answered:</strong> ${results.questions_answered}<br>
+                            <strong>Time Spent:</strong> ${results.time_spent_minutes} minutes<br>
+                            <strong>Recommendations:</strong>${recommendationsHtml}
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('resultsResult').innerHTML = `
+                        <div class="error">❌ Error: ${data.error}</div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('resultsResult').innerHTML = `
+                    <div class="error">❌ Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        // Auto-check health on page load
+        window.onload = () => {
+            setTimeout(checkHealth, 1000);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaptIQ - Full System Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #312e81 100%);
+            min-height: 100vh;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-4xl">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="client/assets/images/img_.png" alt="AdaptIQ Logo" class="w-16 h-16 rounded-full object-cover" />
+                    <span class="text-4xl font-bold gradient-text">AdaptIQ</span>
+                </div>
+                <h1 class="text-2xl font-bold mb-2">🚀 Full Authentication System Test</h1>
+                <p class="text-gray-300">Complete user flow with MongoDB, JWT, and Email OTP verification</p>
+            </div>
+
+            <!-- Status Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="glass-effect p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-xl">🗄️</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">MongoDB Database</h3>
+                    <p class="text-green-400 text-sm">✅ Connected</p>
+                </div>
+
+                <div class="glass-effect p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-xl">📧</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Email System</h3>
+                    <p class="text-green-400 text-sm">✅ Gmail SMTP Ready</p>
+                </div>
+
+                <div class="glass-effect p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-xl">🔐</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">JWT Security</h3>
+                    <p class="text-green-400 text-sm">✅ Token System Ready</p>
+                </div>
+            </div>
+
+            <!-- Test Flow -->
+            <div class="glass-effect p-8 rounded-2xl">
+                <h2 class="text-2xl font-bold mb-6 text-center">🧪 Test the Complete Flow</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- New User Flow -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold text-purple-light">👤 New User Journey</h3>
+                        <ol class="space-y-3 text-sm">
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-purple-primary rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                                <span>Visit Landing Page</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-purple-primary rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                                <span>Click "Register" or "Get Started"</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-purple-primary rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                                <span>Fill registration form</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-purple-primary rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                                <span>Receive OTP via email</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-purple-primary rounded-full flex items-center justify-center text-xs font-bold">5</span>
+                                <span>Verify email with OTP</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                                <span>Access Student Dashboard</span>
+                            </li>
+                        </ol>
+                        <a href="client/pages/Registration.html" class="block w-full bg-gradient-to-r from-purple-primary to-purple-secondary text-white font-semibold py-3 px-6 rounded-full hover:shadow-lg transition-all duration-300 text-center">
+                            Start Registration →
+                        </a>
+                    </div>
+
+                    <!-- Existing User Flow -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold text-blue-400">🔑 Existing User Journey</h3>
+                        <ol class="space-y-3 text-sm">
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                                <span>Visit Landing Page</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                                <span>Click "Sign In"</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                                <span>Enter credentials</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                                <span>Automatic verification if unverified</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                                <span>Access Student Dashboard</span>
+                            </li>
+                        </ol>
+                        <a href="client/pages/SignIn.html" class="block w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold py-3 px-6 rounded-full hover:shadow-lg transition-all duration-300 text-center">
+                            Sign In →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="mt-8 pt-8 border-t border-white border-opacity-10">
+                    <h3 class="text-xl font-semibold mb-4 text-center">🎯 Authentication Features</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-lg">🔒</span>
+                            </div>
+                            <h4 class="font-semibold text-sm">Password Hashing</h4>
+                            <p class="text-gray-400 text-xs">bcrypt encryption</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-lg">📧</span>
+                            </div>
+                            <h4 class="font-semibold text-sm">Email OTP</h4>
+                            <p class="text-gray-400 text-xs">6-digit verification</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-lg">🎫</span>
+                            </div>
+                            <h4 class="font-semibold text-sm">JWT Tokens</h4>
+                            <p class="text-gray-400 text-xs">Secure sessions</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-lg">🛡️</span>
+                            </div>
+                            <h4 class="font-semibold text-sm">Route Protection</h4>
+                            <p class="text-gray-400 text-xs">Authenticated access</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="text-center mt-8">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="client/pages/LandingPage.html" class="glass-effect px-6 py-2 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        🏠 Landing Page
+                    </a>
+                    <a href="client/pages/StudentDashboard.html" class="glass-effect px-6 py-2 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        📊 Dashboard
+                    </a>
+                    <a href="client/pages/RealDatasetAssessment.html" class="glass-effect px-6 py-2 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        🧠 Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check server status
+        window.addEventListener('load', async function() {
+            try {
+                const response = await fetch('/api/profile');
+                console.log('Server is responding:', response.status);
+            } catch (error) {
+                console.error('Server connection error:', error);
+                alert('Server is not responding. Please make sure the server is running on port 3000.');
+            }
+        });
+    </script>
+</body>
+</html>

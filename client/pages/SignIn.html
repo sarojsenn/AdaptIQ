@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - AdaptIQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois:wght@400&family=Playfair+Display:wght@400;700;800;900&family=Ruwudu:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .brand-gradient {
+      background: linear-gradient(to bottom, #82ff77, #4e9947);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    }
+    
+    .font-jacques {
+      font-family: 'Jacques Francois', serif;
+    }
+    
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .font-ruwudu {
+      font-family: 'Ruwudu', serif;
+    }
+    
+    .input-field {
+      transition: all 0.3s ease;
+    }
+    
+    .input-field:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(130, 255, 119, 0.3);
+    }
+    
+    .password-toggle {
+      transition: all 0.2s ease;
+    }
+    
+    .password-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
+    }
+    
+    .submit-btn {
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .checkbox-field:checked {
+      background-color: #82ff77;
+      border-color: #82ff77;
+    }
+  </style>
+</head>
+<body>
+  <main class="flex justify-center items-center w-full min-h-screen bg-gradient-to-br from-[#5b3181] to-[#130a1b] px-4 py-8">
+    <div class="w-full max-w-md bg-transparent">
+      
+      <!-- Brand Logo Section -->
+      <header class="text-center mb-12 mt-16">
+        <div class="flex justify-center items-baseline mb-6 whitespace-nowrap">
+          <span class="text-8xl md:text-9xl lg:text-10xl font-bold brand-gradient">A</span>
+          <span class="text-6xl md:text-7xl lg:text-8xl font-bold brand-gradient">daptIQ</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-medium text-[#e5e5e5] tracking-wide mb-8">Welcome Back!</h1>
+      </header>
+
+      <!-- Sign In Form -->
+      <form class="w-full space-y-6">
+        
+        <!-- Email Address Field -->
+        <div class="space-y-3">
+          <label for="emailAddress" class="block text-base md:text-lg font-medium text-[#e5e5e5]">Email Address</label>
+          <input 
+            type="email" 
+            id="emailAddress" 
+            name="emailAddress" 
+            class="input-field w-full px-6 py-4 bg-white rounded-2xl border-0 focus:outline-none focus:ring-2 focus:ring-[#82ff77] text-gray-900 placeholder-gray-400 shadow-lg"
+            placeholder=""
+            required
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div class="space-y-3">
+          <label for="password" class="block text-base md:text-lg font-medium text-[#e5e5e5]">Password</label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="input-field w-full px-6 py-4 pr-14 bg-white rounded-2xl border-0 focus:outline-none focus:ring-2 focus:ring-[#82ff77] text-gray-900 placeholder-gray-400 shadow-lg"
+              placeholder=""
+              required
+            />
+            <button 
+              type="button" 
+              class="password-toggle absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full hover:bg-gray-100"
+              onclick="togglePassword('password')"
+            >
+              <svg id="eyeIcon-password" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#666" stroke-width="2" fill="none"/>
+                <circle cx="12" cy="12" r="3" stroke="#666" stroke-width="2" fill="none"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me and Forgot Password -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex items-center space-x-3">
+            <input 
+              type="checkbox" 
+              id="rememberMe" 
+              name="rememberMe" 
+              class="checkbox-field w-5 h-5 rounded border-2 border-gray-300 focus:ring-[#82ff77] focus:ring-2"
+            />
+            <label for="rememberMe" class="text-base text-[#e5e5e5] font-medium">Remember Me</label>
+          </div>
+          <a href="#" class="text-base text-[#82ff77] hover:text-[#4e9947] hover:underline transition-all duration-200 font-medium">
+            Forgot Password?
+          </a>
+        </div>
+
+        <!-- Sign In Button -->
+        <button 
+          type="submit" 
+          class="submit-btn w-full py-4 px-6 bg-white text-black font-semibold text-lg rounded-2xl hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#82ff77] focus:ring-offset-2 focus:ring-offset-transparent shadow-lg transition-all duration-200 mt-8"
+        >
+          Sign In
+        </button>
+      </form>
+
+      <!-- Sign Up Link -->
+      <div class="text-center mt-8">
+        <span class="text-base md:text-lg text-[#e5e5e5]">Don't have an account? </span>
+        <a href="Registration.html" class="text-base md:text-lg text-[#82ff77] hover:text-[#4e9947] hover:underline transition-all duration-200 font-medium">Sign Up</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function togglePassword(fieldId) {
+      const field = document.getElementById(fieldId);
+      const icon = document.getElementById(`eyeIcon-${fieldId}`);
+      
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.innerHTML = `
+          <path d="m1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#666" stroke-width="2" fill="none"/>
+          <path d="m10.5 15.5 3-3" stroke="#666" stroke-width="2"/>
+          <path d="m13.5 15.5-3-3" stroke="#666" stroke-width="2"/>
+        `;
+      } else {
+        field.type = 'password';
+        icon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#666" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="12" r="3" stroke="#666" stroke-width="2" fill="none"/>
+        `;
+      }
+    }
+
+    // Show loading state
+    function showLoading(show) {
+      const submitBtn = document.querySelector('button[type="submit"]');
+      if (show) {
+        submitBtn.innerHTML = '<div class="flex items-center justify-center"><div class="spinner-border animate-spin inline-block w-4 h-4 border-2 rounded-full border-white border-t-transparent"></div><span class="ml-2">Signing In...</span></div>';
+        submitBtn.disabled = true;
+      } else {
+        submitBtn.innerHTML = 'Sign In';
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Show error message
+    function showError(message) {
+      // Remove existing error message
+      const existingError = document.querySelector('.error-message');
+      if (existingError) {
+        existingError.remove();
+      }
+
+      // Create new error message
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4';
+      errorDiv.textContent = message;
+      
+      const form = document.querySelector('form');
+      form.insertBefore(errorDiv, form.firstChild);
+      
+      // Scroll to top to show error
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Show success message
+    function showSuccess(message) {
+      // Remove existing messages
+      const existingError = document.querySelector('.error-message');
+      if (existingError) {
+        existingError.remove();
+      }
+
+      // Create success message
+      const successDiv = document.createElement('div');
+      successDiv.className = 'success-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4';
+      successDiv.textContent = message;
+      
+      const form = document.querySelector('form');
+      form.insertBefore(successDiv, form.firstChild);
+      
+      // Scroll to top to show success
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Form submission handler
+    document.querySelector('form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('emailAddress').value.trim();
+      const password = document.getElementById('password').value;
+      const rememberMe = document.getElementById('rememberMe').checked;
+      
+      // Basic validation
+      if (!email || !password) {
+        showError('Please fill in all fields.');
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+
+      showLoading(true);
+
+      try {
+        const response = await fetch('http://localhost:3000/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password
+          }),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Store token and user data
+          localStorage.setItem('authToken', data.token);
+          localStorage.setItem('userData', JSON.stringify(data.user));
+          
+          if (rememberMe) {
+            localStorage.setItem('rememberMe', 'true');
+          }
+          
+          showSuccess('Sign in successful! Redirecting to dashboard...');
+          
+          setTimeout(() => {
+            window.location.href = 'StudentDashboard.html';
+          }, 1500);
+        } else {
+          if (data.needsVerification) {
+            // User needs to verify email
+            localStorage.setItem('pendingUserId', data.userId);
+            localStorage.setItem('pendingUserEmail', email);
+            
+            showSuccess('A new verification code has been sent to your email. Redirecting to verification page...');
+            
+            setTimeout(() => {
+              window.location.href = 'VerifyEmail.html?userId=' + data.userId;
+            }, 2500);
+          } else {
+            showError(data.message || 'Sign in failed. Please try again.');
+          }
+        }
+      } catch (error) {
+        console.error('Sign in error:', error);
+        showError('Network error. Please check your connection and try again.');
+      } finally {
+        showLoading(false);
+      }
+    });
+
+    // Check if user is already logged in
+    window.addEventListener('load', function() {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        // Verify token with server
+        fetch('http://localhost:3000/api/profile', {
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // User is already logged in, redirect to dashboard
+            window.location.href = 'StudentDashboard.html';
+          }
+        })
+        .catch(error => {
+          console.log('Token verification failed:', error);
+          // Token is invalid, remove it
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('userData');
+        });
+      }
+    });
+
+    // Add loading spinner styles
+    const style = document.createElement('style');
+    style.textContent = `
+      .spinner-border {
+        animation: spinner-border .75s linear infinite;
+      }
+      
+      @keyframes spinner-border {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
