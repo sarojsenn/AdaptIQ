@@ -4,7 +4,7 @@
 Organized by Unstop
 
 **Team:** Bruteforce Army 
- 
+
 **Contributors:** 
 - Saroj Sen(ML Model, Backend Integration)
 - Tiyasa Saha(UI/UX Design & Frontend)
@@ -71,7 +71,6 @@ AdaptIQ is an AI-powered adaptive assessment platform designed exclusively for s
 
 - Personalized dashboard for each student
 - Visualizes progress, accuracy, and skill mastery
-- No teacher/mentor dashboard or features
 
 ---
 
