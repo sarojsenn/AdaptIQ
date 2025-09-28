@@ -5,9 +5,9 @@ Organized by Unstop
 
 **Team:** Bruteforce Army  
 **Contributors:** 
-Saroj Sen(ML Model, Backend Integration)
-Tiyasa Saha(UI/UX Design & Frontend)
-Soumava Das(PPT Making & Research)
+- Saroj Sen(ML Model, Backend Integration)
+- Tiyasa Saha(UI/UX Design & Frontend)
+- Soumava Das(PPT Making & Research)
 
 ---
 
