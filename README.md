@@ -90,12 +90,22 @@ AdaptIQ is an AI-powered adaptive assessment platform designed exclusively for s
 
 ---
 
-## 📚 Future Work
+## Future Scopes
 
-- Train on larger, real-world datasets
-- Add more advanced analytics
-- Expand question bank and adaptivity
-- (Optional) Add teacher/mentor features in future versions
+### 🟩 Dyslexia & Accessibility Support:
+Dyslexia Support: Read-aloud mode, simplified fonts, color contrast adjustments.
+Visually Impaired Learners: Screen reader compatibility, audio-based assessments.
+
+---
+
+### 📝 Extend subjects & update model:
+Expand to multiple subjects, grade levels, and regional languages.
+Also the model can be updated to 4pl; currently this is in 2pl.
+
+---
+
+### 🏫 Real-World Deployment:
+Collaborate with schools, colleges, and ed-tech platforms to scale usage.
 
 ---
 
