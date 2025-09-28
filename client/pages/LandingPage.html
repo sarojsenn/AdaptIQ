@@ -128,7 +128,7 @@
                     <a href="StudentDashboard.html" class="bg-gradient-to-r from-purple-primary to-purple-secondary px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 inline-block text-center">
                         Get Started
                     </a>
-                    <button class="glass-effect px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                    <button id="showDemoBtn" class="glass-effect px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300">
                         Show Demo
                     </button>
                 </div>
@@ -174,6 +174,16 @@
             }
         </style>
     </section>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-lg p-6 relative max-w-2xl w-full">
+            <button id="closeDemoModal" class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-purple-primary">&times;</button>
+            <div class="aspect-w-16 aspect-h-9 w-full">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3-ZocF7pHZo" title="AdaptIQ Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-72 rounded-xl"></iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- Features Section -->
     <section id="features" class="py-20 px-6">
@@ -240,7 +250,7 @@
                         </svg>
                     </button>
                     <div id="faq1" class="hidden px-8 pb-6">
-                        <p class="text-gray-300">AdaptIQ is an AI-powered adaptive assessment platform that personalizes learning by adjusting question difficulty in real-time using advanced models like IRT (Item Response Theory) and BKT (Bayesian Knowledge Tracing).</p>
+                        <p class="text-gray-300">AdaptIQ is a student-focused adaptive assessment platform that uses advanced AI and psychometric models to personalize your learning journey. It selects questions based on your performance, provides instant feedback, and helps you master concepts efficiently.</p>
                     </div>
                 </div>
 
@@ -253,7 +263,7 @@
                         </svg>
                     </button>
                     <div id="faq2" class="hidden px-8 pb-6">
-                        <p class="text-gray-300">Both students and teachers. Students can practice personalized assessments, while teachers can monitor progress and gain actionable insights.</p>
+                        <p class="text-gray-300">AdaptIQ is designed for students who want to improve their skills through personalized assessments and instant feedback. Teachers are not required—students can sign up, practice, and track their own progress independently.</p>
                     </div>
                 </div>
 
@@ -266,7 +276,7 @@
                         </svg>
                     </button>
                     <div id="faq3" class="hidden px-8 pb-6">
-                        <p class="text-gray-300">Unlike fixed tests, AdaptIQ adapts question difficulty based on each student's performance, providing a more accurate reflection of skill level.</p>
+                        <p class="text-gray-300">Traditional platforms use static tests, but AdaptIQ adapts every question to your current ability. You get a unique, evolving test experience, real-time analytics, and recommendations tailored just for you.</p>
                     </div>
                 </div>
 
@@ -279,7 +289,7 @@
                         </svg>
                     </button>
                     <div id="faq4" class="hidden px-8 pb-6">
-                        <p class="text-gray-300">Login to your dashboard → Select subject/topic → Begin the test. Questions will adapt to your performance.</p>
+                        <p class="text-gray-300">Sign up or log in, go to your Student Dashboard, and start an assessment in your chosen subject. The platform will automatically select and adapt questions to your skill level as you progress.</p>
                     </div>
                 </div>
 
@@ -292,7 +302,7 @@
                         </svg>
                     </button>
                     <div id="faq5" class="hidden px-8 pb-6">
-                        <p class="text-gray-300">Yes. Your student dashboard displays progress charts, accuracy trends, skill mastery levels, and recommendations for improvement.</p>
+                        <p class="text-gray-300">Absolutely! Your dashboard shows your progress, accuracy, strengths, and areas to improve. You also get personalized recommendations and can review your past assessments to see how you’ve grown.</p>
                     </div>
                 </div>
             </div>
@@ -383,6 +393,25 @@
                 });
             }
         }
+
+        // Show Demo Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const showDemoBtn = document.getElementById('showDemoBtn');
+            const demoModal = document.getElementById('demoModal');
+            const closeDemoModal = document.getElementById('closeDemoModal');
+            showDemoBtn.addEventListener('click', function() {
+                demoModal.classList.remove('hidden');
+            });
+            closeDemoModal.addEventListener('click', function() {
+                demoModal.classList.add('hidden');
+            });
+            // Close modal on outside click
+            demoModal.addEventListener('click', function(e) {
+                if (e.target === demoModal) {
+                    demoModal.classList.add('hidden');
+                }
+            });
+        });
 
         document.getElementById('navHome').addEventListener('click', function(e) {
             e.preventDefault();
