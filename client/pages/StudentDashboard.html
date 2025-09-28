@@ -76,7 +76,8 @@
             <!-- User Profile -->
             <div class="relative">
                 <button onclick="toggleUserMenu()" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300">
-                    <img src="../assets/images/img_unsplash_rdeovte7vos.png" alt="User Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-purple-light">
+                    <!-- Replace avatar image with initial circle -->
+                    <span id="studentInitial" class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-purple-light bg-purple-primary text-white text-xl font-bold"></span>
                     <span class="hidden md:block text-sm font-medium">Student</span>
                     <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -724,6 +725,22 @@
                 window.location.href = 'SignIn.html';
             }
         }
+
+        // Set student initial in circle
+        window.addEventListener('DOMContentLoaded', function() {
+            let userData = null;
+            try {
+                userData = JSON.parse(localStorage.getItem('userData')) || JSON.parse(sessionStorage.getItem('userData'));
+            } catch (e) {}
+            const initialSpan = document.getElementById('studentInitial');
+            let initial = 'S'; // Default to S for Student
+            if (userData && userData.firstName && userData.firstName.length > 0) {
+                initial = userData.firstName[0].toUpperCase();
+            } else if (userData && userData.email && userData.email.length > 0) {
+                initial = userData.email[0].toUpperCase();
+            }
+            initialSpan.textContent = initial;
+        });
 
 
     </script>

@@ -68,9 +68,10 @@
       
       <!-- Brand Logo Section -->
       <header class="text-center mb-12 mt-16">
-        <div class="flex justify-center items-baseline mb-6 whitespace-nowrap">
-          <span class="text-8xl md:text-9xl lg:text-10xl font-bold brand-gradient">A</span>
-          <span class="text-6xl md:text-7xl lg:text-8xl font-bold brand-gradient">daptIQ</span>
+        <div class=" justify-center items-baseline mb-10 whitespace-nowrap">
+          <span class="text-8xl md:text-9xl lg:text-10xl font-bold brand-gradient font-jacques">A</span>
+          <span class="text-6xl md:text-7xl lg:text-8xl font-bold brand-gradient font-playfair">dapt</span>
+          <span class="text-8xl md:text-9xl lg:text-10xl font-bold brand-gradient font-ruwudu">IQ</span>
         </div>
         <h1 class="text-2xl md:text-3xl lg:text-4xl font-medium text-[#e5e5e5] tracking-wide mb-8">Welcome Back!</h1>
       </header>
@@ -261,15 +262,20 @@
 
         if (data.success) {
           // Store token and user data
-          localStorage.setItem('authToken', data.token);
-          localStorage.setItem('userData', JSON.stringify(data.user));
-          
           if (rememberMe) {
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('userData', JSON.stringify(data.user));
             localStorage.setItem('rememberMe', 'true');
+            sessionStorage.removeItem('authToken');
+            sessionStorage.removeItem('userData');
+          } else {
+            sessionStorage.setItem('authToken', data.token);
+            sessionStorage.setItem('userData', JSON.stringify(data.user));
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userData');
+            localStorage.removeItem('rememberMe');
           }
-          
           showSuccess('Sign in successful! Redirecting to dashboard...');
-          
           setTimeout(() => {
             window.location.href = 'StudentDashboard.html';
           }, 1500);
@@ -298,9 +304,12 @@
 
     // Check if user is already logged in
     window.addEventListener('load', function() {
-      const token = localStorage.getItem('authToken');
+      // Check both localStorage and sessionStorage for token
+      let token = localStorage.getItem('authToken');
+      if (!token) {
+        token = sessionStorage.getItem('authToken');
+      }
       if (token) {
-        // Verify token with server
         fetch('http://localhost:3000/api/profile', {
           headers: {
             'Authorization': 'Bearer ' + token
@@ -309,15 +318,15 @@
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            // User is already logged in, redirect to dashboard
             window.location.href = 'StudentDashboard.html';
           }
         })
         .catch(error => {
           console.log('Token verification failed:', error);
-          // Token is invalid, remove it
           localStorage.removeItem('authToken');
           localStorage.removeItem('userData');
+          sessionStorage.removeItem('authToken');
+          sessionStorage.removeItem('userData');
         });
       }
     });
