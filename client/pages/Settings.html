@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - AdaptIQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../css/main.css" rel="stylesheet">
+    <style>
+        :root {
+            --purple-primary: #667eea;
+            --purple-secondary: #764ba2;
+            --purple-light: #8b5fbf;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toggle-switch {
+            width: 48px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(24px);
+        }
+
+        .setting-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .purple-primary {
+            background-color: var(--purple-primary);
+        }
+
+        .purple-secondary {
+            background-color: var(--purple-secondary);
+        }
+
+        .border-purple-light {
+            border-color: var(--purple-light);
+        }
+
+        /* Fix dropdown styling */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        select option {
+            background-color: #1e1b4b;
+            color: white;
+            padding: 8px 12px;
+        }
+
+        select:focus option {
+            background-color: #312e81;
+        }
+
+        select option:hover,
+        select option:checked,
+        select option:focus {
+            background-color: #4c1d95 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 min-h-screen text-white">
+    
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4" style="background:rgba(30,27,75,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1);">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo and Title -->
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-3">
+                    <img src="../assets/images/img_.png" alt="AdaptIQ Logo" class="w-10 h-10 object-contain">
+                    <h1 class="text-2xl font-bold text-white tracking-wide">
+                        <span class="text-purple-400">Adapt</span><span class="text-white">IQ</span>
+                    </h1>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+
+            <!-- Back to Dashboard -->
+            <button onclick="goBackToDashboard()" class="glass-effect px-4 py-2 rounded-lg text-white hover:bg-white hover:bg-opacity-10 transition-all duration-300 flex items-center space-x-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                <span>Back to Dashboard</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 px-6 pb-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Settings Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl lg:text-4xl font-bold mb-2 gradient-text">Settings</h1>
+                <p class="text-gray-300">Customize your AdaptIQ learning experience</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Assessment Settings -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Assessment Settings
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Difficulty Adaptation -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Adaptive Difficulty</h3>
+                                    <p class="text-sm text-gray-400">Automatically adjust question difficulty based on performance</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="adaptiveDifficulty"></div>
+                            </div>
+                        </div>
+
+                        <!-- Time Limits -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Question Time Limits</h3>
+                                    <p class="text-sm text-gray-400">Set time limits for answering questions</p>
+                                </div>
+                                <div class="toggle-switch" data-setting="timeLimits"></div>
+                            </div>
+                        </div>
+
+                        <!-- Immediate Feedback -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Immediate Feedback</h3>
+                                    <p class="text-sm text-gray-400">Show explanations after each question</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="immediateFeedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- Assessment Length -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div>
+                                <h3 class="font-medium mb-3">Default Assessment Length</h3>
+                                <select id="assessmentLength" class="w-full px-4 py-2 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white focus:outline-none focus:border-purple-400">
+                                    <option value="10">10 Questions (Quick)</option>
+                                    <option value="20" selected>20 Questions (Standard)</option>
+                                    <option value="30">30 Questions (Comprehensive)</option>
+                                    <option value="unlimited">Unlimited (Adaptive)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Settings -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        Display & Interface
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Dark Mode -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Dark Mode</h3>
+                                    <p class="text-sm text-gray-400">Use dark theme throughout the application</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="darkMode"></div>
+                            </div>
+                        </div>
+
+                        <!-- Animations -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Animations</h3>
+                                    <p class="text-sm text-gray-400">Enable smooth transitions and animations</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="animations"></div>
+                            </div>
+                        </div>
+
+                        <!-- Sound Effects -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Sound Effects</h3>
+                                    <p class="text-sm text-gray-400">Play sounds for interactions and feedback</p>
+                                </div>
+                                <div class="toggle-switch" data-setting="soundEffects"></div>
+                            </div>
+                        </div>
+
+                        <!-- Font Size -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div>
+                                <h3 class="font-medium mb-3">Font Size</h3>
+                                <select id="fontSize" class="w-full px-4 py-2 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white focus:outline-none focus:border-purple-400">
+                                    <option value="small">Small</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="large">Large</option>
+                                    <option value="xlarge">Extra Large</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy & Data -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                        Privacy & Data
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Data Collection -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Performance Analytics</h3>
+                                    <p class="text-sm text-gray-400">Allow collection of learning analytics to improve experience</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="analytics"></div>
+                            </div>
+                        </div>
+
+                        <!-- Auto Save -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Auto-Save Progress</h3>
+                                    <p class="text-sm text-gray-400">Automatically save assessment progress</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="autoSave"></div>
+                            </div>
+                        </div>
+
+                        <!-- Data Export -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex flex-col space-y-3">
+                                <h3 class="font-medium">Export Your Data</h3>
+                                <p class="text-sm text-gray-400">Download your learning progress and assessment results</p>
+                                <button onclick="exportData()" class="self-start px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-all duration-200">
+                                    Download Data
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Clear Data -->
+                        <div class="setting-card p-4 rounded-lg border-red-500 border-opacity-30">
+                            <div class="flex flex-col space-y-3">
+                                <h3 class="font-medium text-red-400">Reset All Data</h3>
+                                <p class="text-sm text-gray-400">Permanently delete all your assessment data and progress</p>
+                                <button onclick="confirmDataReset()" class="self-start px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm font-medium transition-all duration-200">
+                                    Reset Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM9 7H4l5-5v5zm6 10V7a4 4 0 00-8 0v10m8 0H7m8 0v3a2 2 0 01-2 2H9a2 2 0 01-2-2v-3"></path>
+                        </svg>
+                        Notifications
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Assessment Reminders -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Assessment Reminders</h3>
+                                    <p class="text-sm text-gray-400">Get reminded to take regular assessments</p>
+                                </div>
+                                <div class="toggle-switch" data-setting="assessmentReminders"></div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Updates -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Progress Updates</h3>
+                                    <p class="text-sm text-gray-400">Receive weekly progress summaries</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="progressUpdates"></div>
+                            </div>
+                        </div>
+
+                        <!-- Achievement Notifications -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Achievement Notifications</h3>
+                                    <p class="text-sm text-gray-400">Get notified when you earn new achievements</p>
+                                </div>
+                                <div class="toggle-switch active" data-setting="achievements"></div>
+                            </div>
+                        </div>
+
+                        <!-- Email Notifications -->
+                        <div class="setting-card p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium">Email Notifications</h3>
+                                    <p class="text-sm text-gray-400">Receive notifications via email</p>
+                                </div>
+                                <div class="toggle-switch" data-setting="emailNotifications"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Settings Button -->
+            <div class="mt-8 text-center">
+                <button onclick="saveSettings()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105">
+                    Save All Settings
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Settings management functionality
+        
+        function goBackToDashboard() {
+            window.location.href = 'StudentDashboard.html';
+        }
+
+        // Toggle switch functionality
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const setting = this.getAttribute('data-setting');
+                const isActive = this.classList.contains('active');
+                
+                // Save setting to localStorage
+                localStorage.setItem(`setting_${setting}`, isActive);
+                
+                // Apply immediate changes for some settings
+                applySettingChange(setting, isActive);
+                
+                showNotification(`${setting.replace(/([A-Z])/g, ' $1').toLowerCase()} ${isActive ? 'enabled' : 'disabled'}`, 'info');
+            });
+        });
+
+        // Apply setting changes immediately
+        function applySettingChange(setting, isActive) {
+            switch (setting) {
+                case 'darkMode':
+                    // Dark mode is already applied, but could toggle here
+                    break;
+                case 'animations':
+                    document.body.style.transition = isActive ? 'all 0.3s ease' : 'none';
+                    break;
+                case 'fontSize':
+                    const size = document.getElementById('fontSize').value;
+                    applyFontSize(size);
+                    break;
+            }
+        }
+
+        // Font size application
+        function applyFontSize(size) {
+            const root = document.documentElement;
+            switch (size) {
+                case 'small':
+                    root.style.fontSize = '14px';
+                    break;
+                case 'medium':
+                    root.style.fontSize = '16px';
+                    break;
+                case 'large':
+                    root.style.fontSize = '18px';
+                    break;
+                case 'xlarge':
+                    root.style.fontSize = '20px';
+                    break;
+            }
+        }
+
+        // Load settings from localStorage
+        function loadSettings() {
+            // Load toggle settings
+            document.querySelectorAll('.toggle-switch').forEach(toggle => {
+                const setting = toggle.getAttribute('data-setting');
+                const savedValue = localStorage.getItem(`setting_${setting}`);
+                
+                if (savedValue !== null) {
+                    const isActive = savedValue === 'true';
+                    toggle.classList.toggle('active', isActive);
+                    applySettingChange(setting, isActive);
+                }
+            });
+
+            // Load dropdown settings
+            const savedAssessmentLength = localStorage.getItem('setting_assessmentLength');
+            if (savedAssessmentLength) {
+                document.getElementById('assessmentLength').value = savedAssessmentLength;
+            }
+
+            const savedFontSize = localStorage.getItem('setting_fontSize');
+            if (savedFontSize) {
+                document.getElementById('fontSize').value = savedFontSize;
+                applyFontSize(savedFontSize);
+            }
+        }
+
+        // Save all settings
+        function saveSettings() {
+            // Save dropdown settings
+            localStorage.setItem('setting_assessmentLength', document.getElementById('assessmentLength').value);
+            localStorage.setItem('setting_fontSize', document.getElementById('fontSize').value);
+            
+            // Apply font size
+            applyFontSize(document.getElementById('fontSize').value);
+            
+            showNotification('All settings saved successfully!', 'success');
+        }
+
+        // Export data functionality
+        function exportData() {
+            const userData = {
+                profile: JSON.parse(localStorage.getItem('userData') || '{}'),
+                studentName: localStorage.getItem('studentName'),
+                studentGrade: localStorage.getItem('studentGrade'),
+                settings: {}
+            };
+
+            // Collect all settings
+            document.querySelectorAll('.toggle-switch').forEach(toggle => {
+                const setting = toggle.getAttribute('data-setting');
+                userData.settings[setting] = toggle.classList.contains('active');
+            });
+
+            userData.settings.assessmentLength = document.getElementById('assessmentLength').value;
+            userData.settings.fontSize = document.getElementById('fontSize').value;
+
+            // Create and download file
+            const dataStr = JSON.stringify(userData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = 'adaptiq_data_export.json';
+            link.click();
+            
+            showNotification('Data exported successfully!', 'success');
+        }
+
+        // Reset data functionality
+        function confirmDataReset() {
+            if (confirm('Are you sure you want to reset all your data? This action cannot be undone.')) {
+                if (confirm('This will permanently delete your profile, settings, and assessment history. Continue?')) {
+                    resetAllData();
+                }
+            }
+        }
+
+        function resetAllData() {
+            // Clear all AdaptIQ related localStorage items
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('setting_') || key === 'studentName' || key === 'studentGrade' || 
+                    key === 'userData' || key === 'memberSince' || key === 'avatarColor') {
+                    keysToRemove.push(key);
+                }
+            }
+            
+            keysToRemove.forEach(key => localStorage.removeItem(key));
+            
+            showNotification('All data has been reset successfully!', 'success');
+            
+            // Reload settings to show defaults
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-4 rounded-lg text-white font-medium transform translate-x-full transition-transform duration-300`;
+            
+            switch (type) {
+                case 'success':
+                    notification.classList.add('bg-green-500');
+                    break;
+                case 'error':
+                    notification.classList.add('bg-red-500');
+                    break;
+                default:
+                    notification.classList.add('bg-blue-500');
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize settings on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+
+            // Add event listeners for dropdowns
+            document.getElementById('assessmentLength').addEventListener('change', function() {
+                localStorage.setItem('setting_assessmentLength', this.value);
+                showNotification('Assessment length updated', 'info');
+            });
+
+            document.getElementById('fontSize').addEventListener('change', function() {
+                localStorage.setItem('setting_fontSize', this.value);
+                applyFontSize(this.value);
+                showNotification('Font size updated', 'info');
+            });
+        });
+    </script>
+</body>
+</html>

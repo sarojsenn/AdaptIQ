@@ -1,0 +1,81 @@
+id,question_text,option_a,option_b,option_c,option_d,answer,difficulty,tags
+1,"The HCF of two numbers is 16 and their LCM is 160. If one of the number is 32, then the other number is:",48,80,96,112,b,Very easy,Number System
+2,The product of two numbers is 2160 and their HCF is 12. Number of such possible pairs is:,1,2,3,4,b,Very easy,Number System
+3,"The LCM of two prime numbers x and y, (x > y) is 161. The value of (3y – x):",-2,-1,1,2,a,Very easy,Number System
+4,"The greatest number, which when divide 989 and 1327 leave remainders 5 and 7 respectively, is:",8,16,24,32,c,Very easy,Number System
+5,Find the greatest number which will exactly divide 200 and 320.,10,20,16,40,d,Very easy,Number System
+6,"If a number 38X847 is divisible by 3, then find the value of X.",2,0,8,6,b,Very easy,Number System
+7,The units digit of the product 8523 × 82 × 377 is:,5,4,6,2,d,Very easy,Number System
+8,What is the unit digit in (4137)754?,1,3,7,9,d,Very easy,Number System
+9,The remainder when 6666 … up to infinity divided by 10 is,5,6,4,3,b,Very easy,Number System
+10,What is the remainder when 267=,0,1,2,3,b,Very easy,Number System
+11,How many zeroes will be there at the end of the expression N=10×20×30…×1000?,1280,1300,1320,None of these,d,Very easy,Number System
+12,"Which among 212,313,414,616 and 12112 is the largest?",212,313,414,616,b,Very easy,Number System
+13,"If x=163+1713+183+193, then x divided by 70 leaves a remainder of",0,1,69,32,a,Very easy,Number System
+14,"Let x,y and z be distinct integers, that are odd and positive. Which one of the following statements cannot be true?",xyz2 is odds,x-y2z is even,x+y-zx+y is even,x-yy+zx+y-z is odd,d,Very easy,Number System
+15,"If a, a+2 and a+4 are prime numbers, then the number of possible solutions for a is:",One,Two,Three,More than three,a,Very easy,Number System
+16,Let N = 1421 x 1423 x 1425. What is the remainder when N is divided by 12?,0,9,3,6,c,Very easy,Number System
+17,The sum of two digits number and the number obtained by reversing the order of its digit is 132 and the difference of the digits is 4. The number is?,80,84,96,72,b,Very easy,Number System
+18,The number of two -digit prime numbers that remain prime even inverting the position of its digits is:,4,5,9,10,c,Very easy,Number System
+19,"IF 347P is divisible by 9, then what is the value of P?",2,3,4,7,c,Very easy,Number System
+20,"By which smallest number 1225 must be multiplied, so that it becomes a perfect cube",5,7,35,49,c,Very easy,Number System
+21,The sum of two numbers is 216 and their HCF is 27. How many pairs of such numbers are there?,1,2,3,0,b,Easy,Number System
+22,"What is the greatest number that will divide 38, 45 and 52 and leave remainders as 2, 3 and 4 respectively?",1,9,3,6,d,Easy,Number System
+23,"The smallest whole number which is exactly divisible by 112,113,214,312 and 4 15 is:",252,262,243,272,a,Easy,Number System
+24,The HCF of two numbers is 23 and the other two factors of their LCM are 13 and 14. The larger of the two numbers is:,276,299,345,322,d,Easy,Number System
+25,"The least number, which when divided by 12, 15, 20 or 54 leaves a remainder of 4 in each case, is:",450,454,540,544,d,Easy,Number System
+26,Number N2 has 15 factors. How many different values could there be for number of factors of N4?,29 or 45,39 or 55,49 or 66,19 or 35,a,Easy,Number System
+27,"If the six digit number 325x1у5 is divisible by 48, then (x + y) is equal to:",8,7,6,None,d,Easy,Number System
+28,Find the unit digit of N=1727!37! .,9,3,7,1,d,Easy,Number System
+29,Find the last two digits of (345)250 .,35,25,75,55,b,Easy,Number System
+30,The remainder of 888222 + 2228883 is:,0,1,2,3,a,Easy,Number System
+31,The remainder of 394093! is:,0,1,39,13,b,Easy,Number System
+32,What is the remainder when 40!41=,20,30,10,40,d,Easy,Number System
+33,"The LCM of two numbers is 40 times of their HCF. The sum of the LCM and HCF is 1476. If one of the numbers is 288, find the other numbers.",169,180,240,260,b,Easy,Number System
+34,LCM of first 100 natural numbers is N. What is the LCM of first 105 natural numbers?,5!×N,"10,403 N",105N103,4N,b,Easy,Number System
+35,The sum of two non-coprime numbers added to their HCF given 91. How many such pairs are possible?,1,2,3,4,c,Easy,Number System
+36,"If the 6–digit number x35624 and 1257y4 are divisible by 11 and 72 respectively, then what is the value of",(5x - 2y)?,12,10,14,13,c,Easy,Number System
+37,The number of prime factors in the expressions 64×86×108×1210 is:,80,64,72,48,c,Easy,Number System
+38,"If P = 9 + 99 + 999 + 9999 + … + 999…999 {400 times}, then find the reminder when Q is divided by 11 where Q is the sum of all digits of P.",7,10,9,11,c,Easy,Number System
+39,What will be the remainder when 761376137613….. (578 digits) is divided by 625?,113,11,126,512,c,Easy,Number System
+40,What is the first odd digit of the number 32280 from the right?,3,5,7,9,c,Easy,Number System
+41,N has 6 factors. N2 has x factors. How many value can x take?,2,4,6,8,a,Moderate,Number System
+42,Product of 2 non co-coprime numbers is 720. How many such pairs are possible?,10,11,12,13,b,Moderate,Number System
+43,N = 7+77+777+777+…100 times RN8=?,6,7,3,9,a,Moderate,Number System
+44,"What is the remainder when 7n+1 is divided by 8n+2, where n is a natural number?",1,7,0,7n+1,d,Moderate,Number System
+45,"When a number is successively divided by 5 and 7, the remainders obtained are 3 and 2 respectively. What will be the remainder obtained when the same number is divided by 35?",15,18,13,21,c,Moderate,Number System
+46,Find last three digits of 531202,803,802,703,840,b,Moderate,Number System
+47,Find the remainder 40 + 41 + 42 + 43 +…+ 4407,2,3,4,5,d,Moderate,Number System
+48,The LCM of two natural numbers is 590 and their HCF is 59. How many sets of values are possible?,1,2,5,10,b,Moderate,Number System
+49,What is the remainder when 555657 is divided by 17?,1,4,13,17,a,Moderate,Number System
+50,"When a number S is divided by 3, 4, and 7 successively, remainders obtained are 2, 1 and 4 respectively. What will be the remainder when the same number is divided by 84?",43,53,63,73,b,Moderate,Number System
+51,"LCM of 1224, 1618, and N is 2424 . The number of all the possible values of N=S . What is the value of S ?",25,1800,1825,None of these,c,Moderate,Number System
+52,"The digits of a three-digit number A are written in the reverse order to form another three-digit number B. If B>A and B-A is perfectly divisible by 7, then which of the following is necessarily true?",100<A<299,106<A<305,112<A<311,118<A<317,b,Moderate,Number System
+53,"The sum of the first two natural numbers, each having 15 factors (including 1 and the number itself), is:",468,450,454,462,a,Moderate,Number System
+54,"n is a number, such that 2n has 28 factors and 3n has 30 factors. 6n has",35,32,28,None of these,a,Moderate,Number System
+55,"N = 1! – 2! + 3! – 4! +…..+ 47! – 48! + 49!, – 50! + 51! Then what is the unit digit of N?",0,2,1,3,c,Moderate,Number System
+56,"P is a natural number of at least 6 digits and its left most digit is 7. When this leftmost digit is removed from P, the number thus obtained is found to be 1/21 times of P. What is the product of the all the nonzero digits of P.",126,105,60,72,b,Moderate,Number System
+57,"If ‘ a ’ is a natural number and HCF of a, a + 5 is 5. If the LCM of the two numbers is a three-digit number, then what is the difference between the maximum & minimum possible values of the smaller number?",25,35,40,45,d,Moderate,Number System
+58,S is having some colourful sea shells. She gave one third of these shells and 14 more besides to P. P gave one third of these shells and 11 more besides to Q. Q gave one third of these shells and one more besides to her friend R. If R got 14 shells from Q then select the number of shells S originally has.,195,210,126,378,b,Moderate,Number System
+59,"In a two digit number, the digit in the units place is 1 less than twice the tens digit. If the units and tens digits are interchanged, the difference between the new and the original number becomes 20 less than the original number. Find the original number.",59,23,35,47,d,Moderate,Number System
+60,"If A = 7! + 8! + 9! + 10! + 11!, which of the following is a factor of A?",1001,897,1771,2261,d,Moderate,Number System
+61,"Let d1,d2,….dk be all the factors of a positive integer n, in ascending order including 1 and n. Suppose d1+d2+dk=72 . Then the value of 1d1+1d2+….+1dk is:",n272,n72,72n,36n,c,Difficult,Number System
+62,"n is the smallest positive integer such that 2n is a perfect square, 3n is a perfect cube and 5n is a perfect fifth power. If n is represented in its factorized form as pa×qb×rc× ….., where p, q, r, ….. are all distinct prime numbers, then find the minimum sum a+b+c+…..",31,37,54,59,d,Difficult,Number System
+63,The sum of the last 10 digits of the expression,12×22×32×44×55+16×27×38×49×510+111×212×313×414×515 + …196×297×398×499×5100,12,14,16,18,d,Difficult,Number System
+64,"If R=3065 - 29653064 + 2964, then",0<R≤0.1,0.1<R≤0.5,0.5<R≤1.0,R>1,c,Difficult,Number System
+65,"For any natural numbers m,n, and k, such that k divides both m+2n and 3m+4n,k must be a common divisor of",2m and 3n,m and 2n,2m and n,m and n,b,Difficult,Number System
+66,Let ‘n’ be the least positive integer such that 168 is a factor of (1134)n. If ‘m’ is the least positive integer such that (1134)n. is a factor of (168)m the value of (m + n) =,5,10,15,20,c,Difficult,Number System
+67,"If a three digit number ‘abc’ has 3 factors, how many factors does the 6-digit number ‘abcabc’ have?",16 factors,24 factors,16 or 24 factor,20 factors,c,Difficult,Number System
+68,"Let Sm denote the sum of the squares of the first m natural numbers. For how many values of m < 100, is Sm a multiple of 4?",50,25,36,24,d,Difficult,Number System
+69,How many integer values of x and y satisfy the expression where and ?,284,285,286,None of these,b,Difficult,Number System
+70,"N = 7777………………7777, where the digit 7 re peats itself 603 times. What is the remainder left when N is divided by 1144?",700,728,777,780,c,Difficult,Number System
+71,Find the remainder when (17)(9!) + 2 (18!) is divided by (9!)17408.,17.9!,14.5!,15.6!,18.1!,a,Difficult,Number System
+72,What is the maximum number of elements that one can pick from the set of natural numbers from 1 to 20 such that the product of no two of them results in a perfect square or perfect cube?,10,11,12,14,d,Difficult,Number System
+73,"abcdefghij is a ten digit number with distinct digits such that a > b > c, d > e > f, g > h > i > j . a, b, c are consecutive even digits and g, h, i, j are consecutive odd digits. If d + e+ f =9 , then what is the value of a × b × c × dh (where [] denotes greatest integer function)?",42,0,54,66,c,Difficult,Number System
+74,"N= abc is a 3-digit number, the sum of whose digits is 17 th of the product of its digits. Then how many possible sets of (a, b, c) are possible?",0,1,2,3,c,Difficult,Number System
+75, then what will be the number of consecutive zeroes at the end of ‘ x ’?,124,167,194,None of these,c,Difficult,Number System
+76,"In the famous Bel Air Apartments in Ranchi, there are three watchmen meant to protect the precious fruits in the campus. However, one day a thief got in without being noticed and stole some precious mangoes. On the way out however, he was confronted by the three watchmen, the first two of whom asked him to part with 13rd of the fruits and one more. The last asked him to part with 15th of the mangoes and 4 more. As a result he had no mangoes left. What was the number of mangoes he had stolen?",12,13,15,None of these,c,Difficult,Number System
+77,"A boy took a seven digit number ending in 9 and raised it to an even power greater than 2000. He then took the number 17 and raised it to a power which leaves the remainder 1 when divided by 4. If he now multiplies, both the numbers, what will be the unit's digit of the number he so obtains?",7,9,3,Cannot be determined,a,Difficult,Number System
+78,"Two friends were discussing their marks in an examination. While doing so they realised that both the numbers had the same prime factors, although Raveesh got a score which had two more factors than Harish. If their marks are represented by one of the options as given below, which of the following options would correctly represent the number of marks they got?","30,60","20,80","40,80","20,60",c,Difficult,Number System
+79,A function Fn is defined as Fn=11n+13n. What is the remainder when F105 is divided by 144.,72,108,96,120,a,Difficult,Number System
+80,Which of the following is true about the number 1752-1009?,It is divisible by 8 but not by 9.,It is divisible by 9 but not by 8.,It is divisible by both 8 and 9.,It is neither divisible by 8 nor by 9.,c,Difficult,Number System

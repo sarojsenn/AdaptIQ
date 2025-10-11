@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        .result { margin: 10px 0; padding: 10px; background: #f5f5f5; border-radius: 3px; }
+        .error { background-color: #ffebee; color: #c62828; }
+        .success { background-color: #e8f5e8; color: #2e7d32; }
+        button { padding: 10px 20px; margin: 10px 0; cursor: pointer; }
+        input { padding: 8px; margin: 5px; width: 200px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 AdaptIQ API Test</h1>
+    
+    <div class="test-section">
+        <h2>📝 Registration Test</h2>
+        <div>
+            <input type="text" id="firstName" placeholder="First Name" value="John">
+            <input type="text" id="lastName" placeholder="Last Name" value="Doe">
+        </div>
+        <div>
+            <input type="email" id="email" placeholder="Email" value="john.doe@example.com">
+            <input type="password" id="password" placeholder="Password" value="testpass123">
+        </div>
+        <button onclick="testRegistration()">Test Registration</button>
+        <div id="regResult" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔐 OTP Verification Test</h2>
+        <div>
+            <input type="text" id="userId" placeholder="User ID (from registration)">
+            <input type="text" id="otp" placeholder="OTP Code" value="123456">
+        </div>
+        <button onclick="testOTPVerification()">Test OTP Verification</button>
+        <div id="otpResult" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔄 Resend OTP Test</h2>
+        <div>
+            <input type="text" id="resendUserId" placeholder="User ID">
+        </div>
+        <button onclick="testResendOTP()">Test Resend OTP</button>
+        <div id="resendResult" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔑 Login Test</h2>
+        <div>
+            <input type="email" id="loginEmail" placeholder="Email" value="john.doe@example.com">
+            <input type="password" id="loginPassword" placeholder="Password" value="testpass123">
+        </div>
+        <button onclick="testLogin()">Test Login</button>
+        <div id="loginResult" class="result"></div>
+    </div>
+
+    <script>
+        // Helper function to display results
+        function displayResult(elementId, data, isError = false) {
+            const element = document.getElementById(elementId);
+            element.className = `result ${isError ? 'error' : 'success'}`;
+            element.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        }
+
+        // Test Registration
+        async function testRegistration() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            console.log('Testing registration with:', { firstName, lastName, email, password: '***' });
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ firstName, lastName, email, password }),
+                });
+
+                console.log('Registration response status:', response.status);
+                const data = await response.json();
+                console.log('Registration response data:', data);
+
+                if (data.success) {
+                    document.getElementById('userId').value = data.userId;
+                    document.getElementById('resendUserId').value = data.userId;
+                }
+
+                displayResult('regResult', data, !data.success);
+            } catch (error) {
+                console.error('Registration error:', error);
+                displayResult('regResult', { error: error.message }, true);
+            }
+        }
+
+        // Test OTP Verification
+        async function testOTPVerification() {
+            const userId = document.getElementById('userId').value;
+            const otp = document.getElementById('otp').value;
+
+            console.log('Testing OTP verification with:', { userId, otp });
+
+            try {
+                const response = await fetch('/api/verify-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userId, otp }),
+                });
+
+                const data = await response.json();
+                console.log('OTP verification response:', data);
+                displayResult('otpResult', data, !data.success);
+            } catch (error) {
+                console.error('OTP verification error:', error);
+                displayResult('otpResult', { error: error.message }, true);
+            }
+        }
+
+        // Test Resend OTP
+        async function testResendOTP() {
+            const userId = document.getElementById('resendUserId').value;
+
+            console.log('Testing resend OTP with:', { userId });
+
+            try {
+                const response = await fetch('/api/resend-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userId }),
+                });
+
+                const data = await response.json();
+                console.log('Resend OTP response:', data);
+                displayResult('resendResult', data, !data.success);
+            } catch (error) {
+                console.error('Resend OTP error:', error);
+                displayResult('resendResult', { error: error.message }, true);
+            }
+        }
+
+        // Test Login
+        async function testLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            console.log('Testing login with:', { email, password: '***' });
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+                console.log('Login response:', data);
+                displayResult('loginResult', data, !data.success);
+            } catch (error) {
+                console.error('Login error:', error);
+                displayResult('loginResult', { error: error.message }, true);
+            }
+        }
+
+        // Test server connection on page load
+        window.addEventListener('load', async function() {
+            try {
+                const response = await fetch('/api/profile');
+                console.log('Server connection test - Status:', response.status);
+                if (response.status === 401) {
+                    console.log('✅ Server is responding (401 expected for unauthorized)');
+                } else {
+                    console.log('Server response:', await response.json());
+                }
+            } catch (error) {
+                console.error('❌ Server connection failed:', error);
+                alert('Server is not responding. Please make sure the server is running on port 3000.');
+            }
+        });
+    </script>
+</body>
+</html>

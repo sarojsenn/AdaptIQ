@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - AdaptIQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0a0a0f',
+                        'purple-primary': '#8b5cf6',
+                        'purple-secondary': '#a855f7',
+                        'purple-light': '#c084fc',
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #1e1b4b 0%, #581c87 50%, #7c3aed 100%)',
+                        'gradient-card': 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #312e81 100%);
+            min-height: 100vh;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 px-6 py-4 glass-effect">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <img src="../assets/images/img_.png" alt="AdaptIQ Logo" class="w-10 h-10 rounded-full object-cover shadow-lg" />
+                <span class="logo-text">
+                    <span class="gradient-text text-4xl font-bold">Adapt</span><span class="text-white text-4xl font-bold">IQ</span>
+                </span>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="flex items-center space-x-4">
+                <button class="glass-effect px-6 py-2 rounded-full text-white bg-white bg-opacity-10 font-semibold">
+                    Dashboard
+                </button>
+                <a href="RealDatasetAssessment.html" class="px-6 py-2 rounded-full text-gray-300 hover:text-white hover:bg-white hover:bg-opacity-5 transition-all duration-300">
+                    Assessment
+                </a>
+            </div>
+
+            <!-- User Profile -->
+            <div class="relative">
+                <button onclick="toggleUserMenu()" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                    <!-- Avatar container with image and text fallback -->
+                    <div id="dashboardAvatar" class="w-10 h-10 rounded-full border-2 border-purple-light bg-purple-primary overflow-hidden relative">
+                        <img id="dashboardAvatarImage" class="w-full h-full object-cover hidden" alt="Profile Picture">
+                        <span id="studentInitial" class="w-full h-full flex items-center justify-center text-white text-xl font-bold">S</span>
+                    </div>
+                    <span id="studentNameNav" class="hidden md:block text-sm font-medium">Student</span>
+                    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 rounded-lg shadow-lg border border-white border-opacity-20 overflow-hidden" style="background:rgba(42,34,82,0.97);color:#fff;backdrop-filter:blur(8px);">
+                    <div class="p-3 border-b border-white border-opacity-10">
+                        <p class="text-sm font-medium text-white">Student Dashboard</p>
+                        <p class="text-xs text-gray-400">Manage your account</p>
+                    </div>
+                    <div class="py-2">
+                        <button onclick="viewProfile()" class="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-200 flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                            <span>View Profile</span>
+                        </button>
+                        <button onclick="viewSettings()" class="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-200 flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Settings</span>
+                        </button>
+                        <hr class="border-white border-opacity-20 my-2">
+                        <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-red-500 hover:bg-opacity-10 transition-colors duration-200 flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main class="pt-24 px-6 pb-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Welcome Section -->
+            <div class="mb-8">
+                <h1 id="welcomeMessage" class="text-3xl lg:text-4xl font-bold mb-2">Welcome back, Student! 👋</h1>
+                <p class="text-gray-300">Track your learning progress and performance insights</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="glass-effect p-6 rounded-2xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Current Ability</p>
+                            <p class="text-2xl font-bold gradient-text stat-current-ability">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-primary to-purple-secondary rounded-full flex items-center justify-center">
+                            📊
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect p-6 rounded-2xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Questions Attempted</p>
+                            <p class="text-2xl font-bold text-white stat-total-questions">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                            ❓
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect p-6 rounded-2xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Average Accuracy</p>
+                            <p class="text-2xl font-bold text-green-400 stat-accuracy">0%</p>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                            🎯
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect p-6 rounded-2xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400 text-sm">Assessments Taken</p>
+                            <p class="text-2xl font-bold text-white stat-assessments-taken">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center">
+                            📝
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                
+                <!-- Ability Progress Chart -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Ability Progress</h3>
+                    <div class="h-64">
+                        <canvas id="abilityChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Question Difficulty Distribution -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Question Attempted Difficulty Distribution</h3>
+                    <div class="h-64">
+                        <canvas id="difficultyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Assessment Performance -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Recent Assessment</h3>
+                    <div class="h-64">
+                        <canvas id="recentChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Accuracy Trend -->
+                <div class="glass-effect p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Accuracy Trend</h3>
+                    <div class="h-64">
+                        <canvas id="accuracyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="glass-effect p-6 rounded-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-white">Recent Activity</h3>
+                    <button onclick="refreshRecentActivity()" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="recentActivityContainer" class="space-y-4">
+                    <!-- Loading state -->
+                    <div class="flex items-center justify-center py-8">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-primary"></div>
+                        <span class="ml-3 text-gray-400">Loading recent activity...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        // Chart.js configurations
+        Chart.defaults.color = '#e5e5e5';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+        // Global chart variables
+        let abilityChart, difficultyChart, recentChart, accuracyChart;
+
+        // Initialize charts with empty data
+        function initializeCharts() {
+            // Ability Progress Chart
+            const abilityCtx = document.getElementById('abilityChart').getContext('2d');
+            abilityChart = new Chart(abilityCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Ability Score',
+                        data: [],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Difficulty Distribution Chart
+            const difficultyCtx = document.getElementById('difficultyChart').getContext('2d');
+            difficultyChart = new Chart(difficultyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Easy', 'Moderate', 'Hard', 'Very Hard'],
+                    datasets: [{
+                        data: [0, 0, 0, 0],
+                        backgroundColor: [
+                            '#10b981',
+                            '#3b82f6',
+                            '#f59e0b',
+                            '#ef4444'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Recent Assessment Chart
+            const recentCtx = document.getElementById('recentChart').getContext('2d');
+            recentChart = new Chart(recentCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Correct',
+                        data: [],
+                        backgroundColor: 'rgba(139, 92, 246, 0.8)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: {
+                                callback: function(value) {
+                                    return value === 1 ? 'Correct' : value === 0 ? 'Incorrect' : '';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Accuracy Trend Chart
+            const accuracyCtx = document.getElementById('accuracyChart').getContext('2d');
+            accuracyChart = new Chart(accuracyCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Accuracy %',
+                        data: [],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 0,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // User dropdown menu functions
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function viewProfile() {
+            toggleUserMenu();
+            window.location.href = 'Profile.html';
+        }
+
+        function viewSettings() {
+            toggleUserMenu();
+            window.location.href = 'Settings.html';
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('userDropdown');
+            const userButton = event.target.closest('button[onclick="toggleUserMenu()"]');
+            
+            if (!userButton && !dropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // Data fetching and updating functions
+        async function fetchDashboardData() {
+            try {
+                const token = localStorage.getItem('authToken');
+                if (!token) {
+                    console.error('No auth token found');
+                    return;
+                }
+
+                // Fetch stats
+                const statsResponse = await fetch('http://localhost:3000/api/dashboard/stats', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const statsData = await statsResponse.json();
+
+                // Fetch progress data
+                const progressResponse = await fetch('http://localhost:3000/api/dashboard/progress', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const progressData = await progressResponse.json();
+
+                // Fetch recent activity
+                const activityResponse = await fetch('http://localhost:3000/api/dashboard/recent-activity', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const activityData = await activityResponse.json();
+
+                if (statsData.success && progressData.success) {
+                    updateDashboardStats(statsData.stats);
+                    updateCharts(progressData.progress);
+                }
+
+                if (activityData.success) {
+                    updateRecentActivity(activityData.activities);
+                }
+            } catch (error) {
+                console.error('Error fetching dashboard data:', error);
+            }
+        }
+
+        // Function to refresh only recent activity
+        async function refreshRecentActivity() {
+            try {
+                const token = localStorage.getItem('authToken');
+                if (!token) return;
+
+                const container = document.getElementById('recentActivityContainer');
+                container.innerHTML = `
+                    <div class="flex items-center justify-center py-4">
+                        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-primary"></div>
+                        <span class="ml-3 text-gray-400">Refreshing...</span>
+                    </div>
+                `;
+
+                const response = await fetch('http://localhost:3000/api/dashboard/recent-activity', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    updateRecentActivity(data.activities);
+                }
+            } catch (error) {
+                console.error('Error refreshing recent activity:', error);
+            }
+        }
+
+        function updateDashboardStats(stats) {
+            // Update stat cards
+            const statElements = {
+                totalQuestions: document.querySelector('.stat-total-questions'),
+                correctAnswers: document.querySelector('.stat-correct-answers'),
+                accuracy: document.querySelector('.stat-accuracy'),
+                currentAbility: document.querySelector('.stat-current-ability'),
+                assessmentsTaken: document.querySelector('.stat-assessments-taken'),
+                averageScore: document.querySelector('.stat-average-score')
+            };
+
+            // Update each stat if element exists
+            if (statElements.totalQuestions) {
+                statElements.totalQuestions.textContent = stats.totalQuestions;
+            }
+            if (statElements.correctAnswers) {
+                statElements.correctAnswers.textContent = stats.correctAnswers;
+            }
+            if (statElements.accuracy) {
+                statElements.accuracy.textContent = stats.accuracy + '%';
+            }
+            if (statElements.currentAbility) {
+                statElements.currentAbility.textContent = stats.currentAbility;
+            }
+            if (statElements.assessmentsTaken) {
+                statElements.assessmentsTaken.textContent = stats.assessmentsTaken;
+            }
+            if (statElements.averageScore) {
+                statElements.averageScore.textContent = stats.averageScore + '%';
+            }
+        }
+
+        function updateCharts(progress) {
+            // Update ability progress chart
+            if (abilityChart && progress.abilityProgress.length > 0) {
+                const labels = progress.abilityProgress.map((_, index) => `Session ${index + 1}`);
+                abilityChart.data.labels = labels;
+                abilityChart.data.datasets[0].data = progress.abilityProgress;
+                abilityChart.update('none');
+            }
+
+            // Update difficulty distribution chart
+            if (difficultyChart) {
+                const distribution = progress.difficultyDistribution;
+                difficultyChart.data.datasets[0].data = [
+                    distribution.easy,
+                    distribution.moderate,
+                    distribution.hard,
+                    distribution.veryHard
+                ];
+                difficultyChart.update('none');
+            }
+
+            // Update recent performance chart
+            if (recentChart && progress.recentPerformance.length > 0) {
+                const labels = progress.recentPerformance.map((_, index) => `Q${index + 1}`);
+                const data = progress.recentPerformance.map(item => item.correct ? 1 : 0);
+                recentChart.data.labels = labels;
+                recentChart.data.datasets[0].data = data;
+                recentChart.update('none');
+            }
+
+            // Update accuracy trend chart
+            if (accuracyChart && progress.accuracyTrend.length > 0) {
+                const labels = progress.accuracyTrend.map((_, index) => `Period ${index + 1}`);
+                accuracyChart.data.labels = labels;
+                accuracyChart.data.datasets[0].data = progress.accuracyTrend;
+                accuracyChart.update('none');
+            }
+        }
+
+        function updateRecentActivity(activities) {
+            const container = document.getElementById('recentActivityContainer');
+            
+            if (!activities || activities.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-8 text-gray-400">
+                        <svg class="w-12 h-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                        </svg>
+                        <p class="text-sm">No recent activity</p>
+                        <p class="text-xs">Start taking assessments to see your progress here</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = activities.map(activity => {
+                const accuracyColor = activity.accuracy >= 80 ? 'text-green-400' : 
+                                    activity.accuracy >= 60 ? 'text-yellow-400' : 'text-red-400';
+                
+                return `
+                    <div class="flex items-center justify-between p-4 bg-white bg-opacity-5 rounded-lg hover:bg-opacity-10 transition-all duration-300">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-${activity.color} to-${activity.color} rounded-full flex items-center justify-center text-lg">
+                                ${activity.icon}
+                            </div>
+                            <div>
+                                <p class="font-medium text-white">${activity.subject}</p>
+                                <p class="text-sm text-gray-400">${activity.timeAgo}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-semibold ${accuracyColor}">${activity.accuracy}%</p>
+                            <p class="text-sm text-gray-400">${activity.totalQuestions} questions</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Auto-refresh dashboard data every 30 seconds
+        function startAutoRefresh() {
+            setInterval(fetchDashboardData, 30000); // 30 seconds
+        }
+
+        // Initialize dashboard on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            
+            // Check if we need to force refresh (coming from assessment)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('refresh') === 'true') {
+                console.log('Force refreshing dashboard data...');
+                // Clear the URL parameter
+                window.history.replaceState({}, document.title, window.location.pathname);
+                // Force immediate refresh with a small delay
+                setTimeout(() => {
+                    fetchDashboardData();
+                }, 500);
+            } else {
+                fetchDashboardData();
+            }
+            
+            startAutoRefresh();
+        });
+
+        // Public function to manually refresh data (can be called from assessment pages)
+        window.refreshDashboard = function() {
+            fetchDashboardData();
+        };
+
+
+        // Authentication and user data loading
+        window.addEventListener('load', async function() {
+            const token = localStorage.getItem('authToken');
+            const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+
+            if (!token) {
+                // User is not logged in, redirect to sign in
+                window.location.href = 'SignIn.html';
+                return;
+            }
+
+            try {
+                // Verify token and get user profile
+                const response = await fetch('http://localhost:3000/api/profile', {
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Update user name in the dashboard
+                    const userName = data.user.firstName || userData.firstName || 'Student';
+                    
+                    // Store the user name in localStorage for consistent access
+                    localStorage.setItem('studentName', userName);
+                    
+                    // Update all student info elements using our function
+                    updateStudentInfo();
+
+                    // Update stats with real data if available
+                    if (data.session) {
+                        const abilityElement = document.querySelector('.text-2xl.font-bold.gradient-text');
+                        if (abilityElement && data.session.ability !== undefined) {
+                            abilityElement.textContent = data.session.ability.toFixed(2);
+                        }
+
+                        const questionsElement = document.querySelectorAll('.text-2xl.font-bold.text-white')[0];
+                        if (questionsElement && data.session.questionsAnswered !== undefined) {
+                            questionsElement.textContent = data.session.questionsAnswered;
+                        }
+
+                        const accuracyPercent = data.session.questionsAnswered > 0 
+                            ? ((data.session.correctAnswers / data.session.questionsAnswered) * 100).toFixed(1)
+                            : '0.0';
+                        
+                        const accuracyElement = document.querySelector('.text-2xl.font-bold.text-green-400');
+                        if (accuracyElement) {
+                            accuracyElement.textContent = accuracyPercent + '%';
+                        }
+                    }
+                } else {
+                    // Token is invalid, redirect to sign in
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('userData');
+                    window.location.href = 'SignIn.html';
+                }
+            } catch (error) {
+                console.error('Profile fetch error:', error);
+                // Network error, but don't redirect - allow offline usage
+                const userName = userData?.firstName || 'Student';
+                
+                // Store the user name and update display
+                localStorage.setItem('studentName', userName);
+                updateStudentInfo();
+            }
+        });
+
+        // Logout functionality
+        async function logout() {
+            if (confirm('Are you sure you want to sign out?')) {
+                try {
+                    // Call server logout endpoint if token exists
+                    const token = localStorage.getItem('authToken');
+                    if (token) {
+                        await fetch('http://localhost:3000/api/logout', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                                'Content-Type': 'application/json'
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.log('Logout API call failed, proceeding with local logout');
+                } finally {
+                    // Clear all local storage and session data
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('userData');
+                    localStorage.removeItem('user');
+                    sessionStorage.clear();
+                    
+                    // Redirect to landing page
+                    window.location.href = 'LandingPage.html';
+                }
+            }
+        }
+
+        // Update student name and initial throughout the dashboard
+        function updateStudentInfo() {
+            // Try to get student name from different sources
+            let studentName = 'Student'; // Default name
+            let userData = null;
+            
+            try {
+                // First try to get from assessment localStorage
+                const storedStudentName = localStorage.getItem('studentName');
+                if (storedStudentName && storedStudentName.trim() !== '') {
+                    studentName = storedStudentName.trim();
+                }
+                // Fallback to userData
+                else {
+                    userData = JSON.parse(localStorage.getItem('userData')) || JSON.parse(sessionStorage.getItem('userData'));
+                    if (userData && userData.firstName && userData.firstName.length > 0) {
+                        studentName = userData.firstName;
+                    } else if (userData && userData.email && userData.email.length > 0) {
+                        studentName = userData.email.split('@')[0]; // Use email prefix
+                    }
+                }
+            } catch (e) {
+                console.log('Error getting student data:', e);
+            }
+
+            // Update avatar - check for profile image first
+            const profileImage = localStorage.getItem('profileImage');
+            const avatarImage = document.getElementById('dashboardAvatarImage');
+            const initialSpan = document.getElementById('studentInitial');
+            
+            if (profileImage && avatarImage && initialSpan) {
+                // Show profile image
+                avatarImage.src = profileImage;
+                avatarImage.classList.remove('hidden');
+                initialSpan.classList.add('hidden');
+            } else if (initialSpan) {
+                // Show initial letter
+                if (avatarImage) {
+                    avatarImage.classList.add('hidden');
+                }
+                initialSpan.classList.remove('hidden');
+                
+                // Get first name for initial if available
+                let firstName = studentName;
+                if (userData && userData.firstName) {
+                    firstName = userData.firstName;
+                } else {
+                    // Try to extract first name from full name
+                    firstName = studentName.split(' ')[0];
+                }
+                
+                const initial = firstName.charAt(0).toUpperCase();
+                initialSpan.textContent = initial;
+            }
+
+            // Update student name in navigation
+            const studentNameNav = document.getElementById('studentNameNav');
+            if (studentNameNav) {
+                // Capitalize first letter and limit length for nav
+                const displayName = studentName.charAt(0).toUpperCase() + studentName.slice(1);
+                const shortName = displayName.length > 12 ? displayName.substring(0, 12) + '...' : displayName;
+                studentNameNav.textContent = shortName;
+            }
+
+            // Update welcome message
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            if (welcomeMessage) {
+                const displayName = studentName.charAt(0).toUpperCase() + studentName.slice(1);
+                welcomeMessage.textContent = `Welcome back, ${displayName}! 👋`;
+            }
+        }
+
+        // Test function to set a sample student name (for testing purposes)
+        function setTestStudentName(name) {
+            localStorage.setItem('studentName', name);
+            updateStudentInfo();
+            console.log(`Student name set to: ${name}`);
+        }
+
+        // Listen for profile updates from other pages
+        function setupProfileUpdateListeners() {
+            // Listen for custom profile update events (same tab)
+            window.addEventListener('profileUpdated', function(event) {
+                console.log('Profile updated event received:', event.detail);
+                updateStudentInfo();
+            });
+
+            // Listen for storage events (cross-tab communication)
+            window.addEventListener('storage', function(event) {
+                if (event.key === 'profileImage' || event.key === 'studentName' || event.key === 'userData' || event.key === 'profileUpdated') {
+                    console.log('Profile data changed in another tab');
+                    updateStudentInfo();
+                }
+            });
+        }
+
+        // Update student info when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            updateStudentInfo();
+            setupProfileUpdateListeners();
+            
+            // Also update periodically in case student name is set after page load
+            setInterval(updateStudentInfo, 3000); // Check every 3 seconds
+        });
+
+
+    </script>
+</body>
+</html>
