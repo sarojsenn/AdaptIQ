@@ -1,0 +1,5218 @@
+{
+  "block_info": {
+    "block_number": "BLOCK_2",
+    "subject": "Numbers",
+    "topic": "Number System and Progressions",
+    "total_questions": 186
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the last digit of the product $81 \times 82 \times 83 \times \\dots \\times 89$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "0"
+        },
+        {
+          "option": "B",
+          "text": "9"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "2"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q002",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A two-digit number has a sum of digits equal to 10. When the digits are reversed, the new number is 54 less than the original number. What is the original number?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "82"
+        },
+        {
+          "option": "B",
+          "text": "19"
+        },
+        {
+          "option": "C",
+          "text": "37"
+        },
+        {
+          "option": "D",
+          "text": "46"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q003",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A two-digit number multiplied by the sum of its digits equals 405. The number with digits reversed multiplied by the sum of its digits equals 486. Find the number.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "81"
+        },
+        {
+          "option": "B",
+          "text": "45"
+        },
+        {
+          "option": "C",
+          "text": "36"
+        },
+        {
+          "option": "D",
+          "text": "54"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q004",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The sum of two numbers is 15. Their geometric mean is 20% lower than their arithmetic mean. Find the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "11, 4"
+        },
+        {
+          "option": "B",
+          "text": "12, 3"
+        },
+        {
+          "option": "C",
+          "text": "13, 2"
+        },
+        {
+          "option": "D",
+          "text": "10, 5"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q005",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The difference between two numbers is 48. The difference between their Arithmetic Mean (AM) and Geometric Mean (GM) is $2 + \\frac{1}{2} \\times \\frac{1}{3} \\times 96$. Find the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "49, 1"
+        },
+        {
+          "option": "B",
+          "text": "12, 60"
+        },
+        {
+          "option": "C",
+          "text": "50, 2"
+        },
+        {
+          "option": "D",
+          "text": "36, 84"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q006",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the smallest digit A such that the number A381 is divisible by 11.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "5"
+        },
+        {
+          "option": "B",
+          "text": "6"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "9"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q007",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the smallest digit A such that the number 381A is divisible by 9.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "5"
+        },
+        {
+          "option": "B",
+          "text": "3"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "6"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q008",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "What is the remainder when $(9^6 + 1)$ is divided by 8?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "0"
+        },
+        {
+          "option": "B",
+          "text": "3"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "2"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q009",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "What is the ratio of the LCM to the HCF of 5, 15, and 20?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "8:1"
+        },
+        {
+          "option": "B",
+          "text": "14:3"
+        },
+        {
+          "option": "C",
+          "text": "12:2"
+        },
+        {
+          "option": "D",
+          "text": "12:1"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q010",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the LCM of $5/2$, $8/9$, and $11/14$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "280"
+        },
+        {
+          "option": "B",
+          "text": "360"
+        },
+        {
+          "option": "C",
+          "text": "420"
+        },
+        {
+          "option": "D",
+          "text": "440"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q011",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "What is the unit digit of $3^{99}$?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "1"
+        },
+        {
+          "option": "B",
+          "text": "3"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "9"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q012",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the number of positive divisors of 15.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "3"
+        },
+        {
+          "option": "B",
+          "text": "2"
+        },
+        {
+          "option": "C",
+          "text": "4"
+        },
+        {
+          "option": "D",
+          "text": "5"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q013",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "If $15B$ is a three-digit number divisible by 6, what is true about the digit B?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "B must be even"
+        },
+        {
+          "option": "B",
+          "text": "B must be a multiple of 3"
+        },
+        {
+          "option": "C",
+          "text": "B must be 0 or 6"
+        },
+        {
+          "option": "D",
+          "text": "Both A and B"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q014",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Let $P = 2^3 \\cdot 3^2 \\cdot 5$ and $Q = 2^5 \\cdot 3 \\cdot 5^4$. Find $\\text{GCD}(P, Q)$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$2 \\cdot 3 \\cdot 5$"
+        },
+        {
+          "option": "B",
+          "text": "$2^2 \\cdot 3^2$"
+        },
+        {
+          "option": "C",
+          "text": "$2^3 \\cdot 3 \\cdot 5$"
+        },
+        {
+          "option": "D",
+          "text": "$2^3 \\cdot 3^2 \\cdot 5^4$"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q015",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the unit digit of $256^{21} + 36^{32} + 73^{43}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "4"
+        },
+        {
+          "option": "B",
+          "text": "9"
+        },
+        {
+          "option": "C",
+          "text": "6"
+        },
+        {
+          "option": "D",
+          "text": "5"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q016",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the unit digit of $55^{51} + 73^{31} + 22^{22}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "4"
+        },
+        {
+          "option": "B",
+          "text": "0"
+        },
+        {
+          "option": "C",
+          "text": "6"
+        },
+        {
+          "option": "D",
+          "text": "5"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q017",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the unit digit of the sum $\\sum_{n=1}^{10} n^n$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "1"
+        },
+        {
+          "option": "B",
+          "text": "9"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "0"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q018",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the unit digit of the product $\\prod_{n=1}^{10} n^n$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "4"
+        },
+        {
+          "option": "B",
+          "text": "3"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "0"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q019",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the number of zeros at the end of 1090!",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "270"
+        },
+        {
+          "option": "B",
+          "text": "268"
+        },
+        {
+          "option": "C",
+          "text": "269"
+        },
+        {
+          "option": "D",
+          "text": "271"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q020",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the maximum value of $n$ such that $146!$ is divisible by $5^n$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "34"
+        },
+        {
+          "option": "B",
+          "text": "35"
+        },
+        {
+          "option": "C",
+          "text": "36"
+        },
+        {
+          "option": "D",
+          "text": "37"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q021",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the number of positive divisors of 1420.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "14"
+        },
+        {
+          "option": "B",
+          "text": "15"
+        },
+        {
+          "option": "C",
+          "text": "13"
+        },
+        {
+          "option": "D",
+          "text": "12"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q022",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the HCF and LCM of $(x^2–5x+6)$ and $(x^2–7x+10)$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "HCF: $(x-2)$, LCM: $(x-2)(x-3)(x-5)$"
+        },
+        {
+          "option": "B",
+          "text": "HCF: $(x-3)$, LCM: $(x-2)(x-3)(x-5)$"
+        },
+        {
+          "option": "C",
+          "text": "HCF: $(x-5)$, LCM: $(x-2)(x-3)(x-5)$"
+        },
+        {
+          "option": "D",
+          "text": "HCF: $(x-2)$, LCM: $(x-3)(x-5)$"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Very Easy"
+    },
+    {
+      "id": "Q023",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Which of the following numbers is divisible by 24?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "43,215,604"
+        },
+        {
+          "option": "B",
+          "text": "25,612,840"
+        },
+        {
+          "option": "C",
+          "text": "13,624,800"
+        },
+        {
+          "option": "D",
+          "text": "25,612,848"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q024",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A number is divisible by 88 if it is divisible by which of the following pair of co-prime numbers?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "22 and 4"
+        },
+        {
+          "option": "B",
+          "text": "11 and 8"
+        },
+        {
+          "option": "C",
+          "text": "44 and 2"
+        },
+        {
+          "option": "D",
+          "text": "None of these"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q025",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the number of positive divisors of 10800.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "57"
+        },
+        {
+          "option": "B",
+          "text": "60"
+        },
+        {
+          "option": "C",
+          "text": "72"
+        },
+        {
+          "option": "D",
+          "text": "64"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q026",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The product of three consecutive natural numbers, where the first number is even, is always divisible by which of the following?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "12"
+        },
+        {
+          "option": "B",
+          "text": "24"
+        },
+        {
+          "option": "C",
+          "text": "6"
+        },
+        {
+          "option": "D",
+          "text": "All of the above"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q027",
+      "block": "Numbers",
+      "chapter_subtopic": "Progressions",
+      "question_type": "MCQ",
+      "question_text": "Find the $n^{th}$ term of the Arithmetic Progression (AP) whose first term is 2 and common difference is 3.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$3n+1$"
+        },
+        {
+          "option": "B",
+          "text": "$3n-1$"
+        },
+        {
+          "option": "C",
+          "text": "$2n+3$"
+        },
+        {
+          "option": "D",
+          "text": "$2n-1$"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q028",
+      "block": "Numbers",
+      "chapter_subtopic": "Progressions",
+      "question_type": "MCQ",
+      "question_text": "For the AP from Q027 (first term is 2 and common difference is 3), what is the sum of the first $n$ terms?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$\\frac{n(3n+1)}{2}$"
+        },
+        {
+          "option": "B",
+          "text": "$\\frac{n(3n-1)}{2}$"
+        },
+        {
+          "option": "C",
+          "text": "$\\frac{n(2n+3)}{2}$"
+        },
+        {
+          "option": "D",
+          "text": "$\\frac{n(2n-1)}{2}$"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q029",
+      "block": "Numbers",
+      "chapter_subtopic": "Progressions",
+      "question_type": "MCQ",
+      "question_text": "For the AP from Q027 (first term is 2 and common difference is 3), what is the value of the $10^{th}$ term?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "28"
+        },
+        {
+          "option": "B",
+          "text": "29"
+        },
+        {
+          "option": "C",
+          "text": "31"
+        },
+        {
+          "option": "D",
+          "text": "32"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q030",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "In a classic 'birds on branches' problem, the number of birds on the first branch is 3. The total number of birds is a number that is represented in the options. Find the total number of birds.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "8"
+        },
+        {
+          "option": "B",
+          "text": "10"
+        },
+        {
+          "option": "C",
+          "text": "12"
+        },
+        {
+          "option": "D",
+          "text": "6"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q031",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A number greater than 1000 is not divisible by 3. What is the remainder when the square of this number is divided by 3?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "1"
+        },
+        {
+          "option": "B",
+          "text": "2"
+        },
+        {
+          "option": "C",
+          "text": "0"
+        },
+        {
+          "option": "D",
+          "text": "1 or 2"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q032",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the value of $\\frac{45}{3}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "3"
+        },
+        {
+          "option": "B",
+          "text": "15"
+        },
+        {
+          "option": "C",
+          "text": "21"
+        },
+        {
+          "option": "D",
+          "text": "12"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q033",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "If $2 < x < 4$ and $1 < y < 3$, find the ratio of the upper bound of $(x+y)$ to the lower bound of $(x–y)$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "6"
+        },
+        {
+          "option": "B",
+          "text": "7"
+        },
+        {
+          "option": "C",
+          "text": "8"
+        },
+        {
+          "option": "D",
+          "text": "None of these"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q034",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A two-digit number: the sum of the squares of its digits is 13. When 9 is subtracted from the number, the digits are reversed. Find the number.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "12"
+        },
+        {
+          "option": "B",
+          "text": "32"
+        },
+        {
+          "option": "C",
+          "text": "42"
+        },
+        {
+          "option": "D",
+          "text": "52"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q035",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The product of a two-digit number and its reverse is 2430. Find the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "54 and 45"
+        },
+        {
+          "option": "B",
+          "text": "56 and 65"
+        },
+        {
+          "option": "C",
+          "text": "53 and 35"
+        },
+        {
+          "option": "D",
+          "text": "85 and 58"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q036",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Two numbers have a difference of 66 and their LCM is 360. Find the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "120 and 54"
+        },
+        {
+          "option": "B",
+          "text": "90 and 24"
+        },
+        {
+          "option": "C",
+          "text": "180 and 114"
+        },
+        {
+          "option": "D",
+          "text": "130 and 64"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q037",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Two numbers have a sum of 85 and their LCM is 102. Find the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "30 and 55"
+        },
+        {
+          "option": "B",
+          "text": "17 and 68"
+        },
+        {
+          "option": "C",
+          "text": "35 and 55"
+        },
+        {
+          "option": "D",
+          "text": "51 and 34"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q038",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Compare which is greater: $5^{112}$ or $2^{222}$ AND $(0.4)^4$ or $(0.8)^3$. (Choose the option that correctly identifies the greater number in both pairs).",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$5^{112}$ and $(0.8)^3$"
+        },
+        {
+          "option": "B",
+          "text": "$2^{222}$ and $(0.8)^3$"
+        },
+        {
+          "option": "C",
+          "text": "$5^{112}$ and $(0.4)^4$"
+        },
+        {
+          "option": "D",
+          "text": "$2^{222}$ and $(0.4)^4$"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q039",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Can a fraction with a numerator less than its denominator be equal to a fraction with a numerator greater than its denominator (for positive numbers)?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Yes"
+        },
+        {
+          "option": "B",
+          "text": "No"
+        },
+        {
+          "option": "C",
+          "text": "Depends on the values"
+        },
+        {
+          "option": "D",
+          "text": "Only if both numerators and denominators are integers"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Easy"
+    },
+    {
+      "id": "Q040",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The Arithmetic Mean (AM) of two numbers is 24 less than the larger number. Their Geometric Mean (GM) exceeds the smaller number by 12. Find the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "6 and 54"
+        },
+        {
+          "option": "B",
+          "text": "8 and 56"
+        },
+        {
+          "option": "C",
+          "text": "12 and 60"
+        },
+        {
+          "option": "D",
+          "text": "7 and 55"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q041",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the number of integers between 200 and 300 (exclusive) that are not divisible by 2, 3, or 5.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "27"
+        },
+        {
+          "option": "B",
+          "text": "26"
+        },
+        {
+          "option": "C",
+          "text": "25"
+        },
+        {
+          "option": "D",
+          "text": "28"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q042",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "For the expression $(15n^3 + 6n^2 + 5n + x)/n$ to not be an integer, which of the following must be true?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$n$ is positive"
+        },
+        {
+          "option": "B",
+          "text": "$x$ is divisible by $n$"
+        },
+        {
+          "option": "C",
+          "text": "$x$ is not divisible by $n$"
+        },
+        {
+          "option": "D",
+          "text": "$n$ is not a perfect square"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q043",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the unit digit of $(36234 \\times 33512 \\times 39180) - (5429 \\times 25123 \\times 31512)$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "8"
+        },
+        {
+          "option": "B",
+          "text": "0"
+        },
+        {
+          "option": "C",
+          "text": "6"
+        },
+        {
+          "option": "D",
+          "text": "5"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q044",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the value of the digit $x$ such that the difference between $(1025-7)$ and $(1024+x)$ is divisible by 3.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "3"
+        },
+        {
+          "option": "B",
+          "text": "2"
+        },
+        {
+          "option": "C",
+          "text": "4"
+        },
+        {
+          "option": "D",
+          "text": "6"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q045",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Solve for digit $x$: $\\mathbf{x} \\mathbf{x} \\mathbf{x} = 333$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "1"
+        },
+        {
+          "option": "B",
+          "text": "3"
+        },
+        {
+          "option": "C",
+          "text": "6"
+        },
+        {
+          "option": "D",
+          "text": "9"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q046",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A number $N$ multiplied by 22, plus the number itself, is equal to half of the square of the number. Find the number.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "45"
+        },
+        {
+          "option": "B",
+          "text": "46"
+        },
+        {
+          "option": "C",
+          "text": "47"
+        },
+        {
+          "option": "D",
+          "text": "Insufficient information"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q047",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the units digit of $\\frac{12^{55}}{3^{11}} + \\frac{8^{48}}{16^{18}}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "4"
+        },
+        {
+          "option": "B",
+          "text": "6"
+        },
+        {
+          "option": "C",
+          "text": "8"
+        },
+        {
+          "option": "D",
+          "text": "0"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q048",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the sum of the series $1 + 2 + 2^2 + \\dots + 2^{26}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$2^{24} - 1$"
+        },
+        {
+          "option": "B",
+          "text": "$2^{25} - 1$"
+        },
+        {
+          "option": "C",
+          "text": "$2^{27} - 1$"
+        },
+        {
+          "option": "D",
+          "text": "$2^{28} - 1$"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q049",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "If $\\frac{\\mathbf{x}\\mathbf{y}}{\\mathbf{a}\\mathbf{b}} = 0.\\overline{\\mathbf{x}\\mathbf{y}}$, where $\\mathbf{x}\\mathbf{y}$ and $\\mathbf{a}\\mathbf{b}$ are two-digit numbers, find $\\mathbf{a}\\mathbf{b}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "11"
+        },
+        {
+          "option": "B",
+          "text": "33"
+        },
+        {
+          "option": "C",
+          "text": "99"
+        },
+        {
+          "option": "D",
+          "text": "66"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q050",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A two-digit number $\\mathbf{x}\\mathbf{y}$ multiplied by a two-digit number $\\mathbf{a}\\mathbf{b}$ equals a three-digit number $\\mathbf{p}\\mathbf{q}\\mathbf{r}$. If $r$ is twice $y$, $q$ is twice $(x+y)$, and $p$ is twice $x$, where $x,y < 5$ and $q \\ne 0$, find $\\mathbf{a}\\mathbf{b}$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "11"
+        },
+        {
+          "option": "B",
+          "text": "13"
+        },
+        {
+          "option": "C",
+          "text": "31"
+        },
+        {
+          "option": "D",
+          "text": "22"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q051",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "If $\\lfloor x \\rfloor^3 + \\{x\\}^2 = -7.91$, where $\\lfloor x \\rfloor$ is the greatest integer less than or equal to $x$ and $\\{x\\}$ is the fractional part, find $x$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$-2.03$"
+        },
+        {
+          "option": "B",
+          "text": "$-1.97$"
+        },
+        {
+          "option": "C",
+          "text": "$-2.97$"
+        },
+        {
+          "option": "D",
+          "text": "$-1.7$"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q052",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The number $35^{22} - 2^{22}$ is divisible by which of the following?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "31"
+        },
+        {
+          "option": "B",
+          "text": "13"
+        },
+        {
+          "option": "C",
+          "text": "27"
+        },
+        {
+          "option": "D",
+          "text": "33"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q053",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The two-digit numbers $\\mathbf{A}\\mathbf{B}$ and $\\mathbf{X}\\mathbf{Y}$ sum up to the three-digit number $1\\mathbf{X}\\mathbf{P}$, where $A \\ne 0$ and all digits are distinct. Find the value of $A$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "6"
+        },
+        {
+          "option": "B",
+          "text": "7"
+        },
+        {
+          "option": "C",
+          "text": "9"
+        },
+        {
+          "option": "D",
+          "text": "8"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q054",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The sum of two numbers is 20. Their Geometric Mean (GM) is 40% lower than their Arithmetic Mean (AM). Find the ratio of the numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "4:1"
+        },
+        {
+          "option": "B",
+          "text": "9:1"
+        },
+        {
+          "option": "C",
+          "text": "1:1"
+        },
+        {
+          "option": "D",
+          "text": "17:3"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q055",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the highest power of 990 that divides 1090!",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "101"
+        },
+        {
+          "option": "B",
+          "text": "100"
+        },
+        {
+          "option": "C",
+          "text": "108"
+        },
+        {
+          "option": "D",
+          "text": "109"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q056",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the maximum value of $n$ such that $146!$ is divisible by $6^n$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "74"
+        },
+        {
+          "option": "B",
+          "text": "70"
+        },
+        {
+          "option": "C",
+          "text": "76"
+        },
+        {
+          "option": "D",
+          "text": "75"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q057",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the last two digits of $35 \\times 34 \\times 33 \\times 20$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "00"
+        },
+        {
+          "option": "B",
+          "text": "40"
+        },
+        {
+          "option": "C",
+          "text": "30"
+        },
+        {
+          "option": "D",
+          "text": "10"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q058",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The expression $333^{555} + 555^{333}$ is divisible by which of the following?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "2"
+        },
+        {
+          "option": "B",
+          "text": "3"
+        },
+        {
+          "option": "C",
+          "text": "37"
+        },
+        {
+          "option": "D",
+          "text": "All of the above"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q059",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "If $\\lfloor x \\rfloor^2 + \\{x\\}^1 = 25.16$, where $\\lfloor x \\rfloor$ is the greatest integer less than or equal to $x$ and $\\{x\\}$ is the fractional part, find $x$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "5.16"
+        },
+        {
+          "option": "B",
+          "text": "$-4.84$"
+        },
+        {
+          "option": "C",
+          "text": "Both A and B"
+        },
+        {
+          "option": "D",
+          "text": "4.84"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q060",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A two-digit number: the square of the tens digit plus the product of the digits is 52. The square of the units digit plus the product of the digits is 117. Find the number.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "18"
+        },
+        {
+          "option": "B",
+          "text": "39"
+        },
+        {
+          "option": "C",
+          "text": "49"
+        },
+        {
+          "option": "D",
+          "text": "28"
+        }
+      ],
+      "correct_answer": "C",
+      "difficulty_level": "Moderate"
+    },
+    {
+      "id": "Q061",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A two-digit number is 11 less than the sum of the squares of its digits, and 5 greater than double the product of its digits. Find all such numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "15, 95"
+        },
+        {
+          "option": "B",
+          "text": "95"
+        },
+        {
+          "option": "C",
+          "text": "Both 15 and 95"
+        },
+        {
+          "option": "D",
+          "text": "15"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q062",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The square of the sum of two successive natural numbers exceeds the sum of their squares by 112. Find the smaller of the two numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "6"
+        },
+        {
+          "option": "B",
+          "text": "7"
+        },
+        {
+          "option": "C",
+          "text": "8"
+        },
+        {
+          "option": "D",
+          "text": "9"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q063",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The numerator of a fraction is 2. The fractions formed by increasing the denominator by 3 and decreasing the denominator by 5 sum up to $2/3$. Find the denominator.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "7"
+        },
+        {
+          "option": "B",
+          "text": "8"
+        },
+        {
+          "option": "C",
+          "text": "12"
+        },
+        {
+          "option": "D",
+          "text": "9"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q064",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the last two digits of $15 \\times 37 \\times 63 \\times 51 \\times 97 \\times 17$.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "35"
+        },
+        {
+          "option": "B",
+          "text": "45"
+        },
+        {
+          "option": "C",
+          "text": "55"
+        },
+        {
+          "option": "D",
+          "text": "85"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q065",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "A fraction has its denominator $d$ equal to $\\text{numerator}^2 - 1$. The fraction is greater than $1/4$ and less than $1/3$. Find the fraction.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "$3/8$"
+        },
+        {
+          "option": "B",
+          "text": "$4/15$"
+        },
+        {
+          "option": "C",
+          "text": "$5/24$"
+        },
+        {
+          "option": "D",
+          "text": "$6/35$"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q066",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the sum of all 3-digit numbers which leave a remainder of 4 when divided by 5.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "98,270"
+        },
+        {
+          "option": "B",
+          "text": "99,270"
+        },
+        {
+          "option": "C",
+          "text": "1,02,090"
+        },
+        {
+          "option": "D",
+          "text": "90,270"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q067",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the sum of all 2-digit numbers which leave a remainder of 3 when divided by 7.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "686"
+        },
+        {
+          "option": "B",
+          "text": "676"
+        },
+        {
+          "option": "C",
+          "text": "666"
+        },
+        {
+          "option": "D",
+          "text": "656"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q068",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Find the sum of all odd 3-digit numbers divisible by 5.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "50,500"
+        },
+        {
+          "option": "B",
+          "text": "50,250"
+        },
+        {
+          "option": "C",
+          "text": "50,000"
+        },
+        {
+          "option": "D",
+          "text": "49,500"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q069",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "The product of a two-digit number and its reverse is 2430. Find the lower of the two numbers.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "54"
+        },
+        {
+          "option": "B",
+          "text": "52"
+        },
+        {
+          "option": "C",
+          "text": "63"
+        },
+        {
+          "option": "D",
+          "text": "45"
+        }
+      ],
+      "correct_answer": "D",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q070",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question - Original text was too corrupt to salvage. (Example: Find the value of $x$ such that $x^3+y^3+z^3 = 3xyz$ implies $x=y=z$).",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q071",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question. (Continues original structure from Q070).",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q072",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q073",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q074",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q075",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q076",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q077",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q078",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q079",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q080",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q081",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q082",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q083",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q084",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q085",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q086",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q087",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q088",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q089",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q090",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q091",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q092",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q093",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q094",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q095",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q096",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q097",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q098",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q099",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q100",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q101",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q102",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q103",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q104",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q105",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q106",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q107",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q108",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q109",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q110",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q111",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q112",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q113",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q114",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q115",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q116",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q117",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q118",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q119",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q120",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q121",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q122",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q123",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q124",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q125",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q126",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q127",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q128",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q129",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q130",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q131",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q132",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q133",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q134",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q135",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q136",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q137",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q138",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q139",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q140",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q141",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q142",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q143",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q144",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q145",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q146",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q147",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q148",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q149",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q150",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q151",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q152",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q153",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q154",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q155",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q156",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q157",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q158",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q159",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q160",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q161",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q162",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q163",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q164",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q165",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q166",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q167",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q168",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q169",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q170",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q171",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q172",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q173",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q174",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q175",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q176",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q177",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q178",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q179",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q180",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q181",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q182",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q183",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q184",
+      "block": "Numbers",
+      "chapter_subtopic": "Number System",
+      "question_type": "MCQ",
+      "question_text": "Placeholder Question.",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q185",
+      "block": "Numbers",
+      "chapter_subtopic": "Progressions",
+      "question_type": "MCQ",
+      "question_text": "AP: sum first n = $\\frac{1}{2}$ sum next n; ratio sum first 3n : sum first n?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "5"
+        },
+        {
+          "option": "B",
+          "text": "6"
+        },
+        {
+          "option": "C",
+          "text": "7"
+        },
+        {
+          "option": "D",
+          "text": "8"
+        }
+      ],
+      "correct_answer": "B",
+      "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q186",
+      "block": "Numbers",
+      "chapter_subtopic": "Progressions",
+      "question_type": "MCQ",
+      "question_text": "Cancer cell: 1 cell breaks into 2 every hour; after 9h?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "Option A"
+        },
+        {
+          "option": "B",
+          "text": "Option B"
+        },
+        {
+          "option": "C",
+          "text": "Option C"
+        },
+        {
+          "option": "D",
+          "text": "Option D"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Difficult"
+    }
+  ]
+}
