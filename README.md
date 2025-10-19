@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/sarojsenn/AdaptIQ)](https://github.com/sarojsenn/AdaptIQ/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**Hack-A-Thon: AI For Education - AI In Education**  
+**Hack-A-Thon: AI For Education**  
 Organized by Unstop
 
 **Team:** Bruteforce Army 💪
