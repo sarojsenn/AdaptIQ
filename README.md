@@ -11,8 +11,8 @@ Organized by Unstop
 
 **Contributors:** 
 - [Saroj Sen](https://github.com/sarojsenn) - Team Lead & ML Engineer
-- Tiyasa Saha - Frontend Developer & UX Designer  
-- Soumava Das - Backend Developer & System Architect
+- [Tiyasa Saha](https://github.com/tiyasa-2005) - Frontend Developer & UX Designer  
+- [Soumava Das](https://github.com/Cyberdude441) - Backend Developer & System Architect
 
 ---
 
