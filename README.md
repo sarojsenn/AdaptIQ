@@ -10,9 +10,9 @@ Organized by Unstop
 **Team:** Bruteforce Army 💪
 
 **Contributors:** 
-- [Saroj Sen](https://github.com/sarojsenn) - Team Lead & ML Engineer
+- [Saroj Sen](https://github.com/sarojsenn) - Team Lead & ML Engineer & Backend Developer
 - [Tiyasa Saha](https://github.com/tiyasa-2005) - Frontend Developer & UX Designer  
-- [Soumava Das](https://github.com/Cyberdude441) - Backend Developer & System Architect
+- [Soumava Das](https://github.com/Cyberdude441) - PPT design & Research
 
 ---
 
