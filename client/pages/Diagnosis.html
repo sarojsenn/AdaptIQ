@@ -124,9 +124,9 @@
         </div>
       </div>
       <div class="glass p-4 sm:p-6 rounded-xl sm:rounded-2xl">
-        <h2 class="text-base sm:text-lg font-bold mb-3">Performance by Difficulty</h2>
+        <h2 class="text-base sm:text-lg font-bold mb-3">Performance by Topics</h2>
         <div class="h-48 sm:h-auto">
-          <canvas id="difficultyChart" height="200"></canvas>
+          <canvas id="topicsChart" height="200"></canvas>
         </div>
       </div>
     </section>
@@ -527,11 +527,11 @@
           analysisProvider.className = 'text-xs bg-gray-600 px-2 py-1 rounded-full';
         }
 
-        // Update charts (remove topic chart, keep difficulty chart)
-        if (charts.difficultyChart) {
-          updateChart('difficultyChart', diffLabels, diffAcc, diffColors);
+        // Update charts: render Performance by Topics bar chart
+        if (charts.topicsChart) {
+          updateChart('topicsChart', topicLabels, topicAcc, topicColors);
         } else {
-          charts.difficultyChart = renderBarChart(document.getElementById('difficultyChart'), diffLabels, diffAcc, 'Accuracy %', diffColors);
+          charts.topicsChart = renderBarChart(document.getElementById('topicsChart'), topicLabels, topicAcc, 'Accuracy %', topicColors);
         }
 
         if (charts.strengthWeaknessChart) {

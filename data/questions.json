@@ -4485,6 +4485,34 @@
       ],
       "correct_answer": "C",
       "difficulty_level": "Difficult"
+    },
+    {
+      "id": "Q164",
+      "block": "Mathematics",
+      "chapter_subtopic": "Time and Distance",
+      "question_type": "Multiple Choice",
+      "question_text": "What is the time taken by Chandu to cover a distance of 360 km by a motorcycle moving at a speed of 10 m/s?",
+      "data_paragraph": "",
+      "options": [
+        {
+          "option": "A",
+          "text": "10 h"
+        },
+        {
+          "option": "B",
+          "text": "5 h"
+        },
+        {
+          "option": "C",
+          "text": "8 h"
+        },
+        {
+          "option": "D",
+          "text": "6 h"
+        }
+      ],
+      "correct_answer": "A",
+      "difficulty_level": "Very Easy"
     }
   ]
 }

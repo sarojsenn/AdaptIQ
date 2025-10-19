@@ -686,6 +686,78 @@
             }, 300);
         }
 
+        // TEST FUNCTION - Remove in production
+        function testWithKnownData() {
+            console.log('Setting test data for known student...');
+            localStorage.setItem('studentName', 'Dashboard Test');
+            localStorage.setItem('studentGrade', '12');
+            localStorage.setItem('profileId', '5cc66a92c8dce49b');
+            console.log('Test data set. Refreshing dashboard...');
+            fetchDashboardData();
+            fetchDiagnosisAndRender();
+        }
+
+        // Make test function available globally for debugging
+        window.testWithKnownData = testWithKnownData;
+
+        // Show onboarding message for new students
+        function showOnboardingMessage() {
+            console.log('Showing onboarding message for new student');
+            
+            // Update stats with zeros but indicate it's intentional
+            updateDashboardStats({
+                totalQuestions: 0,
+                correctAnswers: 0,
+                accuracy: 0,
+                currentAbility: 0,
+                assessmentsTaken: 0,
+                averageScore: 0
+            });
+            
+            // Show helpful message in diagnosis area
+            const notice = document.getElementById('diagnosisNotice');
+            if (notice) {
+                notice.classList.remove('hidden');
+                notice.innerHTML = `
+                    <div class="text-center py-12 px-6">
+                        <div class="text-blue-600 text-8xl mb-6">📊</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Welcome to Your Dashboard!</h3>
+                        <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+                            Complete your first assessment to unlock personalized insights, 
+                            progress tracking, and detailed performance analytics.
+                        </p>
+                        <a href="RealDatasetAssessment.html" 
+                           class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 
+                                  text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 
+                                  transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Start Your First Assessment
+                        </a>
+                        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                            <div class="text-center">
+                                <div class="text-green-500 text-2xl mb-2">🎯</div>
+                                <h4 class="font-semibold text-gray-800">Adaptive Learning</h4>
+                                <p class="text-sm text-gray-600">Questions adjust to your skill level</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-purple-500 text-2xl mb-2">📈</div>
+                                <h4 class="font-semibold text-gray-800">Progress Tracking</h4>
+                                <p class="text-sm text-gray-600">Monitor your improvement over time</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-orange-500 text-2xl mb-2">🧠</div>
+                                <h4 class="font-semibold text-gray-800">Smart Insights</h4>
+                                <p class="text-sm text-gray-600">Detailed analysis of your strengths</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
         // Event listeners for mobile menu
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -739,11 +811,24 @@
 
         // Data fetching and updating functions
         async function fetchDashboardData() {
+            console.log('Starting dashboard data fetch...');
+            
+            // First try to fetch from Flask API (where assessment data is stored)
+            try {
+                console.log('Attempting to fetch from Flask API...');
+                await fetchFlaskDashboardData();
+                console.log('Flask API data loaded successfully');
+                return;
+            } catch (error) {
+                console.warn('Flask API failed, trying Node.js backend:', error);
+            }
+
+            // Fallback to Node.js backend if Flask fails
             try {
                 const token = localStorage.getItem('authToken');
                 if (!token) {
-                    console.error('No auth token found');
-                    window.location.href = 'SignIn.html';
+                    console.log('No auth token found for Node.js backend, using Flask only');
+                    showFallbackData();
                     return;
                 }
 
@@ -795,16 +880,98 @@
 
         // Function to show fallback data when backend is unavailable
         function showFallbackData() {
-            console.log('Using fallback data for dashboard');
-            updateDashboardStats({
-                totalQuestions: 0,
-                correctAnswers: 0,
-                accuracy: 0,
-                currentAbility: 0,
-                assessmentsTaken: 0,
-                averageScore: 0
-            });
-            updateRecentActivity([]);
+            console.log('Using fallback data - fetching from Flask API directly');
+            // Instead of showing zeros, fetch actual data from Flask API
+            fetchFlaskDashboardData();
+        }
+
+        async function fetchFlaskDashboardData() {
+            try {
+                const name = localStorage.getItem('studentName');
+                const grade = localStorage.getItem('studentGrade');
+                const profileId = localStorage.getItem('profileId');
+                
+                console.log('fetchFlaskDashboardData debug - name:', name, 'grade:', grade, 'profileId:', profileId);
+                
+                if ((!name || !grade) && !profileId) {
+                    console.log('No profile data available');
+                    updateDashboardStats({
+                        totalQuestions: 0,
+                        correctAnswers: 0,
+                        accuracy: 0,
+                        currentAbility: 0,
+                        assessmentsTaken: getCompletedAssessmentsCount(),
+                        averageScore: 0
+                    });
+                    return;
+                }
+
+                // Fetch diagnosis data from Flask API
+                const params = new URLSearchParams();
+                if (profileId) {
+                    params.set('profile_id', profileId);
+                } else {
+                    params.set('student_name', name);
+                    params.set('student_grade', grade);
+                }
+
+                const diagnosisRes = await fetch('http://localhost:5000/api/student/diagnosis?' + params.toString());
+                const diagnosisData = await diagnosisRes.json();
+
+                if (diagnosisRes.ok && diagnosisData.success) {
+                    const diag = diagnosisData.diagnosis;
+                    
+                    // Calculate stats from diagnosis data
+                    const totalQuestions = diag.total_responses || 0;
+                    const accuracy = diag.overall_accuracy || 0;
+                    const correctAnswers = totalQuestions > 0 ? Math.round((accuracy / 100) * totalQuestions) : 0;
+                    const currentAbility = diag.current_ability || 0;
+                    const averageScore = accuracy; // For single student, accuracy = average score
+                    
+                    console.log('Flask data loaded:', { totalQuestions, correctAnswers, accuracy, currentAbility });
+                    
+                    // If no data yet, show helpful message instead of zeros
+                    if (totalQuestions === 0) {
+                        console.log('No assessment data found for student');
+                        showOnboardingMessage();
+                        return;
+                    }
+                    
+                    updateDashboardStats({
+                        totalQuestions: totalQuestions,
+                        correctAnswers: correctAnswers,
+                        accuracy: accuracy,
+                        currentAbility: Math.round(currentAbility * 100) / 100, // Round to 2 decimal places
+                        assessmentsTaken: getCompletedAssessmentsCount(),
+                        averageScore: averageScore
+                    });
+                    
+                    // Also render the diagnosis charts
+                    renderDiagnosisCharts(diag);
+                } else {
+                    console.error('Failed to fetch Flask diagnosis data:', diagnosisData.error);
+                    // Show assessment count even if other data fails
+                    updateDashboardStats({
+                        totalQuestions: 0,
+                        correctAnswers: 0,
+                        accuracy: 0,
+                        currentAbility: 0,
+                        assessmentsTaken: getCompletedAssessmentsCount(),
+                        averageScore: 0
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching Flask dashboard data:', error);
+                // Show assessment count even if API fails
+                updateDashboardStats({
+                    totalQuestions: 0,
+                    correctAnswers: 0,
+                    accuracy: 0,
+                    currentAbility: 0,
+                    assessmentsTaken: getCompletedAssessmentsCount(),
+                    averageScore: 0
+                });
+            }
         }
 
         // Function to refresh only recent activity
@@ -1435,6 +1602,9 @@
                 const name = localStorage.getItem('studentName');
                 const grade = localStorage.getItem('studentGrade');
                 const profileId = localStorage.getItem('profileId');
+                
+                console.log('Dashboard debug - name:', name, 'grade:', grade, 'profileId:', profileId);
+                
                 const notice = document.getElementById('diagnosisNotice');
                 if ((!name || !grade) && !profileId) {
                     if (notice) { notice.classList.remove('hidden'); notice.textContent = 'Diagnosis needs your name and grade. Start an assessment to set them.'; }
@@ -1484,96 +1654,124 @@
                 const recentCanvas = document.getElementById('recentChart');
                 const accuracyCanvas = document.getElementById('accuracyChart');
 
-                // Only update diagnosis charts if we have Flask data and Node.js charts haven't been created yet
-                if (!abilityChart && abilityCanvas && ability.length > 0) {
-                    abilityChart = new Chart(abilityCanvas, { 
-                        type: 'line', 
-                        data: { 
-                            labels: aLabels, 
-                            datasets: [{ 
-                                data: aValues, 
-                                label: 'Ability Trend', 
-                                borderColor: '#60a5fa', 
-                                backgroundColor: '#60a5fa33', 
-                                tension: 0.25, 
-                                fill: true 
-                            }] 
-                        }, 
-                        options: { 
-                            responsive: true, 
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } } 
-                        } 
-                    });
+                // Ability Chart - show even with single data point
+                if (!abilityChart && abilityCanvas) {
+                    if (ability.length > 0) {
+                        abilityChart = new Chart(abilityCanvas, { 
+                            type: 'line', 
+                            data: { 
+                                labels: aLabels, 
+                                datasets: [{ 
+                                    data: aValues, 
+                                    label: 'Ability Trend', 
+                                    borderColor: '#60a5fa', 
+                                    backgroundColor: '#60a5fa33', 
+                                    tension: 0.25, 
+                                    fill: true 
+                                }] 
+                            }, 
+                            options: { 
+                                responsive: true, 
+                                maintainAspectRatio: false,
+                                plugins: { legend: { display: false } } 
+                            } 
+                        });
+                    } else {
+                        // Show placeholder when no ability data
+                        showChartPlaceholder(abilityCanvas, 'Complete an assessment to see ability progress');
+                    }
                 }
 
-                if (!difficultyChart && difficultyCanvas && dLabels.length > 0) {
-                    difficultyChart = new Chart(difficultyCanvas, { 
-                        type: 'bar', 
-                        data: { 
-                            labels: dLabels, 
-                            datasets: [{ 
-                                data: dAcc, 
-                                label: 'Accuracy by Difficulty (%)', 
-                                backgroundColor: ['#34d399', '#60a5fa', '#f59e0b', '#ef4444']
-                            }] 
-                        }, 
-                        options: { 
-                            responsive: true, 
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } }, 
-                            scales: { y: { beginAtZero: true, max: 100 } } 
-                        } 
-                    });
+                // Difficulty Chart - show even with single difficulty level
+                if (!difficultyChart && difficultyCanvas) {
+                    if (dLabels.length > 0) {
+                        difficultyChart = new Chart(difficultyCanvas, { 
+                            type: 'bar', 
+                            data: { 
+                                labels: dLabels, 
+                                datasets: [{ 
+                                    data: dAcc, 
+                                    label: 'Accuracy by Difficulty (%)', 
+                                    backgroundColor: ['#34d399', '#60a5fa', '#f59e0b', '#ef4444']
+                                }] 
+                            }, 
+                            options: { 
+                                responsive: true, 
+                                maintainAspectRatio: false,
+                                plugins: { legend: { display: false } }, 
+                                scales: { y: { beginAtZero: true, max: 100 } } 
+                            } 
+                        });
+                    } else {
+                        showChartPlaceholder(difficultyCanvas, 'Answer questions to see difficulty analysis');
+                    }
                 }
 
-                if (!recentChart && recentCanvas && sLabels.length > 0) {
-                    recentChart = new Chart(recentCanvas, { 
-                        type: 'bar', 
-                        data: { 
-                            labels: sLabels, 
-                            datasets: [{ 
-                                data: sAcc, 
-                                label: 'Session Accuracy (%)', 
-                                backgroundColor: '#f59e0b' 
-                            }] 
-                        }, 
-                        options: { 
-                            responsive: true, 
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } }, 
-                            scales: { y: { beginAtZero: true, max: 100 } } 
-                        } 
-                    });
+                // Recent Sessions Chart - show even with single session
+                if (!recentChart && recentCanvas) {
+                    if (sLabels.length > 0) {
+                        recentChart = new Chart(recentCanvas, { 
+                            type: 'bar', 
+                            data: { 
+                                labels: sLabels, 
+                                datasets: [{ 
+                                    data: sAcc, 
+                                    label: 'Session Accuracy (%)', 
+                                    backgroundColor: '#f59e0b' 
+                                }] 
+                            }, 
+                            options: { 
+                                responsive: true, 
+                                maintainAspectRatio: false,
+                                plugins: { legend: { display: false } }, 
+                                scales: { y: { beginAtZero: true, max: 100 } } 
+                            } 
+                        });
+                    } else {
+                        showChartPlaceholder(recentCanvas, 'Complete assessments to see session history');
+                    }
                 }
 
-                if (!accuracyChart && accuracyCanvas && tLabels.length > 0) {
-                    accuracyChart = new Chart(accuracyCanvas, { 
-                        type: 'bar', 
-                        data: { 
-                            labels: tLabels, 
-                            datasets: [{ 
-                                data: tAcc, 
-                                label: 'Topic Accuracy (%)', 
-                                backgroundColor: '#8b5cf6' 
-                            }] 
-                        }, 
-                        options: { 
-                            responsive: true, 
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } }, 
-                            scales: { y: { beginAtZero: true, max: 100 } } 
-                        } 
-                    });
+                // Topic Accuracy Chart - show even with single topic  
+                if (!accuracyChart && accuracyCanvas) {
+                    if (tLabels.length > 0) {
+                        accuracyChart = new Chart(accuracyCanvas, { 
+                            type: 'doughnut', 
+                            data: { 
+                                labels: tLabels, 
+                                datasets: [{ 
+                                    data: tAcc, 
+                                    backgroundColor: ['#34d399', '#60a5fa', '#f59e0b', '#ef4444', '#8b5cf6']
+                                }] 
+                            }, 
+                            options: { 
+                                responsive: true, 
+                                maintainAspectRatio: false,
+                                plugins: { legend: { position: 'bottom' } } 
+                            } 
+                        });
+                    } else {
+                        showChartPlaceholder(accuracyCanvas, 'Answer questions to see topic analysis');
+                    }
                 }
 
                 console.log('Charts created successfully');
 
             } catch (error) {
                 console.error('Error rendering diagnosis charts:', error);
-                // Create fallback charts with sample data
+                // Create fallback charts when data loading fails
                 createFallbackCharts();
             }
+        }
+
+        // Helper function to show chart placeholders
+        function showChartPlaceholder(canvas, message) {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#6b7280';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(message, canvas.width / 2, canvas.height / 2);
         }
 
         // Create fallback charts when no data is available
@@ -1763,7 +1961,11 @@
                     fetchDashboardData();
                     fetchDiagnosisAndRender();
                 }, 500);
+            } else if (urlParams.get('test') === 'true') {
+                console.log('Running test mode with known data...');
+                testWithKnownData();
             } else {
+                console.log('Normal dashboard load');
                 fetchDashboardData();
                 fetchDiagnosisAndRender();
                 refreshRecentActivity();

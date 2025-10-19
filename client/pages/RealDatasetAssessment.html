@@ -385,10 +385,13 @@
 
                 <!-- Difficulty Performance Breakdown -->
                 <div class="glass-effect p-6 rounded-xl mb-8 text-left">
-                    <h3 class="text-xl font-bold mb-4 gradient-text">Performance by Difficulty Level</h3>
-                    <div id="difficultyBreakdown" class="space-y-3">
-                        <!-- Will be filled dynamically -->
-                    </div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Performance by Topics</h3>
+                        <div id="difficultyBreakdown" class="space-y-3">
+                            <!-- Will be filled dynamically -->
+                        </div>
+                        <div class="mt-4">
+                            <canvas id="topicsChart" height="120"></canvas>
+                        </div>
                 </div>
 
                 <!-- AI-Powered Personalized Recommendations -->
@@ -1033,6 +1036,25 @@
             // Display difficulty breakdown
             displayDifficultyBreakdown(data.difficulty_performance);
 
+            // Render performance by topics chart (if available)
+            try {
+                const topicPerf = data.topic_performance || data.performance_by_topic || null;
+                if (topicPerf) {
+                    renderTopicsChart(topicPerf);
+                } else if (data.difficulty_performance) {
+                    // Fallback: create a small topics-like mapping using difficulty buckets as placeholders
+                    const fallback = {
+                        'Arithmetic': { correct: Math.round((data.difficulty_performance['Easy']?.correct || 0)), total: Math.round((data.difficulty_performance['Easy']?.total || 1)) },
+                        'Algebra': { correct: Math.round((data.difficulty_performance['Moderate']?.correct || 0)), total: Math.round((data.difficulty_performance['Moderate']?.total || 1)) },
+                        'Geometry': { correct: Math.round((data.difficulty_performance['Difficult']?.correct || 0)), total: Math.round((data.difficulty_performance['Difficult']?.total || 1)) },
+                        'Numbers': { correct: Math.round((data.difficulty_performance['Very Easy']?.correct || 0)), total: Math.round((data.difficulty_performance['Very Easy']?.total || 1)) }
+                    };
+                    renderTopicsChart(fallback);
+                }
+            } catch (e) {
+                console.warn('Failed to render topics chart:', e);
+            }
+
             // Display server baseline recs immediately
             displayRecommendations(data.recommendations);
             // Then auto-generate AI report and (potentially) replace learning path with AI plan
@@ -1057,6 +1079,62 @@
                 container.appendChild(div);
             });
         }
+
+            // Render a bar chart showing performance by topics
+            function renderTopicsChart(topicPerformance) {
+                try {
+                    const ctx = document.getElementById('topicsChart');
+                    if (!ctx) return;
+
+                    // Normalize input: topicPerformance is expected as { TopicName: { correct, total } }
+                    const labels = [];
+                    const accuracies = [];
+
+                    Object.entries(topicPerformance).forEach(([topic, stats]) => {
+                        const correct = Number(stats.correct || 0);
+                        const total = Number(stats.total || 1);
+                        const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+                        labels.push(topic);
+                        accuracies.push(accuracy);
+                    });
+
+                    // Destroy existing chart instance if present
+                    if (window.topicsChartInstance) {
+                        window.topicsChartInstance.destroy();
+                    }
+
+                    window.topicsChartInstance = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Accuracy %',
+                                data: accuracies,
+                                backgroundColor: labels.map(() => 'rgba(139,92,246,0.9)'),
+                                borderColor: labels.map(() => 'rgba(139,92,246,1)'),
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100,
+                                    ticks: { stepSize: 20 }
+                                }
+                            },
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+                            }
+                        }
+                    });
+                } catch (e) {
+                    console.error('Error rendering topics chart', e);
+                }
+            }
 
         function displayRecommendations(recommendations) {
             const container = document.getElementById('recommendations');

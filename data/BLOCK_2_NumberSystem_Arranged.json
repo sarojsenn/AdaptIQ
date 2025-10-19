@@ -1943,24 +1943,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question - Original text was too corrupt to salvage. (Example: Find the value of $x$ such that $x^3+y^3+z^3 = 3xyz$ implies $x=y=z$).",
+      "question_text": "Find the value of $x$ such that $(x+1)^3 + (x-1)^3 = 2x(x^2 + 2)$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "All real values of x"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "x = 0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "x = 1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "No solution"
         }
       ],
       "correct_answer": "A",
@@ -1971,24 +1971,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question. (Continues original structure from Q070).",
+      "question_text": "Find the number of integers between 1000 and 9999 (inclusive) that are divisible by neither 7 nor 11.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "7056"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7058"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "7054"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "7060"
         }
       ],
       "correct_answer": "A",
@@ -1999,24 +1999,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If the sum of $n$ terms of an AP is $3n^2 + 4n$, find the $n^{th}$ term.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$6n + 1$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$6n - 1$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$3n + 4$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$6n + 7$"
         }
       ],
       "correct_answer": "A",
@@ -2027,24 +2027,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The remainder when $7^{100}$ is divided by 48 is:",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "25"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "43"
         }
       ],
       "correct_answer": "A",
@@ -2055,27 +2055,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of all natural numbers less than 100 which leave remainder 2 when divided by 5.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "980"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "990"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1000"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "970"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "B",
       "difficulty_level": "Difficult"
     },
     {
@@ -2083,27 +2083,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If $a$, $b$, $c$ are in arithmetic progression and $a^2$, $b^2$, $c^2$ are also in arithmetic progression, then:",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$a = b = c$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$a + c = 2b$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$b = 0$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "Either A or C"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "D",
       "difficulty_level": "Difficult"
     },
     {
@@ -2111,27 +2111,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the smallest positive integer $n$ such that $2^n \\equiv 1 \\pmod{31}$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "5"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "15"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "30"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "31"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "C",
       "difficulty_level": "Difficult"
     },
     {
@@ -2139,24 +2139,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of ways to arrange the digits of 112233 such that no two identical digits are adjacent.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "48"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "54"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "60"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "66"
         }
       ],
       "correct_answer": "A",
@@ -2165,26 +2165,26 @@
     {
       "id": "Q078",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "In a geometric progression, the first term is 3 and the sum of the first 5 terms is 93. Find the common ratio.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "3"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "4"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "-2"
         }
       ],
       "correct_answer": "A",
@@ -2195,27 +2195,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the coefficient of $x^5$ in the expansion of $(1 + x + x^2 + x^3)^4$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "15"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "20"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "25"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "30"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "B",
       "difficulty_level": "Difficult"
     },
     {
@@ -2223,55 +2223,55 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If $n! = 2^a \\times 3^b \\times 5^c \\times \\ldots$, find the value of $a$ when $n = 25$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "18"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "20"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "22"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "24"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "C",
       "difficulty_level": "Difficult"
     },
     {
       "id": "Q081",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The sum of an infinite geometric series is 12 and the sum of the first three terms is 108/13. Find the first term.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "4"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "6"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "8"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "9"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "C",
       "difficulty_level": "Difficult"
     },
     {
@@ -2279,24 +2279,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the digital root of $999^{999}$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "9"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "3"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "6"
         }
       ],
       "correct_answer": "A",
@@ -2307,27 +2307,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when $13^{100}$ is divided by 17?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "4"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "9"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "16"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "D",
       "difficulty_level": "Difficult"
     },
     {
@@ -2335,24 +2335,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of positive divisors of $2^4 \\times 3^3 \\times 5^2$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "60"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "48"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "36"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "72"
         }
       ],
       "correct_answer": "A",
@@ -2361,26 +2361,26 @@
     {
       "id": "Q085",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The $n^{th}$ term of the sequence 2, 6, 12, 20, 30, ... is:",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$n(n+1)$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$n(n-1)$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$2n(n+1)$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$n^2 + n$"
         }
       ],
       "correct_answer": "A",
@@ -2391,24 +2391,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the largest power of 2 that divides $50!$?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "47"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "48"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "46"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "49"
         }
       ],
       "correct_answer": "A",
@@ -2419,24 +2419,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the remainder when $3^{2025}$ is divided by 13.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "3"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "9"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "12"
         }
       ],
       "correct_answer": "A",
@@ -2445,26 +2445,26 @@
     {
       "id": "Q088",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of the series $1^2 + 2^2 + 3^2 + \\ldots + n^2$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$\\frac{n(n+1)(2n+1)}{6}$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$\\frac{n(n+1)}{2}$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$\\frac{n^2(n+1)^2}{4}$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$n(n+1)$"
         }
       ],
       "correct_answer": "A",
@@ -2475,24 +2475,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the coefficient of $x^{50}$ in the expansion of $(1-x)^{100}$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$-\\binom{100}{50}$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$\\binom{100}{50}$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$-\\binom{50}{100}$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$\\binom{50}{25}$"
         }
       ],
       "correct_answer": "A",
@@ -2501,26 +2501,26 @@
     {
       "id": "Q090",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If the first term of a GP is 4 and the common ratio is $\\frac{1}{2}$, find the sum to infinity.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "8"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "4"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "2"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "16"
         }
       ],
       "correct_answer": "A",
@@ -2531,27 +2531,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the remainder when $7^{2024}$ is divided by 11.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "3"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "4"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "7"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "C",
       "difficulty_level": "Difficult"
     },
     {
@@ -2559,24 +2559,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the sum of all divisors of 60?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "168"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "144"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "180"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "156"
         }
       ],
       "correct_answer": "A",
@@ -2587,24 +2587,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the HCF of 144, 180, and 192.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "12"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "18"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "24"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "36"
         }
       ],
       "correct_answer": "A",
@@ -2615,24 +2615,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 15, 25, and 35?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "525"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1050"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "350"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "175"
         }
       ],
       "correct_answer": "A",
@@ -2643,24 +2643,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of zeros at the end of $75!$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "18"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "15"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "20"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "16"
         }
       ],
       "correct_answer": "A",
@@ -2671,24 +2671,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the unit digit of $17^{2023}$?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "7"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "9"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "3"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "1"
         }
       ],
       "correct_answer": "A",
@@ -2699,24 +2699,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the largest prime factor of 1001.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "13"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "11"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "17"
         }
       ],
       "correct_answer": "A",
@@ -2727,24 +2727,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when $5^{100}$ is divided by 7?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "4"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "2"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "5"
         }
       ],
       "correct_answer": "A",
@@ -2755,24 +2755,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of positive divisors of $2^5 \\times 3^3 \\times 7^2$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "72"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "60"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "48"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "36"
         }
       ],
       "correct_answer": "A",
@@ -2783,24 +2783,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of trailing zeros in $100!$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "24"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "25"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "20"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "22"
         }
       ],
       "correct_answer": "A",
@@ -2811,24 +2811,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the digital root of 9876543210?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "9"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "3"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "6"
         }
       ],
       "correct_answer": "A",
@@ -2839,27 +2839,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the smallest positive integer divisible by all integers from 1 to 12.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "27720"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "83160"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "13860"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "41580"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "C",
       "difficulty_level": "Difficult"
     },
     {
@@ -2867,24 +2867,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the sum of all two-digit numbers divisible by 7?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "693"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "735"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "651"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "672"
         }
       ],
       "correct_answer": "A",
@@ -2895,24 +2895,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the remainder when $11^{11^{11}}$ is divided by 10.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "3"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "7"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "9"
         }
       ],
       "correct_answer": "A",
@@ -2923,24 +2923,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the highest power of 3 that divides $100!$?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "48"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "45"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "42"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "39"
         }
       ],
       "correct_answer": "A",
@@ -2951,24 +2951,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of integers between 100 and 1000 that are divisible by both 6 and 8.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "37"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "38"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "36"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "39"
         }
       ],
       "correct_answer": "A",
@@ -2979,24 +2979,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the last two digits of $99^{99}$?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "99"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "01"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "49"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "51"
         }
       ],
       "correct_answer": "A",
@@ -3007,24 +3007,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of all natural numbers less than 1000 which are coprime to 15.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "266000"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "320000"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "280000"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "240000"
         }
       ],
       "correct_answer": "A",
@@ -3035,24 +3035,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when $(19!)^2$ is divided by 23?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "22"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "0"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "11"
         }
       ],
       "correct_answer": "A",
@@ -3063,24 +3063,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of ways to express 100 as sum of two primes.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "5"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "7"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "4"
         }
       ],
       "correct_answer": "A",
@@ -3091,24 +3091,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the smallest positive integer $n$ such that $2^n > 10^6$?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "20"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "19"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "21"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "18"
         }
       ],
       "correct_answer": "A",
@@ -3119,24 +3119,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the greatest common divisor of $2^{20} - 1$ and $2^{12} - 1$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "255"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "15"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "31"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "63"
         }
       ],
       "correct_answer": "A",
@@ -3147,27 +3147,27 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the sum of digits of $2^{100}$?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "115"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "135"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "125"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "105"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "B",
       "difficulty_level": "Difficult"
     },
     {
@@ -3175,24 +3175,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of prime numbers between 100 and 200.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "21"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "25"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "19"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "23"
         }
       ],
       "correct_answer": "A",
@@ -3203,24 +3203,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when $123456789$ is divided by 37?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "12"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "18"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "24"
         }
       ],
       "correct_answer": "A",
@@ -3231,52 +3231,52 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the largest perfect square that divides $50!$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$2^{47} \\times 3^{22} \\times 5^{12} \\times 7^8$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$2^{46} \\times 3^{22} \\times 5^{12} \\times 7^8$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$2^{47} \\times 3^{23} \\times 5^{12} \\times 7^8$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$2^{47} \\times 3^{22} \\times 5^{11} \\times 7^8$"
         }
       ],
-      "correct_answer": "A",
+      "correct_answer": "B",
       "difficulty_level": "Difficult"
     },
     {
       "id": "Q117",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 20 terms of the AP: 5, 11, 17, 23, ...",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1340"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1240"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1140"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "1440"
         }
       ],
       "correct_answer": "A",
@@ -3285,26 +3285,26 @@
     {
       "id": "Q118",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "In a GP, if the first term is 2 and the 5th term is 32, find the common ratio.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "4"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "3"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$\\sqrt{2}$"
         }
       ],
       "correct_answer": "A",
@@ -3313,26 +3313,26 @@
     {
       "id": "Q119",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The sum of an infinite GP is 15 and first term is 5. Find the common ratio.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$\\frac{2}{3}$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$\\frac{1}{3}$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$\\frac{1}{2}$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$\\frac{3}{4}$"
         }
       ],
       "correct_answer": "A",
@@ -3341,26 +3341,26 @@
     {
       "id": "Q120",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the $n^{th}$ term of the sequence: 1, 4, 9, 16, 25, ...",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$n^2$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$2n-1$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$n(n+1)$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$n^3$"
         }
       ],
       "correct_answer": "A",
@@ -3369,26 +3369,26 @@
     {
       "id": "Q121",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If $S_n = 2n^2 + 3n$, find the $n^{th}$ term of the AP.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$4n + 1$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$4n - 1$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$2n + 3$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$n + 5$"
         }
       ],
       "correct_answer": "A",
@@ -3397,26 +3397,26 @@
     {
       "id": "Q122",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of the series $1 + 3 + 5 + \\ldots$ up to $n$ terms.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$n^2$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$2n^2$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$n(n+1)$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$\\frac{n(n+1)}{2}$"
         }
       ],
       "correct_answer": "A",
@@ -3425,26 +3425,26 @@
     {
       "id": "Q123",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The arithmetic mean of $n$ terms of an AP is 15. If the first term is 5, find the common difference.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$\\frac{20}{n-1}$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$\\frac{10}{n-1}$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$\\frac{15}{n-1}$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$\\frac{25}{n-1}$"
         }
       ],
       "correct_answer": "A",
@@ -3453,26 +3453,26 @@
     {
       "id": "Q124",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of the first 10 terms of the GP: 1, 2, 4, 8, ...",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1023"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1024"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "511"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "512"
         }
       ],
       "correct_answer": "A",
@@ -3481,26 +3481,26 @@
     {
       "id": "Q125",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If three numbers are in AP and their sum is 27, and their product is 693, find the middle term.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "9"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "11"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "13"
         }
       ],
       "correct_answer": "A",
@@ -3509,26 +3509,26 @@
     {
       "id": "Q126",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum to infinity of the series $\\frac{1}{2} + \\frac{1}{6} + \\frac{1}{18} + \\ldots$",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$\\frac{3}{4}$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$\\frac{1}{2}$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$\\frac{2}{3}$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$\\frac{4}{5}$"
         }
       ],
       "correct_answer": "A",
@@ -3537,26 +3537,26 @@
     {
       "id": "Q127",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The sum of first $n$ natural numbers is 210. Find $n$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "20"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "19"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "21"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "18"
         }
       ],
       "correct_answer": "A",
@@ -3565,26 +3565,26 @@
     {
       "id": "Q128",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the number of terms in the AP: 7, 10, 13, ..., 43.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "13"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "12"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "14"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "11"
         }
       ],
       "correct_answer": "A",
@@ -3593,26 +3593,26 @@
     {
       "id": "Q129",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "If $a$, $b$, $c$ are in GP and $a+b+c = 26$, $abc = 216$, find $b$.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "8"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "9"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "12"
         }
       ],
       "correct_answer": "A",
@@ -3621,26 +3621,26 @@
     {
       "id": "Q130",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of all multiples of 4 between 10 and 250.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "7800"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7700"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "7600"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "7900"
         }
       ],
       "correct_answer": "A",
@@ -3649,26 +3649,26 @@
     {
       "id": "Q131",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "The ratio of sum of first $n$ terms to sum of first $m$ terms of an AP is $n^2 : m^2$. Find the ratio of $n^{th}$ term to $m^{th}$ term.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "$(2n-1) : (2m-1)$"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "$n : m$"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "$n^2 : m^2$"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "$2n : 2m$"
         }
       ],
       "correct_answer": "A",
@@ -3679,24 +3679,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 3 and 6?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "18"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "9"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "3"
         }
       ],
       "correct_answer": "A",
@@ -3707,24 +3707,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 3 and 20?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "60"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "60"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "23"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "17"
         }
       ],
       "correct_answer": "A",
@@ -3735,24 +3735,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 14 is divided by 3?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "2"
         }
       ],
       "correct_answer": "A",
@@ -3763,24 +3763,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 3 and 5?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "15"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "15"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "8"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "2"
         }
       ],
       "correct_answer": "A",
@@ -3789,26 +3789,26 @@
     {
       "id": "Q136",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 3th term of the AP with first term 23 and common difference 8.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "39"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "47"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "77"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "48"
         }
       ],
       "correct_answer": "A",
@@ -3817,26 +3817,26 @@
     {
       "id": "Q137",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 5th term of the AP with first term 10 and common difference 13.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "62"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "75"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "63"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "76"
         }
       ],
       "correct_answer": "A",
@@ -3847,24 +3847,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 20 is divided by 7?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "2"
         }
       ],
       "correct_answer": "A",
@@ -3875,24 +3875,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 14 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "105"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "106"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "104"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "196"
         }
       ],
       "correct_answer": "A",
@@ -3903,24 +3903,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 30 is divided by 4?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "3"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "0"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "1"
         }
       ],
       "correct_answer": "A",
@@ -3931,24 +3931,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 9 and 18?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "18"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "162"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "27"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "9"
         }
       ],
       "correct_answer": "A",
@@ -3959,24 +3959,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 2 and 6?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "12"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "8"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "4"
         }
       ],
       "correct_answer": "A",
@@ -3987,24 +3987,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 3 and 19?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "57"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "57"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "22"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "16"
         }
       ],
       "correct_answer": "A",
@@ -4015,24 +4015,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 10 and 10?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "10"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "100"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "20"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "0"
         }
       ],
       "correct_answer": "A",
@@ -4043,24 +4043,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 42 is divided by 3?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "0"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "2"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "0"
         }
       ],
       "correct_answer": "A",
@@ -4069,26 +4069,26 @@
     {
       "id": "Q146",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 10th term of the AP with first term 20 and common difference 7.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "83"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "90"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "207"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "91"
         }
       ],
       "correct_answer": "A",
@@ -4099,24 +4099,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 6 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "21"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "22"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "20"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "36"
         }
       ],
       "correct_answer": "A",
@@ -4127,24 +4127,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 48 is divided by 6?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "0"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "1"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "2"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "3"
         }
       ],
       "correct_answer": "A",
@@ -4155,24 +4155,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 31 is divided by 6?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "2"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "3"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "4"
         }
       ],
       "correct_answer": "A",
@@ -4181,26 +4181,26 @@
     {
       "id": "Q150",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 4th term of the AP with first term 25 and common difference 8.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "49"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "57"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "108"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "58"
         }
       ],
       "correct_answer": "A",
@@ -4209,26 +4209,26 @@
     {
       "id": "Q151",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 2th term of the AP with first term 44 and common difference 10.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "54"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "64"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "98"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "65"
         }
       ],
       "correct_answer": "A",
@@ -4239,24 +4239,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 9 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "45"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "46"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "44"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "81"
         }
       ],
       "correct_answer": "A",
@@ -4267,24 +4267,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 49 is divided by 3?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "2"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "0"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "1"
         }
       ],
       "correct_answer": "A",
@@ -4295,24 +4295,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 11 is divided by 4?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "3"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "2"
         }
       ],
       "correct_answer": "A",
@@ -4321,26 +4321,26 @@
     {
       "id": "Q155",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 4th term of the AP with first term 10 and common difference 8.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "34"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "42"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "48"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "43"
         }
       ],
       "correct_answer": "A",
@@ -4351,24 +4351,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 14 is divided by 8?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "0"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "1"
         }
       ],
       "correct_answer": "A",
@@ -4377,26 +4377,26 @@
     {
       "id": "Q157",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 10th term of the AP with first term 45 and common difference 16.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "189"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "205"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "466"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "206"
         }
       ],
       "correct_answer": "A",
@@ -4407,24 +4407,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 4 and 10?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "20"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "40"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "14"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "6"
         }
       ],
       "correct_answer": "A",
@@ -4435,24 +4435,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 17 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "153"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "154"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "152"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "289"
         }
       ],
       "correct_answer": "A",
@@ -4463,24 +4463,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 17 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "153"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "154"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "152"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "289"
         }
       ],
       "correct_answer": "A",
@@ -4491,24 +4491,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 7 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "28"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "29"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "27"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "49"
         }
       ],
       "correct_answer": "A",
@@ -4519,24 +4519,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 2 and 7?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "14"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "14"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "9"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "5"
         }
       ],
       "correct_answer": "A",
@@ -4547,24 +4547,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 47 is divided by 10?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "7"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "8"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "9"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "0"
         }
       ],
       "correct_answer": "A",
@@ -4575,24 +4575,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 17 is divided by 2?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "1"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "0"
         }
       ],
       "correct_answer": "A",
@@ -4603,24 +4603,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 7 and 16?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "112"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "112"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "23"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "9"
         }
       ],
       "correct_answer": "A",
@@ -4631,24 +4631,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 3 and 13?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "39"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "39"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "16"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "10"
         }
       ],
       "correct_answer": "A",
@@ -4659,24 +4659,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 11 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "66"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "67"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "65"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "121"
         }
       ],
       "correct_answer": "A",
@@ -4687,24 +4687,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 10 and 7?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "70"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "70"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "17"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "3"
         }
       ],
       "correct_answer": "A",
@@ -4715,24 +4715,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 18 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "171"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "172"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "170"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "324"
         }
       ],
       "correct_answer": "A",
@@ -4743,24 +4743,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 10 and 11?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "110"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "110"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "21"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "1"
         }
       ],
       "correct_answer": "A",
@@ -4771,24 +4771,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 19 is divided by 4?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "3"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "2"
         }
       ],
       "correct_answer": "A",
@@ -4797,26 +4797,26 @@
     {
       "id": "Q172",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 3th term of the AP with first term 38 and common difference 16.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "70"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "86"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "130"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "87"
         }
       ],
       "correct_answer": "A",
@@ -4825,26 +4825,26 @@
     {
       "id": "Q173",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 2th term of the AP with first term 38 and common difference 5.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "43"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "48"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "81"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "49"
         }
       ],
       "correct_answer": "A",
@@ -4855,24 +4855,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 11 is divided by 3?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "0"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "2"
         }
       ],
       "correct_answer": "A",
@@ -4883,24 +4883,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 7 and 10?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "70"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "70"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "17"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "3"
         }
       ],
       "correct_answer": "A",
@@ -4911,24 +4911,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 2 and 19?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "38"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "38"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "21"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "17"
         }
       ],
       "correct_answer": "A",
@@ -4939,24 +4939,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 16 is divided by 10?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "6"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "7"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "8"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "9"
         }
       ],
       "correct_answer": "A",
@@ -4965,26 +4965,26 @@
     {
       "id": "Q178",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 5th term of the AP with first term 33 and common difference 10.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "73"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "83"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "175"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "84"
         }
       ],
       "correct_answer": "A",
@@ -4995,24 +4995,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the LCM of 5 and 10?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "10"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "50"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "15"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "5"
         }
       ],
       "correct_answer": "A",
@@ -5023,24 +5023,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the sum of first 6 natural numbers.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "21"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "22"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "20"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "36"
         }
       ],
       "correct_answer": "A",
@@ -5051,24 +5051,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 30 is divided by 9?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "3"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "4"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "5"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "6"
         }
       ],
       "correct_answer": "A",
@@ -5079,24 +5079,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 44 is divided by 6?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "3"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "4"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "5"
         }
       ],
       "correct_answer": "A",
@@ -5107,24 +5107,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Number System",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "What is the remainder when 16 is divided by 7?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "2"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "3"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "4"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "5"
         }
       ],
       "correct_answer": "A",
@@ -5133,26 +5133,26 @@
     {
       "id": "Q184",
       "block": "Numbers",
-      "chapter_subtopic": "Number System",
+      "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Placeholder Question.",
+      "question_text": "Find the 7th term of the AP with first term 47 and common difference 17.",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "149"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "166"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "346"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "167"
         }
       ],
       "correct_answer": "A",
@@ -5163,7 +5163,7 @@
       "block": "Numbers",
       "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "AP: sum first n = $\\frac{1}{2}$ sum next n; ratio sum first 3n : sum first n?",
+      "question_text": "In an arithmetic progression, the sum of first $n$ terms equals $\\frac{1}{2}$ times the sum of next $n$ terms. What is the ratio of the sum of first $3n$ terms to the sum of first $n$ terms?",
       "data_paragraph": "",
       "options": [
         {
@@ -5191,24 +5191,24 @@
       "block": "Numbers",
       "chapter_subtopic": "Progressions",
       "question_type": "MCQ",
-      "question_text": "Cancer cell: 1 cell breaks into 2 every hour; after 9h?",
+      "question_text": "A cancer cell divides into 2 cells every hour. Starting with 1 cell, how many cells will there be after 9 hours?",
       "data_paragraph": "",
       "options": [
         {
           "option": "A",
-          "text": "Option A"
+          "text": "512"
         },
         {
           "option": "B",
-          "text": "Option B"
+          "text": "256"
         },
         {
           "option": "C",
-          "text": "Option C"
+          "text": "1024"
         },
         {
           "option": "D",
-          "text": "Option D"
+          "text": "128"
         }
       ],
       "correct_answer": "A",

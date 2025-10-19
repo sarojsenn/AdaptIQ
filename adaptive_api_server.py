@@ -301,6 +301,141 @@ trained_model = None
 student_sessions = {}
 image_cache = {}
 
+# Global question usage tracking to prevent duplicates across all assessments
+question_usage_log = {}  # question_id -> {count, last_used, profiles}
+
+def load_question_usage_from_history():
+    """Load question usage statistics from persistent history across all profiles"""
+    global question_usage_log
+    question_usage_log = {}
+    
+    if students_collection is not None:
+        try:
+            # Load from MongoDB
+            all_profiles = students_collection.find({}, {"profile_id": 1, "responses": 1})
+            for profile_doc in all_profiles:
+                profile_id = profile_doc.get('profile_id')
+                responses = profile_doc.get('responses', [])
+                
+                for response in responses:
+                    question_id = response.get('question_id')
+                    if question_id:
+                        if question_id not in question_usage_log:
+                            question_usage_log[question_id] = {
+                                'count': 0,
+                                'last_used': None,
+                                'profiles': set()
+                            }
+                        question_usage_log[question_id]['count'] += 1
+                        question_usage_log[question_id]['profiles'].add(profile_id)
+                        
+                        # Track latest usage time
+                        timestamp = response.get('timestamp')
+                        if timestamp and (not question_usage_log[question_id]['last_used'] or 
+                                        timestamp > question_usage_log[question_id]['last_used']):
+                            question_usage_log[question_id]['last_used'] = timestamp
+            
+            logger.info(f"📊 Loaded question usage for {len(question_usage_log)} questions from MongoDB")
+        except Exception as e:
+            logger.error(f"Failed to load question usage from MongoDB: {e}")
+    
+    # Fallback: load from file-based history
+    if not question_usage_log and HISTORY_DIR.exists():
+        try:
+            for history_file in HISTORY_DIR.glob("*.json"):
+                profile_id = history_file.stem
+                with history_file.open('r', encoding='utf-8') as f:
+                    hist = json.load(f)
+                    responses = hist.get('responses', [])
+                    
+                    for response in responses:
+                        question_id = response.get('question_id')
+                        if question_id:
+                            if question_id not in question_usage_log:
+                                question_usage_log[question_id] = {
+                                    'count': 0,
+                                    'last_used': None,
+                                    'profiles': set()
+                                }
+                            question_usage_log[question_id]['count'] += 1
+                            question_usage_log[question_id]['profiles'].add(profile_id)
+                            
+                            timestamp = response.get('timestamp')
+                            if timestamp and (not question_usage_log[question_id]['last_used'] or 
+                                            timestamp > question_usage_log[question_id]['last_used']):
+                                question_usage_log[question_id]['last_used'] = timestamp
+            
+            logger.info(f"📊 Loaded question usage for {len(question_usage_log)} questions from file history")
+        except Exception as e:
+            logger.error(f"Failed to load question usage from files: {e}")
+
+def track_question_usage(question_id: str, profile_id: str):
+    """Track when a question is answered by a specific profile (called during answer submission)"""
+    if question_id not in question_usage_log:
+        question_usage_log[question_id] = {
+            'count': 0,
+            'last_used': None,
+            'profiles': set()
+        }
+    
+    # Only increment if this profile hasn't answered this question before
+    if profile_id not in question_usage_log[question_id]['profiles']:
+        question_usage_log[question_id]['count'] += 1
+        question_usage_log[question_id]['profiles'].add(profile_id)
+        question_usage_log[question_id]['last_used'] = datetime.now().isoformat()
+        
+        # Log usage statistics
+        usage = question_usage_log[question_id]
+        logger.info(f"📊 Question {question_id} answered by profile {profile_id} - Total usage: {usage['count']} times by {len(usage['profiles'])} profiles")
+
+def get_question_usage_stats():
+    """Get comprehensive question usage statistics"""
+    total_questions = len(question_usage_log)
+    total_usage = sum(q['count'] for q in question_usage_log.values())
+    
+    if total_questions == 0:
+        return {
+            'total_questions_used': 0,
+            'total_usage_count': 0,
+            'average_usage_per_question': 0,
+            'most_used_questions': [],
+            'least_used_questions': []
+        }
+    
+    # Find most and least used questions
+    sorted_by_usage = sorted(
+        question_usage_log.items(),
+        key=lambda x: x[1]['count'],
+        reverse=True
+    )
+    
+    return {
+        'total_questions_used': total_questions,
+        'total_usage_count': total_usage,
+        'average_usage_per_question': total_usage / total_questions,
+        'most_used_questions': sorted_by_usage[:5],
+        'least_used_questions': sorted_by_usage[-5:] if len(sorted_by_usage) > 5 else []
+    }
+
+def validate_no_duplicate_questions(student_id: str, selected_question_ids: List[str]) -> bool:
+    """Validate that no questions are duplicated in current assessment"""
+    profile_id = student_sessions.get(student_id, {}).get('profile_id')
+    if not profile_id:
+        return True
+    
+    # Check against all previously answered questions
+    hist = _load_history(profile_id)
+    prev_answered = set(r['question_id'] for r in hist.get('responses', []) if r.get('question_id'))
+    
+    # Check for duplicates
+    duplicates = set(selected_question_ids) & prev_answered
+    if duplicates:
+        logger.error(f"🚨 DUPLICATE QUESTIONS DETECTED for profile {profile_id}: {duplicates}")
+        return False
+    
+    logger.info(f"✅ No duplicate questions detected for profile {profile_id}")
+    return True
+
 # --- Student history persistence helpers ---
 HISTORY_DIR = Path('data') / 'student_history'
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -476,20 +611,55 @@ class AdaptiveAssessmentEngine:
         if profile_id:
             hist = _load_history(profile_id)
             prev_answered = set(r['question_id'] for r in hist.get('responses', []) if r.get('question_id'))
+            logger.info(f"Profile {profile_id} has {len(prev_answered)} previously answered questions across all sessions")
 
         logger.info(f"Selecting question for student {student_id} with ability {ability:.3f}")
-        logger.info(f"Already answered {len(answered_questions)} questions: {answered_questions}")
+        logger.info(f"Current session answered {len(answered_questions)} questions: {answered_questions}")
 
         # Get available questions (ensure we exclude all previously answered questions)
         all_answered = set(answered_questions) | prev_answered
-        available_questions = [
-            q for q in self.questions.values()
-            if (q['id'] not in all_answered and
-                str(q['id']) not in [str(qid) for qid in all_answered] and
-                self.is_question_complete(q))
-        ]
         
-        logger.info(f"Total available questions: {len(available_questions)} out of {len(self.questions)}")
+        # Convert all IDs to strings for consistent comparison and prevent duplicates
+        all_answered_str = set(str(qid) for qid in all_answered)
+        
+        # Filter questions more robustly
+        available_questions = []
+        for q in self.questions.values():
+            q_id_str = str(q['id'])
+            if (q_id_str not in all_answered_str and 
+                self.is_question_complete(q)):
+                available_questions.append(q)
+        
+        logger.info(f"Question filtering: {len(all_answered)} total answered, {len(available_questions)} available out of {len(self.questions)} total questions")
+        
+        # Additional safety check: if we're running out of questions, warn the user
+        if len(available_questions) < 10:
+            logger.warning(f"⚠️  Only {len(available_questions)} questions remaining for profile {profile_id}! Consider expanding question pool.")
+            
+        # If no questions available, check if we can reset some old questions (for long-term users)
+        if len(available_questions) == 0:
+            logger.error(f"❌ No available questions for profile {profile_id}! All {len(self.questions)} questions have been answered.")
+            # Option 1: Allow re-answering questions from old sessions (older than 30 days)
+            if profile_id:
+                hist = _load_history(profile_id)
+                old_responses = []
+                recent_cutoff = (datetime.now() - pd.Timedelta(days=30)).isoformat()
+                
+                for r in hist.get('responses', []):
+                    if r.get('timestamp', '') < recent_cutoff:
+                        old_responses.append(r['question_id'])
+                
+                if old_responses:
+                    logger.info(f"🔄 Allowing re-answering of {len(old_responses)} questions older than 30 days")
+                    # Remove old questions from exclusion list
+                    filtered_answered = all_answered - set(old_responses)
+                    available_questions = [
+                        q for q in self.questions.values()
+                        if str(q['id']) not in set(str(qid) for qid in filtered_answered) and
+                        self.is_question_complete(q)
+                    ]
+        
+        logger.info(f"Final available questions: {len(available_questions)} questions ready for selection")
         
         # Filter by topic if specified
         if target_topic:
@@ -498,33 +668,52 @@ class AdaptiveAssessmentEngine:
                 if q['topic'].lower() == target_topic.lower()
             ]
         
-        # Adaptive difficulty targeting based on student ability
+        # Enhanced adaptive difficulty targeting based on student ability and struggle patterns
         if not target_difficulty:
             # For first question, always start with Very Easy
             if len(responses) == 0:
                 target_difficulty = "Very Easy"
                 logger.info(f"First question - starting with Very Easy for new student {student_id}")
             else:
-                target_difficulty = self.get_optimal_difficulty_for_ability(ability)
+                target_difficulty = self.get_adaptive_optimal_difficulty(student_id, ability)
                 logger.info(f"Auto-selected difficulty: {target_difficulty} for ability {ability:.3f}")
         
-        # Filter by difficulty with some flexibility
+        # Enhanced difficulty filtering with struggle-aware selection
         if target_difficulty:
+            session = student_sessions.get(student_id, {})
+            struggle_detected = session.get('struggle_detected', False)
+            consecutive_wrong = session.get('consecutive_wrong', 0)
+            
             primary_questions = [
                 q for q in available_questions 
                 if q['difficulty'].lower() == target_difficulty.lower()
             ]
             
-            # If not enough questions at target difficulty, expand to adjacent difficulties
-            if len(primary_questions) < 10:
-                adjacent_difficulties = self.get_adjacent_difficulties(target_difficulty)
-                secondary_questions = [
-                    q for q in available_questions 
-                    if q['difficulty'] in adjacent_difficulties
-                ]
-                available_questions = primary_questions + secondary_questions
+            # If student is struggling, be more restrictive about difficulty expansion
+            if struggle_detected or consecutive_wrong >= 2:
+                # For struggling students, prefer easier questions only
+                if len(primary_questions) < 5:  # Lower threshold for struggling students
+                    easier_difficulties = self.get_easier_difficulties(target_difficulty)
+                    easier_questions = [
+                        q for q in available_questions 
+                        if q['difficulty'] in easier_difficulties
+                    ]
+                    available_questions = primary_questions + easier_questions
+                    logger.info(f"🔴 STRUGGLE ADAPTATION: Expanded to easier difficulties only ({target_difficulty} + {easier_difficulties})")
+                else:
+                    available_questions = primary_questions
+                    logger.info(f"🔴 STRUGGLE FOCUS: Strict difficulty filtering to {target_difficulty} only")
             else:
-                available_questions = primary_questions
+                # Normal students: use standard adjacent difficulty expansion
+                if len(primary_questions) < 10:
+                    adjacent_difficulties = self.get_adjacent_difficulties(target_difficulty)
+                    secondary_questions = [
+                        q for q in available_questions 
+                        if q['difficulty'] in adjacent_difficulties
+                    ]
+                    available_questions = primary_questions + secondary_questions
+                else:
+                    available_questions = primary_questions
         
         if not available_questions:
             logger.warning(f"No available questions for student {student_id}")
@@ -536,7 +725,25 @@ class AdaptiveAssessmentEngine:
         # Prepare question for serving (include image data if needed)
         if best_question:
             best_question = self.prepare_question_for_serving(best_question)
-            logger.info(f"Selected question {best_question['id']} (difficulty: {best_question['difficulty']}, topic: {best_question['topic']})")
+            
+            # Final validation - ensure this question hasn't been answered before
+            if not validate_no_duplicate_questions(student_id, [best_question['id']]):
+                logger.error(f"🚨 Selected duplicate question {best_question['id']}! Attempting to select alternative...")
+                # Try to select an alternative question
+                remaining_questions = [q for q in available_questions if q['id'] != best_question['id']]
+                if remaining_questions:
+                    alternative = self.select_optimal_question(remaining_questions, ability, responses)
+                    if alternative:
+                        best_question = self.prepare_question_for_serving(alternative)
+                        logger.info(f"✅ Selected alternative question {best_question['id']}")
+                    else:
+                        logger.error("❌ No alternative questions available!")
+                        return None
+                else:
+                    logger.error("❌ No remaining questions to select from!")
+                    return None
+            
+            logger.info(f"✅ Selected question {best_question['id']} (difficulty: {best_question['difficulty']}, topic: {best_question['topic']})")
         
         return best_question
     
@@ -551,6 +758,96 @@ class AdaptiveAssessmentEngine:
             return "Moderate"
         else:
             return "Difficult"
+    
+    def get_adaptive_optimal_difficulty(self, student_id: str, ability: float) -> str:
+        """Enhanced difficulty selection that considers struggle patterns and performance history"""
+        
+        session = student_sessions.get(student_id, {})
+        consecutive_wrong = session.get('consecutive_wrong', 0)
+        struggle_detected = session.get('struggle_detected', False)
+        recent_performance = session.get('recent_performance_window', [])
+        
+        # Base difficulty from ability
+        base_difficulty = self.get_optimal_difficulty_for_ability(ability)
+        
+        # Override difficulty selection for struggling students
+        if struggle_detected or consecutive_wrong >= 2:
+            
+            # Severe struggle: Force Very Easy questions
+            if consecutive_wrong >= 4:
+                selected_difficulty = "Very Easy"
+                logger.warning(f"🚨 EMERGENCY MODE: Forcing Very Easy questions due to {consecutive_wrong} consecutive wrong")
+            
+            # Moderate struggle: Force Easy or Very Easy
+            elif consecutive_wrong >= 3:
+                selected_difficulty = "Very Easy" if base_difficulty not in ["Very Easy", "Easy"] else "Very Easy"
+                logger.warning(f"🔴 STRUGGLE MODE: Forcing Very Easy questions due to {consecutive_wrong} consecutive wrong")
+            
+            # Early struggle signs: Drop one difficulty level
+            elif consecutive_wrong >= 2:
+                difficulty_map = {
+                    "Difficult": "Moderate",
+                    "Moderate": "Easy", 
+                    "Easy": "Very Easy",
+                    "Very Easy": "Very Easy"
+                }
+                selected_difficulty = difficulty_map.get(base_difficulty, "Easy")
+                logger.warning(f"⚠️  ADAPTIVE DROP: Reducing from {base_difficulty} to {selected_difficulty} due to {consecutive_wrong} consecutive wrong")
+            
+            # Poor recent performance: Be more conservative
+            elif len(recent_performance) >= 3:
+                recent_accuracy = sum(recent_performance) / len(recent_performance)
+                if recent_accuracy < 0.5:  # Less than 50% accuracy
+                    difficulty_map = {
+                        "Difficult": "Easy",  # Drop 2 levels
+                        "Moderate": "Very Easy",  # Drop 2 levels
+                        "Easy": "Very Easy",
+                        "Very Easy": "Very Easy"
+                    }
+                    selected_difficulty = difficulty_map.get(base_difficulty, "Easy")
+                    logger.warning(f"📉 PERFORMANCE DROP: Reducing from {base_difficulty} to {selected_difficulty} due to {recent_accuracy:.1%} recent accuracy")
+                else:
+                    selected_difficulty = base_difficulty
+            else:
+                selected_difficulty = base_difficulty
+        
+        else:
+            # Student is doing well, use normal difficulty progression
+            selected_difficulty = base_difficulty
+            
+            # Bonus: If student has been consistently correct, consider slight increase
+            consecutive_correct = session.get('consecutive_correct', 0)
+            if consecutive_correct >= 3 and len(recent_performance) >= 3:
+                recent_accuracy = sum(recent_performance) / len(recent_performance)
+                if recent_accuracy >= 0.8:  # 80%+ accuracy
+                    # Consider moving up one level (but not too aggressively)
+                    difficulty_upgrade = {
+                        "Very Easy": "Easy",
+                        "Easy": "Moderate",
+                        "Moderate": "Moderate",  # Don't auto-upgrade to Difficult
+                        "Difficult": "Difficult"
+                    }
+                    upgraded_difficulty = difficulty_upgrade.get(base_difficulty, base_difficulty)
+                    if upgraded_difficulty != base_difficulty:
+                        logger.info(f"📈 PERFORMANCE BOOST: Upgrading from {base_difficulty} to {upgraded_difficulty} due to strong performance")
+                        selected_difficulty = upgraded_difficulty
+        
+        # Final validation: Never go beyond what ability suggests by more than 1 level
+        difficulty_levels = ["Very Easy", "Easy", "Moderate", "Difficult"]
+        try:
+            base_index = difficulty_levels.index(base_difficulty)
+            selected_index = difficulty_levels.index(selected_difficulty)
+            
+            # Don't drop more than 2 levels below ability-suggested difficulty
+            if selected_index < base_index - 2:
+                selected_difficulty = difficulty_levels[max(0, base_index - 2)]
+                logger.info(f"🔧 CONSTRAINT: Limited difficulty reduction to {selected_difficulty}")
+                
+        except ValueError:
+            # Fallback if difficulty not found
+            selected_difficulty = "Easy"
+        
+        return selected_difficulty
     
     def get_adjacent_difficulties(self, target_difficulty: str) -> List[str]:
         """Get adjacent difficulty levels for flexibility"""
@@ -567,8 +864,20 @@ class AdaptiveAssessmentEngine:
         except ValueError:
             return ["Easy", "Moderate"]
     
+    def get_easier_difficulties(self, target_difficulty: str) -> List[str]:
+        """Get only easier difficulty levels for struggling students"""
+        difficulty_order = ["Very Easy", "Easy", "Moderate", "Difficult"]
+        
+        try:
+            index = difficulty_order.index(target_difficulty)
+            # Return all easier difficulties
+            easier = difficulty_order[:index]
+            return easier
+        except ValueError:
+            return ["Very Easy", "Easy"]
+    
     def select_optimal_question(self, available_questions: List[Dict], ability: float, responses: List[Dict]) -> Optional[Dict]:
-        """Advanced question selection using multiple criteria"""
+        """Enhanced question selection with struggle-aware prioritization"""
         
         if not available_questions:
             return None
@@ -577,46 +886,128 @@ class AdaptiveAssessmentEngine:
         recent_topics = [self.questions[r['question_id']]['topic'] for r in responses[-5:] if r['question_id'] in self.questions]
         recent_difficulties = [self.questions[r['question_id']]['difficulty'] for r in responses[-3:] if r['question_id'] in self.questions]
         
+        # Check if student is struggling (need student_id to access session)
+        struggle_detected = False
+        consecutive_wrong = 0
+        if responses and hasattr(responses[-1], 'get'):
+            # Try to find student session from responses
+            for student_id, session in student_sessions.items():
+                if session.get('responses') and len(session['responses']) > 0:
+                    if session['responses'][-1].get('question_id') == responses[-1].get('question_id'):
+                        struggle_detected = session.get('struggle_detected', False)
+                        consecutive_wrong = session.get('consecutive_wrong', 0)
+                        break
+        
         question_scores = []
         
         for question in available_questions:
             score = 0
+            question_difficulty = question.get('difficulty', 'Moderate')
             
-            # 1. Information value (Fisher Information)
+            # 1. Information value (Fisher Information) - reduced weight for struggling students
             information = self.calculate_information(ability, question['id'])
-            score += information * 0.35  # 35% weight
+            info_weight = 0.20 if struggle_detected else 0.35  # Reduced for struggling students
+            score += information * info_weight
             
-            # 2. Ability-difficulty match
+            # 2. Ability-difficulty match - enhanced for struggling students
             difficulty_match = self.calculate_difficulty_match(ability, question)
-            score += difficulty_match * 0.25  # 25% weight
+            match_weight = 0.35 if struggle_detected else 0.25  # Increased for struggling students
+            score += difficulty_match * match_weight
             
-            # 3. Enhanced topic diversity (stronger penalty for recently used topics)
+            # 3. Struggle-specific confidence building bonus
+            if struggle_detected or consecutive_wrong >= 2:
+                confidence_bonus = self.calculate_confidence_building_score(question, consecutive_wrong)
+                score += confidence_bonus * 0.25  # Significant weight for confidence building
+                
+                # Extra bonus for Very Easy questions when really struggling
+                if consecutive_wrong >= 3 and question_difficulty == "Very Easy":
+                    score += 0.3
+                    logger.debug(f"Emergency Very Easy bonus for question {question['id']}")
+            
+            # 4. Enhanced topic diversity (stronger penalty for recently used topics)
             topic_diversity = self.calculate_enhanced_topic_diversity(question, recent_topics, recent_difficulties)
-            score += topic_diversity * 0.25  # 25% weight (increased)
+            diversity_weight = 0.15 if struggle_detected else 0.25  # Reduced for struggling students
+            score += topic_diversity * diversity_weight
             
-            # 4. Question quality indicators
+            # 5. Question quality indicators
             quality_score = self.calculate_question_quality_score(question)
-            score += quality_score * 0.1  # 10% weight
+            score += quality_score * 0.1
             
-            # 5. Add small randomness to prevent always picking same "optimal" question
+            # 6. Add small randomness to prevent always picking same "optimal" question
             randomness = np.random.uniform(0.0, 0.05)
             score += randomness
             
             question_scores.append((question, score))
         
-        # Sort by score and return best question with some randomness in top candidates
+        # Sort by score and return best question with adaptive candidate selection
         question_scores.sort(key=lambda x: x[1], reverse=True)
         
-        # Select from top 3 candidates to add variety
-        top_candidates = question_scores[:min(3, len(question_scores))]
-        selected = np.random.choice([q[0] for q in top_candidates])
+        # For struggling students, be more conservative in selection (prefer top choice)
+        if struggle_detected or consecutive_wrong >= 3:
+            # Select from top 2 candidates only for struggling students
+            top_candidates = question_scores[:min(2, len(question_scores))]
+            # Heavily weight the top candidate (80% chance)
+            weights = [0.8, 0.2][:len(top_candidates)]
+        else:
+            # Normal students: select from top 3 candidates
+            top_candidates = question_scores[:min(3, len(question_scores))]
+            weights = [0.5, 0.3, 0.2][:len(top_candidates)]
         
-        # Log selected question details for debugging
-        logger.info(f"Selected question {selected['id']} (topic: {selected['topic']}, difficulty: {selected['difficulty']})")
+        # Weighted random selection
+        candidates = [q[0] for q in top_candidates]
+        selected = np.random.choice(candidates, p=weights[:len(candidates)])
+        
+        # Enhanced logging
+        struggle_status = f" | STRUGGLE: {consecutive_wrong} wrong" if struggle_detected else ""
+        logger.info(f"Selected question {selected['id']} (topic: {selected['topic']}, difficulty: {selected['difficulty']}){struggle_status}")
         logger.info(f"Question text preview: '{selected['text'][:50]}...'")
-        logger.info(f"Options available: {list(selected.get('options', {}).keys())}")
         
         return selected
+    
+    def calculate_confidence_building_score(self, question: Dict, consecutive_wrong: int) -> float:
+        """Calculate bonus score for questions that help build student confidence"""
+        
+        difficulty = question.get('difficulty', 'Moderate')
+        topic = question.get('topic', '').lower()
+        
+        confidence_score = 0.0
+        
+        # Strong preference for easier questions when struggling
+        if consecutive_wrong >= 4:
+            difficulty_bonus = {
+                "Very Easy": 1.0,
+                "Easy": 0.3,
+                "Moderate": 0.0,
+                "Difficult": -0.5
+            }
+        elif consecutive_wrong >= 2:
+            difficulty_bonus = {
+                "Very Easy": 0.8,
+                "Easy": 0.6,
+                "Moderate": 0.2,
+                "Difficult": -0.2
+            }
+        else:
+            difficulty_bonus = {
+                "Very Easy": 0.4,
+                "Easy": 0.3,
+                "Moderate": 0.2,
+                "Difficult": 0.0
+            }
+        
+        confidence_score += difficulty_bonus.get(difficulty, 0.0)
+        
+        # Bonus for topics known to be more accessible
+        accessible_topics = ['arithmetic', 'basic', 'fundamental', 'simple']
+        if any(keyword in topic for keyword in accessible_topics):
+            confidence_score += 0.2
+        
+        # Slight bonus for shorter questions (less overwhelming)
+        question_length = len(question.get('text', ''))
+        if question_length < 100:  # Shorter questions
+            confidence_score += 0.1
+        
+        return confidence_score
     
     def calculate_difficulty_match(self, ability: float, question: Dict) -> float:
         """Calculate how well question difficulty matches student ability"""
@@ -837,7 +1228,7 @@ class AdaptiveAssessmentEngine:
             return 0.0
     
     def update_student_ability(self, student_id: str, question_id: str, response: bool):
-        """Update student ability based on response using EAP estimation"""
+        """Enhanced ability update with adaptive difficulty adjustment based on performance patterns"""
         
         if student_id not in student_sessions:
             student_sessions[student_id] = {
@@ -845,7 +1236,11 @@ class AdaptiveAssessmentEngine:
                 'responses': [],
                 'ability_history': [self.default_ability],
                 'start_time': datetime.now(),
-                'last_update': datetime.now()
+                'last_update': datetime.now(),
+                'consecutive_wrong': 0,
+                'consecutive_correct': 0,
+                'struggle_detected': False,
+                'recent_performance_window': []
             }
         
         session = student_sessions[student_id]
@@ -864,33 +1259,18 @@ class AdaptiveAssessmentEngine:
         if question_id not in session['answered_questions']:
             session['answered_questions'].append(question_id)
         
+        # Update performance tracking
+        self._update_performance_tracking(session, response)
+        
         # Get current question difficulty to determine step size
         current_question = self.questions.get(question_id, {})
         current_difficulty = current_question.get('difficulty', 'Moderate')
-        
-        # Implement step-by-step ability progression
         current_ability = session['ability']
         
-        if response:  # Correct answer
-            # Move up one difficulty level gradually
-            if current_difficulty == "Very Easy":
-                new_ability = max(current_ability + 0.7, -0.5)  # Move toward Easy
-            elif current_difficulty == "Easy":  
-                new_ability = max(current_ability + 0.6, 0.2)   # Move toward Moderate
-            elif current_difficulty == "Moderate":
-                new_ability = max(current_ability + 0.5, 1.2)   # Move toward Difficult
-            else:  # Difficult
-                new_ability = current_ability + 0.3  # Continue improving
-        else:  # Wrong answer
-            # Move down one difficulty level gradually
-            if current_difficulty == "Difficult":
-                new_ability = min(current_ability - 0.5, 0.5)   # Move toward Moderate
-            elif current_difficulty == "Moderate":
-                new_ability = min(current_ability - 0.6, -0.2)  # Move toward Easy
-            elif current_difficulty == "Easy":
-                new_ability = min(current_ability - 0.7, -1.2)  # Move toward Very Easy
-            else:  # Very Easy
-                new_ability = current_ability - 0.3  # Further down in Very Easy
+        # Enhanced adaptive ability update based on performance patterns
+        new_ability = self._calculate_adaptive_ability_change(
+            session, current_ability, current_difficulty, response
+        )
         
         # Ensure ability stays within bounds
         new_ability = max(self.ability_range[0], min(self.ability_range[1], new_ability))
@@ -902,8 +1282,145 @@ class AdaptiveAssessmentEngine:
         old_diff = self.get_optimal_difficulty_for_ability(current_ability)
         new_diff = self.get_optimal_difficulty_for_ability(new_ability)
         
+        # Log performance insights
+        struggle_status = "🔴 STRUGGLING" if session.get('struggle_detected') else "✅ Normal"
         logger.info(f"Updated ability for {student_id}: {current_ability:.3f} -> {new_ability:.3f} "
-                   f"({old_diff} -> {new_diff}) after {current_difficulty} question")
+                   f"({old_diff} -> {new_diff}) after {current_difficulty} question | "
+                   f"Consecutive wrong: {session.get('consecutive_wrong', 0)} | Status: {struggle_status}")
+        
+        return new_ability
+    
+    def _update_performance_tracking(self, session: Dict, response: bool):
+        """Update performance tracking metrics for adaptive adjustment"""
+        
+        # Update consecutive counters
+        if response:  # Correct answer
+            session['consecutive_correct'] = session.get('consecutive_correct', 0) + 1
+            session['consecutive_wrong'] = 0
+        else:  # Wrong answer
+            session['consecutive_wrong'] = session.get('consecutive_wrong', 0) + 1
+            session['consecutive_correct'] = 0
+        
+        # Maintain recent performance window (last 5 questions)
+        if 'recent_performance_window' not in session:
+            session['recent_performance_window'] = []
+        
+        session['recent_performance_window'].append(response)
+        if len(session['recent_performance_window']) > 5:
+            session['recent_performance_window'].pop(0)
+        
+        # Detect struggling patterns
+        self._detect_struggle_patterns(session)
+    
+    def _detect_struggle_patterns(self, session: Dict):
+        """Detect if student is struggling and needs easier questions"""
+        
+        consecutive_wrong = session.get('consecutive_wrong', 0)
+        recent_performance = session.get('recent_performance_window', [])
+        
+        # Pattern 1: 3+ consecutive wrong answers = immediate struggle
+        if consecutive_wrong >= 3:
+            session['struggle_detected'] = True
+            logger.warning(f"🔴 STRUGGLE DETECTED: {consecutive_wrong} consecutive wrong answers")
+            return
+        
+        # Pattern 2: Poor performance in recent window (< 40% in last 5)
+        if len(recent_performance) >= 5:
+            recent_accuracy = sum(recent_performance) / len(recent_performance)
+            if recent_accuracy < 0.4:
+                session['struggle_detected'] = True
+                logger.warning(f"🔴 STRUGGLE DETECTED: Low recent accuracy ({recent_accuracy:.1%})")
+                return
+        
+        # Pattern 3: Alternating wrong/right but mostly wrong (2 out of last 3)
+        if len(recent_performance) >= 3:
+            recent_wrong_count = sum(1 for r in recent_performance[-3:] if not r)
+            if recent_wrong_count >= 2:
+                session['struggle_detected'] = True
+                logger.warning(f"🔴 STRUGGLE DETECTED: {recent_wrong_count}/3 recent questions wrong")
+                return
+        
+        # Reset struggle detection if performance improves
+        if consecutive_wrong == 0 and len(recent_performance) >= 3:
+            recent_correct_count = sum(1 for r in recent_performance[-3:] if r)
+            if recent_correct_count >= 2:  # 2+ correct in last 3
+                if session.get('struggle_detected'):
+                    logger.info("✅ RECOVERY DETECTED: Student performance improving, clearing struggle flag")
+                session['struggle_detected'] = False
+    
+    def _calculate_adaptive_ability_change(self, session: Dict, current_ability: float, 
+                                         current_difficulty: str, response: bool) -> float:
+        """Calculate ability change with adaptive adjustment based on struggle detection"""
+        
+        consecutive_wrong = session.get('consecutive_wrong', 0)
+        consecutive_correct = session.get('consecutive_correct', 0)
+        struggle_detected = session.get('struggle_detected', False)
+        
+        # Base ability adjustments (same as before)
+        base_adjustment = 0.0
+        
+        if response:  # Correct answer
+            if current_difficulty == "Very Easy":
+                base_adjustment = 0.7
+            elif current_difficulty == "Easy":  
+                base_adjustment = 0.6
+            elif current_difficulty == "Moderate":
+                base_adjustment = 0.5
+            else:  # Difficult
+                base_adjustment = 0.3
+        else:  # Wrong answer
+            if current_difficulty == "Difficult":
+                base_adjustment = -0.5
+            elif current_difficulty == "Moderate":
+                base_adjustment = -0.6
+            elif current_difficulty == "Easy":
+                base_adjustment = -0.7
+            else:  # Very Easy
+                base_adjustment = -0.3
+        
+        # Adaptive adjustments based on performance patterns
+        if response:  # Correct answer adjustments
+            # Bonus for breaking a wrong streak
+            if consecutive_wrong > 0:
+                streak_bonus = min(0.2, consecutive_wrong * 0.05)
+                base_adjustment += streak_bonus
+                logger.info(f"✅ Streak broken bonus: +{streak_bonus:.2f} (was {consecutive_wrong} wrong)")
+            
+            # Extra bonus for consistent correct answers (confidence building)
+            if consecutive_correct >= 2:
+                confidence_bonus = min(0.15, consecutive_correct * 0.03)
+                base_adjustment += confidence_bonus
+        
+        else:  # Wrong answer adjustments
+            # Enhanced penalty for struggle patterns
+            if struggle_detected:
+                # More aggressive ability reduction when struggling
+                if consecutive_wrong >= 3:
+                    struggle_penalty = min(0.4, consecutive_wrong * 0.1)
+                    base_adjustment -= struggle_penalty
+                    logger.warning(f"🔴 Struggle penalty applied: -{struggle_penalty:.2f}")
+                
+                # Force ability toward easier questions when struggling badly
+                if consecutive_wrong >= 4:
+                    # Push toward Very Easy territory
+                    target_ability = -1.5  # Very Easy range
+                    if current_ability > target_ability:
+                        emergency_reduction = min(0.8, (current_ability - target_ability) * 0.3)
+                        base_adjustment -= emergency_reduction
+                        logger.warning(f"🚨 EMERGENCY difficulty reduction: -{emergency_reduction:.2f}")
+        
+        # Apply the adjustment
+        new_ability = current_ability + base_adjustment
+        
+        # Additional adaptive bounds based on struggle state
+        if struggle_detected:
+            # Cap maximum ability to prevent questions that are too hard
+            if consecutive_wrong >= 3:
+                max_ability = -0.8  # Force Easy/Very Easy questions
+                new_ability = min(new_ability, max_ability)
+            elif consecutive_wrong >= 2:
+                max_ability = -0.2  # Cap at Easy questions
+                new_ability = min(new_ability, max_ability)
         
         return new_ability
     
@@ -1053,7 +1570,7 @@ class AdaptiveAssessmentEngine:
         }
     
     def _generate_recommendations(self, topic_performance: Dict, difficulty_performance: Dict, ability: float) -> List[str]:
-        """Generate personalized learning recommendations as structured objects"""
+        """Generate personalized learning recommendations as structured objects with struggle-aware insights"""
         def rec(icon: str, title: str, description: str, priority: str) -> Dict[str, str]:
             return { 'icon': icon, 'title': title, 'description': description, 'priority': priority }
 
@@ -1070,14 +1587,23 @@ class AdaptiveAssessmentEngine:
 
         # Analyze difficulty performance
         weak_difficulties = []
+        struggling_badly = False
         for difficulty, perf in difficulty_performance.items():
             if perf.get('accuracy', 0) < 0.5:
                 weak_difficulties.append(difficulty)
+            if difficulty in ["Very Easy", "Easy"] and perf.get('accuracy', 0) < 0.4:
+                struggling_badly = True
 
-        # Ability-based guidance
-        if ability < -1.0:
+        # Enhanced ability-based guidance with struggle detection
+        if struggling_badly or (ability < -1.5 and len([d for d in weak_difficulties if d in ["Very Easy", "Easy"]]) > 0):
+            recs.append(rec('🆘', 'Take a break & reset', 'Step back, review basics, and return with fresh focus. Learning takes time!', 'high'))
+            recs.append(rec('🧱', 'Master fundamentals first', 'Focus exclusively on Very Easy questions until you feel confident.', 'high'))
+            recs.append(rec('📖', 'Concept review', 'Review basic concepts and formulas before attempting more questions.', 'high'))
+            recs.append(rec('👥', 'Get help', 'Consider asking a teacher, tutor, or study group for additional support.', 'medium'))
+        elif ability < -1.0:
             recs.append(rec('🧱', 'Build strong foundations', 'Focus on fundamentals with Very Easy questions to gain confidence.', 'high'))
             recs.append(rec('➗', 'Practice basics regularly', 'Daily practice on basic arithmetic and algebra will help you progress steadily.', 'medium'))
+            recs.append(rec('⏳', 'Take your time', 'Don\'t rush - accuracy is more important than speed right now.', 'medium'))
         elif ability < 0:
             recs.append(rec('🎯', 'Consolidate core skills', 'Work on Easy to Moderate questions to build accuracy and speed.', 'medium'))
             recs.append(rec('📘', 'Review key concepts', 'Revisit fundamental concepts before attempting harder problems.', 'medium'))
@@ -1088,19 +1614,115 @@ class AdaptiveAssessmentEngine:
             recs.append(rec('🏆', 'Advance to tougher sets', 'You are ready for more Difficult problems and competitive practice.', 'low'))
             recs.append(rec('🤝', 'Teach to learn', 'Explaining concepts to peers can reinforce your mastery.', 'low'))
 
-        # Topic-specific guidance
+        # Enhanced topic-specific guidance
         if weak_topics:
-            recs.append(rec('📚', 'Focus topics', f"Allocate extra practice to: {', '.join(weak_topics[:3])}.", 'high'))
-        if strong_topics:
+            if len(weak_topics) > 3:
+                recs.append(rec('📚', 'Focus on 2-3 topics', f"Too many weak areas. Focus on just: {', '.join(weak_topics[:2])} first.", 'high'))
+            else:
+                recs.append(rec('📚', 'Focus topics', f"Allocate extra practice to: {', '.join(weak_topics[:3])}.", 'high'))
+        
+        if strong_topics and not struggling_badly:
             recs.append(rec('⭐', 'Leverage strengths', f"Keep sharpening: {', '.join(strong_topics[:2])}.", 'low'))
 
-        # Difficulty-specific guidance
+        # Enhanced difficulty-specific guidance
         if weak_difficulties:
-            pretty = ', '.join(weak_difficulties)
-            recs.append(rec('🧩', 'Difficulty focus', f"Spend more sessions on {pretty} questions to lift accuracy.", 'medium'))
+            if "Very Easy" in weak_difficulties:
+                recs.append(rec('🔥', 'Emergency basics', 'Your foundation needs work. Focus ONLY on Very Easy questions for now.', 'high'))
+            else:
+                pretty = ', '.join(weak_difficulties)
+                recs.append(rec('🧩', 'Difficulty focus', f"Spend more sessions on {pretty} questions to lift accuracy.", 'medium'))
 
-        # Limit to 5 items max for UI
-        return recs[:5]
+        # Motivational recommendations for struggling students
+        if struggling_badly:
+            recs.append(rec('💪', 'Stay positive', 'Learning is a journey. Every mistake is a step toward understanding!', 'low'))
+        
+        # Limit to 6 items max for UI (increased for struggling students who need more guidance)
+        return recs[:6]
+    
+    def get_struggle_feedback(self, student_id: str) -> Dict[str, Any]:
+        """Get specialized feedback and recommendations for struggling students"""
+        
+        session = student_sessions.get(student_id, {})
+        consecutive_wrong = session.get('consecutive_wrong', 0)
+        struggle_detected = session.get('struggle_detected', False)
+        recent_performance = session.get('recent_performance_window', [])
+        responses = session.get('responses', [])
+        
+        if not struggle_detected and consecutive_wrong < 2:
+            return {'struggling': False}
+        
+        # Calculate struggle metrics
+        total_questions = len(responses)
+        if total_questions == 0:
+            return {'struggling': False}
+        
+        recent_accuracy = sum(recent_performance) / len(recent_performance) if recent_performance else 0
+        overall_accuracy = sum(1 for r in responses if r.get('response', False)) / total_questions
+        
+        # Generate specific struggle feedback
+        feedback = {
+            'struggling': True,
+            'consecutive_wrong': consecutive_wrong,
+            'recent_accuracy': round(recent_accuracy * 100, 1),
+            'overall_accuracy': round(overall_accuracy * 100, 1),
+            'recommendations': [],
+            'encouragement': self._get_encouragement_message(consecutive_wrong),
+            'next_steps': []
+        }
+        
+        # Specific recommendations based on struggle severity
+        if consecutive_wrong >= 4:
+            feedback['recommendations'].extend([
+                "Take a 5-10 minute break to reset your focus",
+                "Review basic concepts before continuing", 
+                "We'll give you Very Easy questions to rebuild confidence",
+                "Consider asking for help from a teacher or tutor"
+            ])
+            feedback['next_steps'] = [
+                "Focus on Very Easy questions only",
+                "Don't worry about speed - accuracy first",
+                "Review any concepts you're unsure about"
+            ]
+        elif consecutive_wrong >= 2:
+            feedback['recommendations'].extend([
+                "Slow down and read each question carefully",
+                "We'll provide slightly easier questions",
+                "Focus on accuracy over speed",
+                "Review your recent mistakes to learn from them"
+            ])
+            feedback['next_steps'] = [
+                "Take easier questions to build momentum", 
+                "Read all answer choices before selecting",
+                "Double-check your work when possible"
+            ]
+        
+        return feedback
+    
+    def _get_encouragement_message(self, consecutive_wrong: int) -> str:
+        """Get appropriate encouragement based on struggle level"""
+        
+        if consecutive_wrong >= 4:
+            messages = [
+                "Learning is a journey with ups and downs. You're building important problem-solving skills!",
+                "Every expert was once a beginner. Take your time and focus on understanding.",
+                "Mistakes are proof that you're learning. Let's take a step back and build your confidence.",
+                "You're working on challenging material. It's normal to struggle - that's how we grow!"
+            ]
+        elif consecutive_wrong >= 2:
+            messages = [
+                "Don't worry about getting some wrong - that's how we learn what to focus on!",
+                "You're doing fine! Let's adjust the difficulty to help you succeed.",
+                "Learning happens when we challenge ourselves. Let's find the right level for you.",
+                "Every mistake teaches us something. You're making progress!"
+            ]
+        else:
+            messages = [
+                "You're doing great! Keep up the focused effort.",
+                "Nice work! Learning takes practice and you're showing great dedication."
+            ]
+        
+        import random
+        return random.choice(messages)
 
 
 @app.route('/api/student/personalized_report', methods=['POST'])
@@ -1541,7 +2163,7 @@ def get_next_question():
 
 @app.route('/api/student/submit', methods=['POST'])
 def submit_answer():
-    """Submit an answer and get feedback"""
+    """Submit an answer and get feedback with enhanced struggle detection"""
     if not trained_model:
         return jsonify({'error': 'Model not loaded'}), 500
     
@@ -1560,7 +2182,7 @@ def submit_answer():
     correct_answer = trained_model.questions[question_id]['answer']
     is_correct = student_answer.upper() == correct_answer.upper()
     
-    # Update student ability
+    # Update student ability with enhanced tracking
     new_ability = trained_model.update_student_ability(student_id, question_id, is_correct)
     
     # Prepare comprehensive progress data for frontend
@@ -1581,21 +2203,9 @@ def submit_answer():
     else:
         knowledge_level = correct_count / answered_count if answered_count > 0 else 0
     
-    # Calculate streaks
-    consecutive_correct = 0
-    consecutive_incorrect = 0
-    
-    for r in reversed(responses):
-        if r.get('response', False):
-            if consecutive_incorrect == 0:
-                consecutive_correct += 1
-            else:
-                break
-        else:
-            if consecutive_correct == 0:
-                consecutive_incorrect += 1
-            else:
-                break
+    # Enhanced streak calculation
+    consecutive_correct = session.get('consecutive_correct', 0)
+    consecutive_incorrect = session.get('consecutive_wrong', 0)
     
     updated_progress = {
         'questions_answered': answered_count,
@@ -1604,20 +2214,47 @@ def submit_answer():
         'current_score': current_score,
         'knowledge_level': knowledge_level,
         'consecutive_correct': consecutive_correct,
-        'consecutive_incorrect': consecutive_incorrect
+        'consecutive_incorrect': consecutive_incorrect,
+        'struggling': session.get('struggle_detected', False)
     }
     
+    # Enhanced adaptation info
+    current_difficulty = trained_model.get_adaptive_optimal_difficulty(student_id, new_ability)
     adaptation_info = {
         'new_ability': new_ability,
-        'difficulty_change': trained_model.get_optimal_difficulty_for_ability(new_ability),
-        'current_difficulty': trained_model.get_optimal_difficulty_for_ability(new_ability),
-        'next_difficulty_hint': trained_model.get_optimal_difficulty_for_ability(new_ability)
+        'difficulty_change': current_difficulty,
+        'current_difficulty': current_difficulty,
+        'next_difficulty_hint': current_difficulty,
+        'struggle_detected': session.get('struggle_detected', False)
     }
+    
+    # Generate enhanced feedback
+    base_feedback = 'Correct! Well done!' if is_correct else f'Incorrect. The correct answer was {correct_answer}.'
+    
+    # Add struggle-specific feedback if needed
+    struggle_feedback = trained_model.get_struggle_feedback(student_id)
+    if struggle_feedback.get('struggling'):
+        enhanced_feedback = {
+            'basic_feedback': base_feedback,
+            'struggle_detected': True,
+            'encouragement': struggle_feedback.get('encouragement', ''),
+            'recommendations': struggle_feedback.get('recommendations', []),
+            'next_steps': struggle_feedback.get('next_steps', []),
+            'consecutive_wrong': struggle_feedback.get('consecutive_wrong', 0)
+        }
+    else:
+        enhanced_feedback = {
+            'basic_feedback': base_feedback,
+            'struggle_detected': False
+        }
     
     # Record to history
     try:
         profile_id = session.get('profile_id')
         if profile_id:
+            # Track question usage when answer is submitted (not when selected)
+            track_question_usage(question_id, profile_id)
+            
             hist = _load_history(profile_id)
             hist.setdefault('responses', [])
             q = trained_model.questions.get(question_id, {})
@@ -1628,7 +2265,8 @@ def submit_answer():
                 'topic': q.get('topic'),
                 'difficulty': q.get('difficulty'),
                 'is_correct': is_correct,
-                'ability_after': new_ability
+                'ability_after': new_ability,
+                'struggle_detected': session.get('struggle_detected', False)
             })
             # update sessions meta
             hist.setdefault('sessions', {})
@@ -1644,7 +2282,7 @@ def submit_answer():
         'is_correct': is_correct,
         'correct_answer': correct_answer,
         'new_ability': new_ability,
-        'feedback': 'Correct!' if is_correct else f'Incorrect. The correct answer was {correct_answer}.',
+        'feedback': enhanced_feedback,
         'updated_progress': updated_progress,
         'adaptation_info': adaptation_info
     })
@@ -1663,6 +2301,87 @@ def get_student_summary():
     summary = trained_model.get_assessment_summary(student_id)
     
     return jsonify(summary)
+
+@app.route('/api/student/struggle-support', methods=['GET'])
+def get_struggle_support():
+    """Get specialized support and guidance for struggling students"""
+    if not trained_model:
+        return jsonify({'error': 'Model not loaded'}), 500
+    
+    student_id = request.args.get('student_id')
+    
+    if not student_id:
+        return jsonify({'error': 'student_id is required'}), 400
+    
+    if student_id not in student_sessions:
+        return jsonify({'error': 'Student session not found'}), 404
+    
+    # Get struggle-specific feedback
+    struggle_feedback = trained_model.get_struggle_feedback(student_id)
+    
+    # Add additional support resources
+    session = student_sessions[student_id]
+    responses = session.get('responses', [])
+    
+    if struggle_feedback.get('struggling'):
+        # Analyze recent question types for targeted help
+        recent_questions = responses[-5:] if len(responses) >= 5 else responses
+        topics_struggled = []
+        difficulties_struggled = []
+        
+        for response in recent_questions:
+            if not response.get('response', False):  # Wrong answer
+                question_id = response.get('question_id')
+                if question_id in trained_model.questions:
+                    q = trained_model.questions[question_id]
+                    topics_struggled.append(q.get('topic'))
+                    difficulties_struggled.append(q.get('difficulty'))
+        
+        # Count most problematic areas
+        from collections import Counter
+        topic_issues = Counter(topics_struggled)
+        difficulty_issues = Counter(difficulties_struggled)
+        
+        struggle_feedback['problem_analysis'] = {
+            'most_challenging_topics': topic_issues.most_common(3),
+            'most_challenging_difficulties': difficulty_issues.most_common(3),
+            'total_recent_questions': len(recent_questions),
+            'recent_wrong_answers': len([r for r in recent_questions if not r.get('response', False)])
+        }
+        
+        # Generate targeted practice recommendations
+        struggle_feedback['practice_suggestions'] = []
+        
+        if topic_issues:
+            top_problem_topic = topic_issues.most_common(1)[0][0]
+            struggle_feedback['practice_suggestions'].append(
+                f"Focus extra practice on {top_problem_topic} - this seems to be your biggest challenge right now"
+            )
+        
+        if 'Very Easy' not in difficulty_issues and session.get('consecutive_wrong', 0) >= 3:
+            struggle_feedback['practice_suggestions'].append(
+                "Start with Very Easy questions to rebuild confidence before moving up"
+            )
+        
+        struggle_feedback['practice_suggestions'].append(
+            "Take breaks between questions to avoid mental fatigue"
+        )
+        
+        # Study strategy recommendations
+        struggle_feedback['study_strategies'] = [
+            "Review basic concepts before attempting new questions",
+            "Work through each question step-by-step, don't rush",
+            "Keep notes of topics you find challenging", 
+            "Practice a few questions daily rather than many at once",
+            "Ask for help when you're stuck - that's how we learn!"
+        ]
+        
+    return jsonify({
+        'success': True,
+        'student_id': student_id,
+        'support': struggle_feedback,
+        'timestamp': datetime.now().isoformat()
+    })
 
 @app.route('/api/student/diagnosis', methods=['GET'])
 def get_student_diagnosis():
@@ -2263,11 +2982,139 @@ def train_model_endpoint():
             'error': f'Training failed: {str(e)}'
         }), 500
 
+@app.route('/api/admin/question-usage-stats', methods=['GET'])
+def get_question_usage_stats():
+    """Get question usage statistics for monitoring duplicate prevention"""
+    try:
+        stats = get_question_usage_stats()
+        
+        # Add additional insights
+        if trained_model:
+            total_questions_in_pool = len(trained_model.questions)
+            stats['total_questions_in_pool'] = total_questions_in_pool
+            stats['unused_questions'] = total_questions_in_pool - stats['total_questions_used']
+            stats['usage_efficiency'] = (stats['total_questions_used'] / total_questions_in_pool * 100) if total_questions_in_pool > 0 else 0
+        
+        # Get profile-wise statistics
+        profile_stats = {}
+        for question_id, usage in question_usage_log.items():
+            for profile_id in usage['profiles']:
+                if profile_id not in profile_stats:
+                    profile_stats[profile_id] = {'questions_answered': 0, 'last_activity': None}
+                profile_stats[profile_id]['questions_answered'] += 1
+                if not profile_stats[profile_id]['last_activity'] or usage['last_used'] > profile_stats[profile_id]['last_activity']:
+                    profile_stats[profile_id]['last_activity'] = usage['last_used']
+        
+        stats['profile_statistics'] = {
+            'total_active_profiles': len(profile_stats),
+            'average_questions_per_profile': sum(p['questions_answered'] for p in profile_stats.values()) / len(profile_stats) if profile_stats else 0,
+            'top_profiles_by_activity': sorted(
+                [(pid, pstats) for pid, pstats in profile_stats.items()],
+                key=lambda x: x[1]['questions_answered'],
+                reverse=True
+            )[:10]
+        }
+        
+        return jsonify({
+            'success': True,
+            'statistics': stats,
+            'timestamp': datetime.now().isoformat(),
+            'message': f"Question usage tracked across {len(question_usage_log)} questions and {len(profile_stats)} profiles"
+        })
+        
+    except Exception as e:
+        logger.error(f"Error getting question usage stats: {e}")
+        return jsonify({
+            'success': False,
+            'error': f'Failed to get usage statistics: {str(e)}'
+        }), 500
+
+@app.route('/api/admin/validate-question-pool', methods=['GET'])
+def validate_question_pool():
+    """Validate question pool for potential duplicates and issues"""
+    try:
+        if not trained_model:
+            return jsonify({'error': 'Model not loaded'}), 500
+        
+        validation_results = {
+            'total_questions': len(trained_model.questions),
+            'duplicate_content': [],
+            'missing_fields': [],
+            'question_distribution': {},
+            'recommendations': []
+        }
+        
+        # Check for potential content duplicates (similar text)
+        questions_list = list(trained_model.questions.values())
+        for i, q1 in enumerate(questions_list):
+            for j, q2 in enumerate(questions_list[i+1:], i+1):
+                # Simple text similarity check
+                q1_text = q1.get('text', '').lower().strip()
+                q2_text = q2.get('text', '').lower().strip()
+                if q1_text and q2_text and q1_text == q2_text:
+                    validation_results['duplicate_content'].append({
+                        'question_1': q1['id'],
+                        'question_2': q2['id'],
+                        'text': q1_text[:100] + '...' if len(q1_text) > 100 else q1_text
+                    })
+        
+        # Check for missing required fields
+        required_fields = ['id', 'text', 'options', 'answer', 'topic', 'difficulty']
+        for q in questions_list:
+            missing = [field for field in required_fields if not q.get(field)]
+            if missing:
+                validation_results['missing_fields'].append({
+                    'question_id': q.get('id', 'unknown'),
+                    'missing_fields': missing
+                })
+        
+        # Analyze question distribution
+        for q in questions_list:
+            topic = q.get('topic', 'Unknown')
+            difficulty = q.get('difficulty', 'Unknown')
+            
+            if topic not in validation_results['question_distribution']:
+                validation_results['question_distribution'][topic] = {}
+            if difficulty not in validation_results['question_distribution'][topic]:
+                validation_results['question_distribution'][topic][difficulty] = 0
+            validation_results['question_distribution'][topic][difficulty] += 1
+        
+        # Generate recommendations
+        if validation_results['duplicate_content']:
+            validation_results['recommendations'].append(f"Found {len(validation_results['duplicate_content'])} potential duplicate questions - review and remove duplicates")
+        
+        if validation_results['missing_fields']:
+            validation_results['recommendations'].append(f"Found {len(validation_results['missing_fields'])} questions with missing fields - complete question data")
+        
+        # Check distribution balance
+        for topic, difficulties in validation_results['question_distribution'].items():
+            total_in_topic = sum(difficulties.values())
+            if total_in_topic < 20:
+                validation_results['recommendations'].append(f"Topic '{topic}' has only {total_in_topic} questions - consider adding more")
+        
+        if not validation_results['recommendations']:
+            validation_results['recommendations'].append("Question pool looks good! No major issues detected.")
+        
+        return jsonify({
+            'success': True,
+            'validation': validation_results,
+            'timestamp': datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Error validating question pool: {e}")
+        return jsonify({
+            'success': False,
+            'error': f'Validation failed: {str(e)}'
+        }), 500
+
 
 if __name__ == '__main__':
     # Load the trained model on startup
     _load_env_from_dotenv()
     if load_trained_model():
+        # Load question usage history to prevent duplicates
+        load_question_usage_from_history()
         logger.info("Starting adaptive assessment API server...")
         app.run(debug=True, host='0.0.0.0', port=5000)
     else:

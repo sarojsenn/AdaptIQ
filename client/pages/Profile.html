@@ -722,9 +722,18 @@
             // Display first letter of first name in avatar text
             document.getElementById('avatarText').textContent = firstName.charAt(0).toUpperCase();
             
-            if (studentGrade) {
-                document.getElementById('profileGrade').textContent = `Grade: ${studentGrade}`;
-                document.getElementById('grade').value = studentGrade;
+            // Handle grade display and form population
+            let displayGrade = studentGrade;
+            if (userData && userData.grade && !displayGrade) {
+                displayGrade = userData.grade;
+                localStorage.setItem('studentGrade', userData.grade); // Sync localStorage
+            }
+            
+            if (displayGrade) {
+                document.getElementById('profileGrade').textContent = `Grade: ${displayGrade}`;
+                document.getElementById('grade').value = displayGrade;
+            } else {
+                document.getElementById('profileGrade').textContent = 'Grade: Not Set';
             }
 
             // Load form fields
@@ -806,6 +815,8 @@
             }
             if (formData.grade) {
                 localStorage.setItem('studentGrade', formData.grade);
+                // Update grade display immediately
+                document.getElementById('profileGrade').textContent = `Grade: ${formData.grade}`;
             }
 
             // Save full userData
