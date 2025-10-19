@@ -28,7 +28,19 @@ AdaptIQ is a revolutionary AI-powered adaptive assessment platform that transfor
 - **📱 Cross-Platform:** Works seamlessly across desktop, tablet, and mobile devices
 
 ### 📋 Current Status
-> **Note:** The current model is trained on a comprehensive demonstration dataset and can be easily retrained with production-scale data. This version focuses on student-centric features with plans for educator dashboards in future releases.
+> **Latest Update (October 2025):** Major enhancements to the adaptive assessment system! The model has been significantly improved with:
+> - **Enhanced Question Selection Logic:** Advanced pattern recognition for students struggling with consecutive wrong answers
+> - **Clean Dataset:** Fixed 93 placeholder questions with quality mathematical content across Number System and Progressions topics  
+> - **Improved Adaptivity:** More sophisticated difficulty adjustment algorithms that better support struggling students
+> - **Performance by Topics:** Updated analytics to show performance breakdown by subject areas rather than just difficulty levels
+> - **1,539 Total Questions:** Comprehensive dataset covering 9 major topic areas with proper difficulty distribution
+
+### 🆕 Recent Enhancements (October 2025)
+- **🔍 Advanced Struggle Detection:** AI now identifies when students are repeatedly answering incorrectly and adjusts strategy accordingly
+- **📊 Smarter Question Selection:** Algorithm prioritizes confidence-building questions for struggling students while maintaining challenge for advanced learners  
+- **✨ Enhanced User Experience:** Updated charts and visualizations to show "Performance by Topics" for better learning insights
+- **🎯 Targeted Support:** New API endpoints provide struggle-specific feedback and personalized learning recommendations
+- **📈 Improved Model Training:** Retrained adaptive assessment model with placeholder-free, high-quality mathematical content
 
 ---
 
@@ -38,6 +50,8 @@ AdaptIQ is a revolutionary AI-powered adaptive assessment platform that transfor
 - **Dynamic Question Selection:** AI algorithms select optimal questions based on current ability estimation
 - **Real-time Difficulty Adjustment:** Questions automatically adapt to student performance in real-time
 - **Multi-subject Support:** Comprehensive coverage across Mathematics, Logic, Verbal Reasoning, and more
+- **🆕 Struggle Pattern Recognition:** Advanced detection of consecutive wrong answers with adaptive intervention strategies
+- **🆕 Confidence Building Mode:** Automatically switches to easier questions when students need support and encouragement
 
 ### 🔬 Advanced Psychometric Models
 - **Item Response Theory (IRT):** Implements 2-Parameter Logistic (2PL) model for precise ability estimation
