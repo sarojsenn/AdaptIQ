@@ -4,18 +4,6 @@
 [![GitHub stars](https://img.shields.io/github/stars/sarojsenn/AdaptIQ)](https://github.com/sarojsenn/AdaptIQ/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**Hack-A-Thon: AI For Education**  
-Organized by Unstop
-
-**Team:** Bruteforce Army 💪
-
-**Contributors:** 
-- [Saroj Sen](https://github.com/sarojsenn) - Team Lead & ML Engineer & Backend Developer
-- [Tiyasa Saha](https://github.com/tiyasa-2005) - Frontend Developer & UX Designer  
-- [Soumava Das](https://github.com/Cyberdude441) - PPT design & Research
-
----
-
 ## 🚀 Overview
 
 AdaptIQ is a revolutionary AI-powered adaptive assessment platform that transforms the way students learn and assess their knowledge. Built with cutting-edge psychometric models and machine learning algorithms, AdaptIQ delivers personalized, real-time assessments that adapt to each student's unique learning pace and ability level.
@@ -325,16 +313,8 @@ We welcome contributions from the community! Here's how you can help:
 - Update documentation as needed
 - Ensure all tests pass before submitting PR
 
-## 📞 Support & Contact
-
-- **📧 Email:** [sarojsenofficial@gmail.com](mailto:sarojsenofficial@gmail.com)
-- **💬 GitHub Issues:** [Report Issues](https://github.com/sarojsenn/AdaptIQ/issues)
-- **📖 Documentation:** [Wiki](https://github.com/sarojsenn/AdaptIQ/wiki)
-- **💭 Discussions:** [GitHub Discussions](https://github.com/sarojsenn/AdaptIQ/discussions)
-
 ## 🏆 Acknowledgments
 
-- **Unstop Team** for organizing the AI in Education hackathon
 - **Open Source Community** for the amazing tools and libraries
 - **Educational Psychology Research** for IRT and BKT methodologies
 - **Beta Testers** who provided valuable feedback during development
